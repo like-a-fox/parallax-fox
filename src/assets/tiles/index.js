@@ -11,7 +11,7 @@ import graphqlBackground from './backgrounds/graphql.jpeg'
 import reactBackground from './backgrounds/react.png'
 import rxjsBackground from './backgrounds/rxjs.png'
 
-export const tileData = [
+export default [
   {
     title: 'Angular',
     subtitle: '2+ None of that AngularJS Shit',

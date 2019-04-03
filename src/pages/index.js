@@ -4,7 +4,7 @@ import tw from 'tailwind.macro'
 import { Parallax } from 'react-spring/renderprops-addons.cjs'
 
 // Data
-import { tileData } from '../assets/tiles'
+import tileData from '../assets/tiles'
 
 // Components
 import Layout from '../components/Layout'
@@ -69,17 +69,17 @@ const Index = () => (
       <Hero offset={0}>
         <BigTitle>Xeiko Design.</BigTitle>
         <Subtitle>
-          {' '}
-          I'm Derek, and this is a stab at an alternate portfolio page. Enjoy my
-          insanity in web format
-          <br /> <em> &copy; Like A Fox Development </em>{' '}
+          {`I'm Derek, and this is a stab at an alternate portfolio page. Enjoy my
+          insanity in web format`}
+          <br /> <em>&copy; {'Like A Fox Development'} </em>
         </Subtitle>
       </Hero>
       <Projects offset={1}>
         <Title>Projects</Title>
         <ProjectsWrapper>
-          {tileData.map((tile, i) => (
+          {tileData.map(tile => (
             <ProjectCard
+              key={tile.bg}
               title={tile.title}
               bg={`url(${tile.background})`}
               link={tile.pathname}>
@@ -93,19 +93,19 @@ const Index = () => (
         <AboutHero>
           <Avatar src={avatar} alt="Like A Fox" />
           <AboutSub>
-            Well, I’m going to tell you the best and the worst thing you’ve ever
-            heard. Heroes aren’t born.
+            {`Well, I’m going to tell you the best and the worst thing you’ve ever
+            heard. Heroes aren’t born.`}
           </AboutSub>
         </AboutHero>
         <AboutDesc>
-          You just go out there and grind it out. You fail and you look foolish
+          {`You just go out there and grind it out. You fail and you look foolish
           and you just keep grinding. There is nothing else. There is no ‘chosen
           one,’ there is no destiny, nobody wakes up one day and finds out
           they’re amazing at something. There’s just slamming your head into the
           wall, refusing to take no for an answer. Being relentless, until
           either the wall or your head breaks. You want to be a hero? You don’t
           have to make some grand decision. There’s no inspirational music,
-          there’s no montage. You just don’t quit.
+          there’s no montage. You just don’t quit.`}
         </AboutDesc>
       </About>
       <Contact offset={4}>
