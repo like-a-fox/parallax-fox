@@ -20,7 +20,7 @@ const Hero = ({ children, offset }) => (
           icon="triangle"
           hiddenMobile
           width={48}
-          stroke={colors['grey-darker']}
+          stroke={colors['grey-darkest']}
           left="10%"
           top="20%"
         />

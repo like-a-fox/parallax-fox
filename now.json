@@ -1,13 +1,15 @@
 {
-  "version": 1,
+  "version": 2,
   "name": "parallax-fox",
-  "alias": "parallax.fox",
+  "alias": ["parallax-fox.now.sh"],
   "public": true,
   "builds": [
     {
       "src": "package.json",
       "use": "@now/static-build",
-      "config": { "distDir": "public" }
+      "config": {
+        "distDir": "public"
+      }
     }
   ]
 }

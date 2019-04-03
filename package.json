@@ -37,7 +37,7 @@
     "dev": "gatsby develop -o",
     "develop": "gatsby develop",
     "now-build": "gatsby build",
-    "now": "now --public",
+    "now-start": "now",
     "lint": "eslint . --ext .js,.jsx --ignore-path .gitignore",
     "lint:fix": "eslint . --ext .js,.jsx --fix --ignore-path .gitignore",
     "quick": "pretty-quick",

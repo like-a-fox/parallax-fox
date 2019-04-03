@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import { Parallax } from 'react-spring/renderprops-addons.cjs'
 
-//Data
+// Data
 import { tileData } from '../assets/tiles'
 
 // Components
