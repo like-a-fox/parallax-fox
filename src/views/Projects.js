@@ -21,17 +21,75 @@ const Projects = ({ children, offset }) => (
     <Divider speed={0.1} offset={offset} factor={2}>
       <UpDown>
         <SVG icon="box" width={6} fill={colors.tealDerp} left="85%" top="75%" />
-        <SVG icon="upDown" width={8} fill={colors.greyDigo} left="70%" top="20%" />
-        <SVG icon="triangle" width={8} stroke={colors.perpSkiz} left="25%" top="5%" />
-        <SVG icon="circle" hiddenMobile width={24} fill={colors.tealDerp} left="17%" top="60%" />
+        <SVG
+          icon="upDown"
+          width={8}
+          fill={colors.greyDigo}
+          left="70%"
+          top="20%"
+        />
+        <SVG
+          icon="triangle"
+          width={8}
+          stroke={colors.perpSkiz}
+          left="25%"
+          top="5%"
+        />
+        <SVG
+          icon="circle"
+          hiddenMobile
+          width={24}
+          fill={colors.tealDerp}
+          left="17%"
+          top="60%"
+        />
       </UpDown>
       <UpDownWide>
-        <SVG icon="arrowUp" hiddenMobile width={16} fill={colors.perpSkiz} left="20%" top="90%" />
-        <SVG icon="triangle" width={12} stroke={colors.tealDerp} left="90%" top="30%" />
-        <SVG icon="circle" width={16} fill={colors.burgDee} left="70%" top="90%" />
-        <SVG icon="triangle" hiddenMobile width={16} stroke={colors.greyDigo} left="18%" top="75%" />
-        <SVG icon="circle" width={6} fill={colors.tealDerp} left="75%" top="10%" />
-        <SVG icon="upDown" hiddenMobile width={8} fill={colors.perpSkiz} left="45%" top="10%" />
+        <SVG
+          icon="arrowUp"
+          hiddenMobile
+          width={16}
+          fill={colors.perpSkiz}
+          left="20%"
+          top="90%"
+        />
+        <SVG
+          icon="triangle"
+          width={12}
+          stroke={colors.tealDerp}
+          left="90%"
+          top="30%"
+        />
+        <SVG
+          icon="circle"
+          width={16}
+          fill={colors.burgDee}
+          left="70%"
+          top="90%"
+        />
+        <SVG
+          icon="triangle"
+          hiddenMobile
+          width={16}
+          stroke={colors.greyDigo}
+          left="18%"
+          top="75%"
+        />
+        <SVG
+          icon="circle"
+          width={6}
+          fill={colors.tealDerp}
+          left="75%"
+          top="10%"
+        />
+        <SVG
+          icon="upDown"
+          hiddenMobile
+          width={8}
+          fill={colors.perpSkiz}
+          left="45%"
+          top="10%"
+        />
       </UpDownWide>
       <SVG icon="circle" width={6} fill={colors.tealDerp} left="4%" top="20%" />
       <SVG icon="circle" width={12} fill={colors.pink} left="80%" top="60%" />
@@ -47,5 +105,5 @@ export default Projects
 
 Projects.propTypes = {
   children: PropTypes.node.isRequired,
-  offset: PropTypes.number.isRequired,
+  offset: PropTypes.number.isRequired
 }

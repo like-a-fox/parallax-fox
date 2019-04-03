@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import { rotateAnimation } from '../styles/animations'
 import triangle from '../assets/images/triangle.svg'
-import {colors} from '../../tailwind'
+import { colors } from '../../tailwind'
 
 export const Title = styled.h1`
   ${tw`text-4xl uppercase lg:text-4xl font-mono text-grey-light mb-8 tracking-wide relative inline-block`};
@@ -36,7 +36,7 @@ export const Subtitle = styled.p`
   em {
     font-size: 13px;
     text-transform: uppercase;
-    font-style:normal;
+    font-style: normal;
     color: ${colors.indigo};
   }
 `
