@@ -1,13 +1,28 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
-import { Divider, DividerMiddle } from '../elements/Dividers'
-import Content from '../elements/Content'
-import Inner from '../elements/Inner'
-import { UpDown, UpDownWide } from '../styles/animations'
-import { colors } from '../../tailwind'
-import SVG from '../components/SVG'
+import styled from 'styled-components'
+import tw from 'tailwind.macro'
+import { Divider, DividerMiddle, Title, Content, Inner } from '../../elements'
+import { UpDown, UpDownWide } from '../../styles/animations'
+import { colors } from '../../../tailwind'
+import { default as SVG } from '../_svg'
+import { default as ProjectCard } from '../_project_card'
 
-const Projects = ({ children, offset }) => (
+const ProjectsWrapper = styled.div`
+  ${tw`flex flex-wrap justify-between mt-8`};
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  @media (max-width: 1200px) {
+    grid-gap: 1.5rem;
+  }
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    grid-gap: 1.5rem;
+  }
+`
+
+const ProjectsSectionBase = ({ children, offset }) => (
   <>
     <DividerMiddle
       bg="linear-gradient(to right, rgba(162, 181, 216, .7) 0%, rgba(148, 130, 186, .3) 100%)"
@@ -100,10 +115,43 @@ const Projects = ({ children, offset }) => (
     </Divider>
   </>
 )
+ProjectsSectionBase.propTypes = {
+  children: PropTypes.node.isRequired,
+  offset: PropTypes.number.isRequired,
+}
 
-export default Projects
+const ProjectsSection = memo(ProjectsSectionBase)
+
+const Projects = ({ offset, tileData }) => (
+  <ProjectsSection offset={offset}>
+    <Title>Projects</Title>
+    <ProjectsWrapper>
+      {tileData.map(tile => (
+        <ProjectCard
+          key={tile.bg}
+          title={tile.title}
+          bg={`url(${tile.background})`}
+          link={tile.pathname}
+        >
+          {tile.subtitle}
+        </ProjectCard>
+      ))}
+    </ProjectsWrapper>
+  </ProjectsSection>
+)
 
 Projects.propTypes = {
-  children: PropTypes.node.isRequired,
-  offset: PropTypes.number.isRequired
+  offset: PropTypes.number.isRequired,
+  tileData: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      subtitle: PropTypes.string,
+      background: PropTypes.any,
+      pathname: PropTypes.string,
+      cols: PropTypes.number,
+      icon: PropTypes.any,
+    })
+  ),
 }
+
+export default memo(Projects)

@@ -1,12 +1,11 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
-import tw from 'tailwind.macro'
 import styled from 'styled-components'
-import { Divider } from '../elements/Dividers'
-import Content from '../elements/Content'
-import { UpDown, UpDownWide, waveAnimation } from '../styles/animations'
-import { colors } from '../../tailwind'
-import SVG from '../components/SVG'
+import tw from 'tailwind.macro'
+import { Divider, Title, Content, Inner } from '../../elements'
+import { UpDown, UpDownWide, waveAnimation } from '../../styles/animations'
+import { colors } from '../../../tailwind'
+import { default as SVG } from '../_svg'
 
 const WaveWrapper = styled.div`
   ${tw`absolute pin-b w-full`};
@@ -24,7 +23,15 @@ const InnerWave = styled.div`
   }
 `
 
-const Contact = ({ children, offset }) => (
+const ContactText = styled.p`
+  ${tw`text-grey-light font-mono text-xl md:text-2xl lg:text-3xl`};
+`
+
+const Footer = styled.footer`
+  ${tw`text-center text-grey absolute pin-b p-6 font-mono text-md lg:text-lg`};
+`
+
+const ContactSectionBase = ({ children, offset }) => (
   <>
     <Divider fill="#23262b" speed={0.2} offset={offset}>
       <WaveWrapper>
@@ -32,7 +39,8 @@ const Contact = ({ children, offset }) => (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 800 338.05"
-            preserveAspectRatio="none">
+            preserveAspectRatio="none"
+          >
             <path>
               <animate
                 attributeName="d"
@@ -116,9 +124,32 @@ const Contact = ({ children, offset }) => (
   </>
 )
 
-export default Contact
+ContactSectionBase.propTypes = {
+  children: PropTypes.node.isRequired,
+  offset: PropTypes.number.isRequired,
+}
+
+const ContactSection = memo(ContactSectionBase)
+
+const Contact = ({ offset }) => (
+  <ContactSection offset={offset}>
+    <Inner>
+      <Title>Get in touch</Title>
+      <ContactText>
+        Say <a href="mailto:likeafox.dev@gmail.com">Hi </a>
+      </ContactText>
+    </Inner>
+    <Footer>
+      &copy; 2019 by Like A Fox Development.{' '}
+      <a href="https://github.com/like-a-fxx/parallax-fox">Github Repository</a>
+      . Made by{' '}
+      <a href="https://github.com/like-a-fox">Like A Fox Development</a>.
+    </Footer>
+  </ContactSection>
+)
 
 Contact.propTypes = {
-  children: PropTypes.node.isRequired,
-  offset: PropTypes.number.isRequired
+  offset: PropTypes.number.isRequired,
 }
+
+export default memo(Contact)

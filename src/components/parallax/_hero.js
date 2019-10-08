@@ -1,18 +1,17 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
-import { colors } from '../../tailwind'
-import { Divider } from '../elements/Dividers'
-import Content from '../elements/Content'
-import { UpDown, UpDownWide } from '../styles/animations'
-import SVG from '../components/SVG'
+import { colors } from '../../../tailwind'
+import { Divider, BigTitle, Subtitle, Content } from '../../elements'
+import { UpDown, UpDownWide } from '../../styles/animations'
+import { default as SVG } from '../_svg'
 
 const Wrapper = styled.div`
   ${tw`w-full xl:w-2/3`};
 `
 
-const Hero = ({ children, offset }) => (
+const HeroContentBase = ({ children, offset }) => (
   <>
     <Divider speed={0.2} offset={offset}>
       <UpDown>
@@ -186,9 +185,26 @@ const Hero = ({ children, offset }) => (
   </>
 )
 
-export default Hero
+HeroContentBase.propTypes = {
+  children: PropTypes.node.isRequired,
+  offset: PropTypes.number.isRequired,
+}
+
+const HeroContent = memo(HeroContentBase)
+
+const Hero = ({ offset }) => (
+  <HeroContent offset={offset}>
+    <BigTitle>Xeiko Design.</BigTitle>
+    <Subtitle>
+      {`I'm Derek, and this is a stab at an alternate portfolio page. Enjoy my
+      insanity in web format`}
+      <br /> <em>&copy; {'Like A Fox Development'} </em>
+    </Subtitle>
+  </HeroContent>
+)
 
 Hero.propTypes = {
-  children: PropTypes.node.isRequired,
-  offset: PropTypes.number.isRequired
+  offset: PropTypes.number.isRequired,
 }
+
+export default memo(Hero)

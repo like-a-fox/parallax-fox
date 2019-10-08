@@ -1,14 +1,15 @@
 import 'typeface-cantata-one'
 import 'typeface-open-sans'
-import React from 'react'
+import React, { memo } from 'react'
 import GlobalStyle from '../styles/global'
-import SEO from './SEO'
+import SEO from './_seo'
 
-const Layout = () => (
+const Layout = ({ children }) => (
   <>
     <SEO />
     <GlobalStyle />
+    {children}
   </>
 )
 
-export default Layout
+export default memo(Layout)

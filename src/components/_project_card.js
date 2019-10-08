@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
@@ -73,12 +73,12 @@ const ProjectCard = ({ title, link, children, bg }) => (
   </Wrapper>
 )
 
-export default ProjectCard
+export default memo(ProjectCard)
 
 ProjectCard.propTypes = {
   title: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
     .isRequired,
-  bg: PropTypes.string.isRequired
+  bg: PropTypes.string.isRequired,
 }

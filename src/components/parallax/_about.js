@@ -1,13 +1,32 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
-import { Divider } from '../elements/Dividers'
-import Content from '../elements/Content'
-import Inner from '../elements/Inner'
-import { UpDown, UpDownWide } from '../styles/animations'
-import { colors } from '../../tailwind'
-import SVG from '../components/SVG'
+import styled from 'styled-components'
+import tw from 'tailwind.macro'
+import { Divider, Inner, Content, Title } from '../../elements'
+import { UpDown, UpDownWide } from '../../styles/animations'
+import { colors } from '../../../tailwind'
+import { default as SVG } from '../_svg'
+import avatar from '../../assets/images/avatar.png'
 
-const About = ({ children, offset }) => (
+const AboutHero = styled.div`
+  ${tw`flex font-mono flex-col lg:flex-row items-center mt-8`};
+`
+
+const Avatar = styled.img`
+  ${tw`rounded-full w-32 xl:w-48 shadow-lg h-auto`};
+`
+
+const AboutSub = styled.span`
+  ${tw`text-indigo-lightest pt-12 font-mono lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl`};
+  text-transform: uppercase;
+  letter-spacing: -1px;
+`
+
+const AboutDesc = styled.p`
+  ${tw`text-indigo-lighter text-lg md:text-xl lg:text-2xl font-mono pt-6 md:pt-12 text-justify`};
+`
+
+const AboutSectionBase = ({ children, offset }) => (
   <>
     <Divider
       bg="#23262b"
@@ -111,9 +130,38 @@ const About = ({ children, offset }) => (
   </>
 )
 
-export default About
+AboutSectionBase.propTypes = {
+  children: PropTypes.node.isRequired,
+  offset: PropTypes.number.isRequired,
+}
+
+const AboutSection = memo(AboutSectionBase)
+
+const About = ({ offset }) => (
+  <AboutSection offset={offset}>
+    <Title>About</Title>
+    <AboutHero>
+      <Avatar src={avatar} alt="Like A Fox" />
+      <AboutSub>
+        {`Well, I’m going to tell you the best and the worst thing you’ve ever
+        heard. Heroes aren’t born.`}
+      </AboutSub>
+    </AboutHero>
+    <AboutDesc>
+      {`You just go out there and grind it out. You fail and you look foolish
+      and you just keep grinding. There is nothing else. There is no ‘chosen
+      one,’ there is no destiny, nobody wakes up one day and finds out
+      they’re amazing at something. There’s just slamming your head into the
+      wall, refusing to take no for an answer. Being relentless, until
+      either the wall or your head breaks. You want to be a hero? You don’t
+      have to make some grand decision. There’s no inspirational music,
+      there’s no montage. You just don’t quit.`}
+    </AboutDesc>
+  </AboutSection>
+)
 
 About.propTypes = {
-  children: PropTypes.node.isRequired,
-  offset: PropTypes.number.isRequired
+  offset: PropTypes.number.isRequired,
 }
+
+export default memo(About)

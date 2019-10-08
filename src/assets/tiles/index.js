@@ -18,7 +18,7 @@ export default [
     background: angularBackground,
     pathname: '/angular',
     cols: 1,
-    icon: angularIcon
+    icon: angularIcon,
   },
   {
     title: 'Firebase',
@@ -26,7 +26,7 @@ export default [
     background: firebaseBackground,
     pathname: '/firebase',
     cols: 2,
-    icon: firebaseIcon
+    icon: firebaseIcon,
   },
   {
     title: 'GraphQL',
@@ -34,7 +34,7 @@ export default [
     background: graphqlBackground,
     pathname: '/graphql',
     cols: 2,
-    icon: graphqlIcon
+    icon: graphqlIcon,
   },
   {
     title: 'Gatsby',
@@ -42,7 +42,7 @@ export default [
     background: gatsbyBackground,
     pathname: '/gatsbyjs',
     cols: 1,
-    icon: gatsbyIcon
+    icon: gatsbyIcon,
   },
   {
     title: 'React',
@@ -50,7 +50,7 @@ export default [
     background: reactBackground,
     pathname: '/react',
     cols: 1,
-    icon: reactIcon
+    icon: reactIcon,
   },
   {
     title: 'RxJS',
@@ -58,6 +58,6 @@ export default [
     background: rxjsBackground,
     pathname: '/rxjs',
     cols: 2,
-    icon: rxjsIcon
-  }
+    icon: rxjsIcon,
+  },
 ]
