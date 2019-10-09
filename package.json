@@ -38,6 +38,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "deploy": "yarn build && now --public",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "yarn develop --scripts-prepend-node-path",
@@ -46,9 +47,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/like-a-fox/inanis-umbra"
+    "url": "https://github.com/like-a-fox/parallax-fox"
   },
   "bugs": {
-    "url": "https://github.com/like-a-fox/inanis-umbra/issues"
+    "url": "https://github.com/like-a-fox/parallax-fox/issues"
   }
 }
