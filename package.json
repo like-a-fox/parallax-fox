@@ -38,10 +38,10 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "deploy": "yarn build && now --public",
+    "deploy": "npm run build && now --public",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "yarn develop --scripts-prepend-node-path",
+    "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
   },
