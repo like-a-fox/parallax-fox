@@ -1,15 +1,16 @@
 import React, { memo } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import tw from 'tailwind.macro'
 import { colors } from '../../../tailwind'
-import { Divider, BigTitle, Subtitle, Content } from '../../elements'
-import { UpDown, UpDownWide } from '../../styles/animations'
-import { default as SVG } from '../_svg'
-
-const Wrapper = styled.div`
-  ${tw`w-full xl:w-2/3`};
-`
+import { SVG } from '../../elements'
+import {
+  UpDown,
+  UpDownWide,
+  Divider,
+  BigTitle,
+  Subtitle,
+  Content,
+  WrapperDiv,
+} from '../../assets'
 
 const HeroContentBase = ({ children, offset }) => (
   <>
@@ -180,7 +181,7 @@ const HeroContentBase = ({ children, offset }) => (
       />
     </Divider>
     <Content speed={0.4} offset={offset}>
-      <Wrapper>{children}</Wrapper>
+      <WrapperDiv>{children}</WrapperDiv>
     </Content>
   </>
 )

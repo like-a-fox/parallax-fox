@@ -1,35 +1,19 @@
 import React, { memo } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import tw from 'tailwind.macro'
-import { Divider, Title, Content, Inner } from '../../elements'
-import { UpDown, UpDownWide, waveAnimation } from '../../styles/animations'
+import { SVG } from '../../elements'
+import {
+  Divider,
+  Title,
+  Content,
+  Inner,
+  UpDown,
+  UpDownWide,
+  WaveWrapper,
+  InnerWave,
+  Footer,
+  ContactText,
+} from '../../assets'
 import { colors } from '../../../tailwind'
-import { default as SVG } from '../_svg'
-
-const WaveWrapper = styled.div`
-  ${tw`absolute pin-b w-full`};
-  transform: matrix(1, 0, 0, -1, 0, 0);
-`
-
-const InnerWave = styled.div`
-  ${tw`relative h-full`};
-  svg {
-    width: 100%;
-    height: 40vh;
-  }
-  path {
-    ${waveAnimation('20s')};
-  }
-`
-
-const ContactText = styled.p`
-  ${tw`text-grey-light font-mono text-xl md:text-2xl lg:text-3xl`};
-`
-
-const Footer = styled.footer`
-  ${tw`text-center text-grey absolute pin-b p-6 font-mono text-md lg:text-lg`};
-`
 
 const ContactSectionBase = ({ children, offset }) => (
   <>

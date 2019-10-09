@@ -1,26 +1,17 @@
 import React, { memo } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import tw from 'tailwind.macro'
-import { Divider, DividerMiddle, Title, Content, Inner } from '../../elements'
-import { UpDown, UpDownWide } from '../../styles/animations'
+import { SVG, ProjectCard } from '../../elements'
+import {
+  UpDown,
+  ProjectsWrapper,
+  UpDownWide,
+  Divider,
+  DividerMiddle,
+  Title,
+  Content,
+  Inner,
+} from '../../assets'
 import { colors } from '../../../tailwind'
-import { default as SVG } from '../_svg'
-import { default as ProjectCard } from '../_project_card'
-
-const ProjectsWrapper = styled.div`
-  ${tw`flex flex-wrap justify-between mt-8`};
-  display: grid;
-  grid-gap: 2rem;
-  grid-template-columns: repeat(2, 1fr);
-  @media (max-width: 1200px) {
-    grid-gap: 1.5rem;
-  }
-  @media (max-width: 900px) {
-    grid-template-columns: 1fr;
-    grid-gap: 1.5rem;
-  }
-`
 
 const ProjectsSectionBase = ({ children, offset }) => (
   <>

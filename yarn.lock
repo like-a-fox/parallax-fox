@@ -5363,6 +5363,13 @@ gatsby-plugin-sharp@^2.2.28:
     svgo "^1.3.0"
     uuid "^3.3.3"
 
+gatsby-plugin-smoothscroll@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-smoothscroll/-/gatsby-plugin-smoothscroll-1.0.3.tgz#61302d26ae06662b0374b3fb376276918a1145bf"
+  integrity sha512-+lFqDc17i1UkdR9kTWnMh30ffDPjFWGSDXpahWGxbxTmyGxShN7EHg7CGs88wJtLprIHVlx6lA1kk0dQSQm1bw==
+  dependencies:
+    smoothscroll-polyfill "^0.4.4"
+
 gatsby-plugin-styled-components@^3.0.7:
   version "3.1.8"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-styled-components/-/gatsby-plugin-styled-components-3.1.8.tgz#afc6633301d91baabb9a2d102674e3925b14f92d"
@@ -10716,6 +10723,11 @@ slice-ansi@^2.1.0:
     ansi-styles "^3.2.0"
     astral-regex "^1.0.0"
     is-fullwidth-code-point "^2.0.0"
+
+smoothscroll-polyfill@^0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/smoothscroll-polyfill/-/smoothscroll-polyfill-0.4.4.tgz#3a259131dc6930e6ca80003e1cb03b603b69abf8"
+  integrity sha512-TK5ZA9U5RqCwMpfoMq/l1mrH0JAR7y7KRvOBx0n2869aLxch+gT9GhN3yUfjiw+d/DiF1mKo14+hd62JyMmoBg==
 
 snapdragon-node@^2.0.1:
   version "2.1.1"
