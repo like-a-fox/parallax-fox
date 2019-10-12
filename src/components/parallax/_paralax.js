@@ -11,8 +11,8 @@ const ParallaxWrapper = memo(ParallaxWrapperBase)
 const ParallaxPage = () => (
   <ParallaxWrapper pages={5}>
     <Hero offset={0} />
-    <Projects offset={1} />
-    <About offset={3} />
+    <Projects  />
+    <About />
     <Contact offset={4} />
   </ParallaxWrapper>
 )

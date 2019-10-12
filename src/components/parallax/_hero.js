@@ -15,7 +15,7 @@ import {
 const HeroContentBase = ({ children, offset }) => (
   <>
     <Divider speed={0.2} offset={offset}>
-      <UpDown>
+      <UpDown opacity={.7}>
         <SVG
           icon="triangle"
           hiddenMobile
@@ -39,7 +39,7 @@ const HeroContentBase = ({ children, offset }) => (
           top="15%"
         />
       </UpDown>
-      <UpDownWide>
+      <UpDownWide opacity={0.7}>
         <SVG
           icon="arrowUp"
           hiddenMobile
@@ -57,7 +57,7 @@ const HeroContentBase = ({ children, offset }) => (
         />
         <SVG
           icon="circle"
-          width={16}
+          width={12}
           fill={colors['grey-darker']}
           left="70%"
           top="90%"
@@ -95,7 +95,7 @@ const HeroContentBase = ({ children, offset }) => (
       <SVG
         icon="circle"
         hiddenMobile
-        width={24}
+        width={12}
         fill={colors['grey-darker']}
         left="5%"
         top="70%"
@@ -110,7 +110,7 @@ const HeroContentBase = ({ children, offset }) => (
       <SVG
         icon="circle"
         width={12}
-        fill={colors['grey-darkest']}
+        stroke={colors['grey-darkest']}
         left="50%"
         top="60%"
       />
@@ -138,7 +138,7 @@ const HeroContentBase = ({ children, offset }) => (
       />
       <SVG
         icon="circle"
-        width={64}
+        width={24}
         fill={colors.tealDerp}
         left="95%"
         top="5%"
@@ -146,7 +146,7 @@ const HeroContentBase = ({ children, offset }) => (
       <SVG
         icon="box"
         hiddenMobile
-        width={64}
+        width={24}
         fill={colors.perpSkiz}
         left="5%"
         top="90%"

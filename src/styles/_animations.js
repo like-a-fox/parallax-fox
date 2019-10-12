@@ -46,10 +46,12 @@ export const upDownWideAnimation = css`
 `
 export const UpDown = styled.div`
   animation: ${upDownAnimation};
+  opacity: ${props => props.opacity};
   ${tw`pin absolute`};
 `
 export const UpDownWide = styled.div`
   animation: ${upDownWideAnimation};
+  opacity: ${props => props.opacity};
   ${tw`pin absolute`};
 `
 export const waveAnimation = length => css`
