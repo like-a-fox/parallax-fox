@@ -14,8 +14,23 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/assets/images/`,
+        path: `${__dirname}/src/images/`,
         name: `images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `styles`,
+        path: `${__dirname}/src/styles/`,
+        ignore: [`**/\.*`], // ignore files starting with a dot
       },
     },
     {
@@ -34,7 +49,7 @@ module.exports = {
         description: config.siteDescription,
         start_url: config.pathPrefix,
         display: `standalone`,
-        icon: `src/assets/images/icon.png`,
+        icon: `src/images/icon.png`,
       },
     },
     /* Must be placed at the end */

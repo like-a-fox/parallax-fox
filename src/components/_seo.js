@@ -95,9 +95,9 @@ const Head = props => {
         href="/favicons/favicon-16x16.png"
       />
       <meta name="parallax-fox" content="Like A Fox - Parallax" />
-      <link rel="shortcut icon" href="favicon.ico" />
+      <link rel="shortcut icon" href="/favicon.ico" />
       <meta name="msapplication-TileColor" content={config.backgroundColor} />
-      <meta name="msapplication-config" content="browserconfig.xml" />
+      <meta name="msapplication-config" content="/browserconfig.xml" />
       <meta name="description" content={description} />
       <meta name="image" content={image} />
       <meta property="og:locale" content={config.ogLanguage} />
