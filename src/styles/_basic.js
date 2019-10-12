@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import { Link } from 'gatsby'
 import { ParallaxLayer } from 'react-spring/renderprops-addons.cjs'
+import { colors } from '../../tailwind'
 
 export const Content = styled(ParallaxLayer)`
   ${tw`p-6 md:p-12 lg:p-24 justify-center items-center flex z-50`};
@@ -83,7 +84,7 @@ export const LinkWrapper = styled(Link)`
   overflow: hidden;
   &:before {
     content: '';
-    opacity: 0.7;
+    opacity: 0.75;
     background-image: url(${props => props.bg});
     background-color: rgba(10, 10, 50, 0.4);
     background-position: center;
@@ -100,8 +101,38 @@ export const LinkWrapper = styled(Link)`
   &:hover {
     &:before {
       filter: grayscale(10%);
+      opacity: 0.9;
     }
     transform: translateY(-5px);
     filter: grayscale(30%);
+  }
+`
+export const BigTitle = styled.h1`
+  ${tw`text-4xl lg:text-5xl font-mono text-pink mb-3 tracking-wide`};
+  text-shadow: 0 5px 35px rgba(255, 255, 255, 0.15);
+  text-transform: uppercase;
+  font-weight: 200;
+  letter-spacing: -2px;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  i {
+    color: ${props => props.subColor || colors.perpSkiz};
+    height: inherit;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: flex-start;
+  }
+`
+
+export const Subtitle = styled.p`
+  ${tw`text-2xl lg:text-3xl font-mono text-tealDerp mt-6 xxl:w-3/4`};
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+  em {
+    font-size: 13px;
+    text-transform: uppercase;
+    font-style: normal;
+    color: ${colors.pink};
   }
 `

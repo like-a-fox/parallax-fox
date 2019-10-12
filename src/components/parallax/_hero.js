@@ -15,7 +15,7 @@ import {
 const HeroContentBase = ({ children, offset }) => (
   <>
     <Divider speed={0.2} offset={offset}>
-      <UpDown opacity={.7}>
+      <UpDown opacity={0.5}>
         <SVG
           icon="triangle"
           hiddenMobile
@@ -39,7 +39,7 @@ const HeroContentBase = ({ children, offset }) => (
           top="15%"
         />
       </UpDown>
-      <UpDownWide opacity={0.7}>
+      <UpDownWide opacity={0.4}>
         <SVG
           icon="arrowUp"
           hiddenMobile
@@ -93,6 +93,7 @@ const HeroContentBase = ({ children, offset }) => (
         />
       </UpDownWide>
       <SVG
+        
         icon="circle"
         hiddenMobile
         width={12}
@@ -109,6 +110,7 @@ const HeroContentBase = ({ children, offset }) => (
       />
       <SVG
         icon="circle"
+        opacity={0.2}
         width={12}
         stroke={colors['grey-darkest']}
         left="50%"
@@ -138,8 +140,9 @@ const HeroContentBase = ({ children, offset }) => (
       />
       <SVG
         icon="circle"
+        opacity={0.2}
         width={24}
-        fill={colors.tealDerp}
+        stroke={colors.tealDerp}
         left="95%"
         top="5%"
       />
@@ -195,10 +198,11 @@ const HeroContent = memo(HeroContentBase)
 
 const Hero = ({ offset }) => (
   <HeroContent offset={offset}>
-    <BigTitle>Xeiko Design.</BigTitle>
+    <BigTitle>Design. <i>not aga!n</i></BigTitle>
     <Subtitle>
-      {`I'm Derek, and this is a stab at an alternate portfolio page. Enjoy my
-      insanity in web format`}
+      {`I'm Derek, and if one more person asks me to make a word press site,
+      I'm gonna stab someone. Or use jQuery. Seriously! 
+      The 90s called and they want their shitty JavaScript library back.`}
       <br /> <em>&copy; {'Like A Fox Development'} </em>
     </Subtitle>
   </HeroContent>
