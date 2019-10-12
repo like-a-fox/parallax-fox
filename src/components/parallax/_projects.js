@@ -1,4 +1,5 @@
 import React, { memo } from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import { SVG } from '../'
 import {
@@ -14,6 +15,7 @@ import {
   Content,
   Inner,
 } from '../../styles'
+import { default as tile_data } from './_tile_data'
 import { colors } from '../../../tailwind'
 
 const ProjectsSectionBase = ({ children, offset }) => (
@@ -116,38 +118,43 @@ ProjectsSectionBase.propTypes = {
 
 const ProjectsSection = memo(ProjectsSectionBase)
 
-const Projects = ({ offset, tileData }) => (
-  <ProjectsSection offset={offset}>
-    <Title>Projects</Title>
-    <ProjectsWrapper>
-      {tileData.map(({ title, subtitle, background, pathname }, i) => (
-        <LinkWrapper
-          key={`project-${title}-${i}`}
-          to={pathname}
-          bg={background}
-        >
-          <TitleWrapper>
-            {title}
-            <Text>{subtitle}</Text>
-          </TitleWrapper>
-        </LinkWrapper>
-      ))}
-    </ProjectsWrapper>
-  </ProjectsSection>
-)
-
-Projects.propTypes = {
-  offset: PropTypes.number.isRequired,
-  tileData: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      subtitle: PropTypes.string,
-      background: PropTypes.any,
-      pathname: PropTypes.string,
-      cols: PropTypes.number,
-      icon: PropTypes.any,
-    })
-  ),
+export default ({ offset }) => {
+  const {
+    allImageSharp: { nodes },
+  } = useStaticQuery(graphql`
+    query TileBackgroundImages {
+      __typename
+      allImageSharp(
+        filter: { fluid: { originalName: { glob: "*_background*" } } }
+      ) {
+        nodes {
+          id
+          fluid(fit: COVER) {
+            srcWebp
+            originalName
+          }
+        }
+      }
+    }
+  `)
+  return (
+    <ProjectsSection offset={offset}>
+      <Title>Projects</Title>
+      <ProjectsWrapper>
+        {nodes.map(({ id, fluid: { srcWebp, originalName } }) => {
+          const { pathname, title, subtitle } = tile_data[
+            `${originalName.split('_')[0]}`
+          ]
+          return (
+            <LinkWrapper key={id} to={pathname} bg={srcWebp}>
+              <TitleWrapper>
+                {title}
+                <Text>{subtitle}</Text>
+              </TitleWrapper>
+            </LinkWrapper>
+          )
+        })}
+      </ProjectsWrapper>
+    </ProjectsSection>
+  )
 }
-
-export default memo(Projects)
