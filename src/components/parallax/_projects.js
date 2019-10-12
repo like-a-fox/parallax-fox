@@ -15,7 +15,7 @@ import {
   Content,
   Inner,
 } from '../../styles'
-import { default as tile_data } from './_tile_data'
+import { tile_data } from './_tile_data'
 import { colors } from '../../../tailwind'
 
 const ProjectsSectionBase = ({ children, offset }) => (
@@ -119,9 +119,7 @@ ProjectsSectionBase.propTypes = {
 const ProjectsSection = memo(ProjectsSectionBase)
 
 export default ({ offset }) => {
-  const {
-    allImageSharp: { nodes },
-  } = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     query TileBackgroundImages {
       __typename
       allImageSharp(
@@ -141,19 +139,20 @@ export default ({ offset }) => {
     <ProjectsSection offset={offset}>
       <Title>Projects</Title>
       <ProjectsWrapper>
-        {nodes.map(({ id, fluid: { srcWebp, originalName } }) => {
-          const { pathname, title, subtitle } = tile_data[
-            `${originalName.split('_')[0]}`
-          ]
-          return (
-            <LinkWrapper key={id} to={pathname} bg={srcWebp}>
-              <TitleWrapper>
-                {title}
-                <Text>{subtitle}</Text>
-              </TitleWrapper>
-            </LinkWrapper>
-          )
-        })}
+        {data.allImageSharp.nodes.map(
+          ({ id, fluid: { srcWebp, originalName } }) => {
+            let tile = tile_data[`${originalName.split('_')[0]}`]
+            let { pathname, title, subtitle } = tile
+            return (
+              <LinkWrapper key={id} to={pathname} bg={srcWebp}>
+                <TitleWrapper>
+                  {title}
+                  <Text>{subtitle}</Text>
+                </TitleWrapper>
+              </LinkWrapper>
+            )
+          }
+        )}
       </ProjectsWrapper>
     </ProjectsSection>
   )

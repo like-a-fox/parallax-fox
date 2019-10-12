@@ -14,8 +14,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/images/*/*.{png,jpeg,jpg,svg}`,
+        path: `${__dirname}/src/images/`,
         name: `images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/images/backgrounds/`,
+        name: `tile_backgrounds`,
       },
     },
     {
