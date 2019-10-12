@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import PropTypes from 'prop-types'
-import { SVG } from '../../elements'
+import { SVG } from '../'
 import {
   Divider,
   Title,
@@ -12,7 +12,7 @@ import {
   InnerWave,
   Footer,
   ContactText,
-} from '../../assets'
+} from '../../styles'
 import { colors } from '../../../tailwind'
 
 const ContactSectionBase = ({ children, offset }) => (

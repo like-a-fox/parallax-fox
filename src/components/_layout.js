@@ -1,7 +1,7 @@
 import 'typeface-cantata-one'
 import 'typeface-open-sans'
 import React, { memo } from 'react'
-import { SEO } from '../elements'
+import { SEO } from './'
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`

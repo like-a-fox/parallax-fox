@@ -1,16 +1,19 @@
 import React, { memo } from 'react'
 import PropTypes from 'prop-types'
-import { SVG, ProjectCard } from '../../elements'
+import { SVG } from '../'
 import {
   UpDown,
   ProjectsWrapper,
   UpDownWide,
   Divider,
   DividerMiddle,
+  LinkWrapper,
+  TitleWrapper,
+  Text,
   Title,
   Content,
   Inner,
-} from '../../assets'
+} from '../../styles'
 import { colors } from '../../../tailwind'
 
 const ProjectsSectionBase = ({ children, offset }) => (
@@ -117,15 +120,17 @@ const Projects = ({ offset, tileData }) => (
   <ProjectsSection offset={offset}>
     <Title>Projects</Title>
     <ProjectsWrapper>
-      {tileData.map(tile => (
-        <ProjectCard
-          key={tile.bg}
-          title={tile.title}
-          bg={`url(${tile.background})`}
-          link={tile.pathname}
+      {tileData.map(({ title, subtitle, background, pathname }, i) => (
+        <LinkWrapper
+          key={`project-${title}-${i}`}
+          to={pathname}
+          bg={background}
         >
-          {tile.subtitle}
-        </ProjectCard>
+          <TitleWrapper>
+            {title}
+            <Text>{subtitle}</Text>
+          </TitleWrapper>
+        </LinkWrapper>
       ))}
     </ProjectsWrapper>
   </ProjectsSection>

@@ -84,7 +84,7 @@ export const LinkWrapper = styled(Link)`
   &:before {
     content: '';
     opacity: 0.7;
-    background-image: ${props => props.bg};
+    background-image: url(${props => props.bg});
     background-color: rgba(10, 10, 50, 0.4);
     background-position: center;
     background-repeat: no-repeat;

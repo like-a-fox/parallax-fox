@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import PropTypes from 'prop-types'
-import { SVG } from '../../elements'
+import { SVG } from '../'
 import {
   UpDown,
   UpDownWide,
@@ -12,9 +12,9 @@ import {
   Inner,
   Content,
   Title,
-} from '../../assets'
+} from '../../styles'
 import { colors } from '../../../tailwind'
-import avatar from '../../assets/images/avatar.png'
+import avatar from '../../images/avatar.png'
 
 const AboutSectionBase = ({ children, offset }) => (
   <>

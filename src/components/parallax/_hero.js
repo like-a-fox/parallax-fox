@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import { colors } from '../../../tailwind'
-import { SVG } from '../../elements'
+import { SVG } from '../'
 import {
   UpDown,
   UpDownWide,
@@ -10,7 +10,7 @@ import {
   Subtitle,
   Content,
   WrapperDiv,
-} from '../../assets'
+} from '../../styles'
 
 const HeroContentBase = ({ children, offset }) => (
   <>

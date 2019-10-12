@@ -1,7 +1,7 @@
 import styled, { keyframes, css } from 'styled-components'
 import tw from 'tailwind.macro'
 import triangle from '../images/triangle.svg'
-import { colors } from '../../../tailwind'
+import { colors } from '../../tailwind'
 
 export const rotate = keyframes`
   from {
