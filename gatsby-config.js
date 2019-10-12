@@ -1,11 +1,72 @@
 const config = require('./config/website')
+const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
+const homeURL = `${config.siteUrl}${realPrefix}`
+const image = `${homeURL}${config.siteLogo}`
 
-const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
+// schema.org in JSONLD format
+// https://developers.google.com/search/docs/guides/intro-structured-data
+// You can fill out the 'author', 'creator' with more data or another type (e.g. 'Organization')
+
+const schemaOrgWebPage = {
+  '@context': 'http://schema.org',
+  '@type': 'WebPage',
+  url: homeURL,
+  title: config.siteTitle,
+  headline: config.siteHeadline,
+  inLanguage: 'en',
+  mainEntityOfPage: homeURL,
+  description: config.siteDescription,
+  name: config.siteTitle,
+  author: {
+    '@type': 'Person',
+    name: config.author,
+  },
+  copyrightHolder: {
+    '@type': 'Person',
+    name: config.author,
+  },
+  copyrightYear: '2019',
+  creator: {
+    '@type': 'Person',
+    name: config.author,
+  },
+  publisher: {
+    '@type': 'Person',
+    name: config.author,
+  },
+  image: {
+    '@type': 'ImageObject',
+    url: image,
+  },
+}
+
+// Initial breadcrumb list
+
+const itemListElement = [
+  {
+    '@type': 'ListItem',
+    item: {
+      '@id': homeURL,
+      name: 'Homepage',
+    },
+    position: 1,
+  },
+]
+
+const breadcrumb = {
+  '@context': 'http://schema.org',
+  '@type': 'BreadcrumbList',
+  description: 'Breadcrumbs list',
+  name: 'Breadcrumbs',
+  itemListElement,
+}
 
 module.exports = {
   /* General Information */
   siteMetadata: {
-    siteUrl: config.siteUrl + pathPrefix,
+    schemaOrgWebPage,
+    breadcrumb,
+    itemListElement,
   },
   /* Plugins */
   plugins: [
@@ -23,21 +84,6 @@ module.exports = {
       options: {
         path: `${__dirname}/src/images/backgrounds/`,
         name: `tile_backgrounds`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `pages`,
-        path: `${__dirname}/src/pages/`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `styles`,
-        path: `${__dirname}/src/styles/`,
-        ignore: [`**/\.*`], // ignore files starting with a dot
       },
     },
     {

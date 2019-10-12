@@ -2,7 +2,6 @@ import styled, { keyframes, css } from 'styled-components'
 import tw from 'tailwind.macro'
 import triangle from '../images/triangle.svg'
 
-
 export const rotate = keyframes`
   from {
     transform: rotate(0deg);
@@ -94,5 +93,3 @@ export const Title = styled.h1`
     top: 5px;
   }
 `
-
-

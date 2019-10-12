@@ -12,7 +12,7 @@ export const TopAboutDivider = () => (
   />
 )
 let UpDownSvgs = () => (
-  <UpDown opacity={.7}>
+  <UpDown opacity={0.7}>
     <SVG
       icon="box"
       hiddenMobile
@@ -48,7 +48,7 @@ let UpDownSvgs = () => (
 )
 UpDownSvgs = memo(UpDownSvgs)
 let UpDownWideSvgs = () => (
-  <UpDownWide opacity={.7}>
+  <UpDownWide opacity={0.7}>
     <SVG
       icon="arrowUp"
       hiddenMobile
@@ -64,7 +64,13 @@ let UpDownWideSvgs = () => (
       left="95%"
       top="50%"
     />
-    <SVG icon="circle" width={6} stroke={colors.tealDerp} left="85%" top="15%" />
+    <SVG
+      icon="circle"
+      width={6}
+      stroke={colors.tealDerp}
+      left="85%"
+      top="15%"
+    />
     <SVG
       icon="upDown"
       hiddenMobile
@@ -115,7 +121,7 @@ export const MiddleProjectsDivider = () => (
   />
 )
 let UpDownProject = () => (
-  <UpDown opacity={.7}>
+  <UpDown opacity={0.7}>
     <SVG icon="box" width={6} stroke={colors.tealDerp} left="85%" top="75%" />
     <SVG icon="upDown" width={8} fill={colors.greyDigo} left="70%" top="20%" />
     <SVG
@@ -138,7 +144,7 @@ let UpDownProject = () => (
 UpDownProject = memo(UpDownProject)
 
 let UpDownWideProject = () => (
-  <UpDownWide opacity={.7}>
+  <UpDownWide opacity={0.7}>
     <SVG
       icon="arrowUp"
       hiddenMobile
@@ -163,7 +169,13 @@ let UpDownWideProject = () => (
       left="18%"
       top="75%"
     />
-    <SVG icon="circle" width={6} stroke={colors.tealDerp} left="75%" top="10%" />
+    <SVG
+      icon="circle"
+      width={6}
+      stroke={colors.tealDerp}
+      left="75%"
+      top="10%"
+    />
     <SVG
       icon="upDown"
       hiddenMobile

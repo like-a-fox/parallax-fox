@@ -80,7 +80,16 @@ const icons = {
   },
 }
 
-const SVG = ({ stroke, fill, width, icon, left, top, hiddenMobile, opacity }) => (
+const SVG = ({
+  stroke,
+  fill,
+  width,
+  icon,
+  left,
+  top,
+  hiddenMobile,
+  opacity,
+}) => (
   <Wrapper
     opacity={opacity}
     viewBox={icons[icon].viewBox}
@@ -105,7 +114,7 @@ SVG.propTypes = {
   left: PropTypes.string,
   top: PropTypes.string,
   hiddenMobile: PropTypes.bool,
-  opacity: PropTypes.number
+  opacity: PropTypes.number,
 }
 
 SVG.defaultProps = {
@@ -115,5 +124,5 @@ SVG.defaultProps = {
   left: '0%',
   top: '0%',
   hiddenMobile: false,
-  opacity: 0.7
+  opacity: 0.7,
 }

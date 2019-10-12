@@ -93,7 +93,6 @@ const HeroContentBase = ({ children, offset }) => (
         />
       </UpDownWide>
       <SVG
-        
         icon="circle"
         hiddenMobile
         width={12}
@@ -198,7 +197,9 @@ const HeroContent = memo(HeroContentBase)
 
 const Hero = ({ offset }) => (
   <HeroContent offset={offset}>
-    <BigTitle>Design. <i>not aga!n</i></BigTitle>
+    <BigTitle>
+      Design. <i>not aga!n</i>
+    </BigTitle>
     <Subtitle>
       {`I'm Derek, and if one more person asks me to make a word press site,
       I'm gonna stab someone. Or use jQuery. Seriously! 
