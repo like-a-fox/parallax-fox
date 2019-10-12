@@ -80,6 +80,7 @@ const Head = props => {
   return (
     <Helmet>
       <html lang={config.siteLanguage} />
+      <link rel="preconnect" href="/" />
       <title>{title}</title>
       <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" />
       <link
@@ -107,18 +108,6 @@ const Head = props => {
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
       <meta property="og:image:alt" content={description} />
-      {config.siteFBAppID && (
-        <meta property="fb:app_id" content={config.siteFBAppID} />
-      )}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta
-        name="twitter:creator"
-        content={config.userTwitter ? config.userTwitter : ''}
-      />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
-      <meta name="twitter:image:alt" content={description} />
       <script type="application/ld+json">
         {JSON.stringify(schemaOrgWebPage)}
       </script>
