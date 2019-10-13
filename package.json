@@ -28,6 +28,7 @@
     "typeface-open-sans": "^0.0.75"
   },
   "devDependencies": {
+    "eslint-plugin-react-hooks": "^2.1.2",
     "now": "^16.3.1",
     "prettier": "^1.18.2"
   },
@@ -46,6 +47,16 @@
     "start": "yarn develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+  },
+  "eslintConfig": {
+    "extends": "react-app",
+    "plugins": [
+        "react-hooks"
+      ],
+      "rules": {
+        "react-hooks/rules-of-hooks": "error", 
+        "react-hooks/exhaustive-deps": "warn" 
+      }
   },
   "repository": {
     "type": "git",

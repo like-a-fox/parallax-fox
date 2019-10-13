@@ -17,6 +17,11 @@ const schemaOrgWebPage = {
   mainEntityOfPage: homeURL,
   description: config.siteDescription,
   name: config.siteTitle,
+  ogs: {
+    siteName: config.ogSiteName,
+    language: config.ogLanguage,
+  },
+  favIcons: config.favIcons,
   author: {
     '@type': 'Person',
     name: config.author,
@@ -38,6 +43,12 @@ const schemaOrgWebPage = {
     '@type': 'ImageObject',
     url: image,
   },
+}
+
+const themeMeta = {
+  ...config.theme,
+  primaryColor: config.themeColor,
+  backgroundColor: config.backgroundColor,
 }
 
 // Initial breadcrumb list
@@ -66,7 +77,7 @@ module.exports = {
   siteMetadata: {
     schemaOrgWebPage,
     breadcrumb,
-    itemListElement,
+    themeMeta,
   },
   /* Plugins */
   plugins: [
@@ -105,8 +116,8 @@ module.exports = {
         icon: `src/images/icon.png`,
       },
     },
+    `gatsby-plugin-smoothscroll`,
     /* Must be placed at the end */
     `gatsby-plugin-offline`,
-    `gatsby-plugin-smoothscroll`,
   ],
 }

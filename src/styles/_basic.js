@@ -74,6 +74,15 @@ export const Text = styled.div`
   font-weight: 200;
   letter-spacing: -1px;
 `
+export const Input = styled.input`
+  ${tw`opacity-85 font-mono text-white text-sm md:text-base`};
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  font-weight: 200;
+  letter-spacing: -1px;
+  color: ${({ error, color }) => (error ? colors.pink : color)};
+  width: ${({ width }) => width}%;
+  padding: ${({ padding }) => padding}px;
+`
 export const LinkWrapper = styled(Link)`
   width: 100%;
   position: relative;
