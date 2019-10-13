@@ -1,6 +1,6 @@
-import React, { memo } from 'react'
-import PropTypes from 'prop-types'
-import { SVG } from '../'
+import React, { memo } from 'react';
+import PropTypes from 'prop-types';
+import { SVG } from '../';
 import {
   Divider,
   Title,
@@ -12,8 +12,9 @@ import {
   InnerWave,
   Footer,
   ContactText,
-} from '../../styles'
-import { colors } from '../../../tailwind'
+} from '../../styles';
+import { colors } from '../../../tailwind';
+import { TextField, TextInput } from '../form';
 
 const ContactSectionBase = ({ children, offset }) => (
   <>
@@ -106,17 +107,18 @@ const ContactSectionBase = ({ children, offset }) => (
       />
     </Divider>
   </>
-)
+);
 
 ContactSectionBase.propTypes = {
   children: PropTypes.node.isRequired,
   offset: PropTypes.number.isRequired,
-}
+};
 
-const ContactSection = memo(ContactSectionBase)
+const ContactSection = memo(ContactSectionBase);
 
 const Contact = ({ offset }) => (
   <ContactSection offset={offset}>
+    <TextInput />
     <Inner>
       <Title>Get in touch</Title>
       <ContactText>
@@ -130,10 +132,10 @@ const Contact = ({ offset }) => (
       <a href="https://github.com/like-a-fox">Like A Fox Development</a>.
     </Footer>
   </ContactSection>
-)
+);
 
 Contact.propTypes = {
   offset: PropTypes.number.isRequired,
-}
+};
 
-export default memo(Contact)
+export default memo(Contact);

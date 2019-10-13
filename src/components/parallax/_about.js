@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { memo } from 'react';
 import {
   AboutHero,
   AboutSub,
@@ -7,9 +7,9 @@ import {
   Inner,
   Content,
   Title,
-} from '../../styles'
-import { TopAboutDivider, BottomAboutDivider } from './_dividers'
-import avatar from '../../images/avatar.png'
+} from '../../styles';
+import { TopAboutDivider, BottomAboutDivider } from './_dividers';
+import avatar from '../../images/avatar.png';
 
 const About = () => (
   <>
@@ -38,5 +38,5 @@ const About = () => (
       </Inner>
     </Content>
   </>
-)
-export default memo(About)
+);
+export default memo(About);

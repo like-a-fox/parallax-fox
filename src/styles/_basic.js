@@ -1,12 +1,12 @@
-import styled from 'styled-components'
-import tw from 'tailwind.macro'
-import { Link } from 'gatsby'
-import { ParallaxLayer } from 'react-spring/renderprops-addons.cjs'
-import { colors } from '../../tailwind'
+import styled from 'styled-components';
+import tw from 'tailwind.macro';
+import { Link } from 'gatsby';
+import { ParallaxLayer } from 'react-spring/renderprops-addons.cjs';
+import { colors } from '../../tailwind';
 
 export const Content = styled(ParallaxLayer)`
   ${tw`p-6 md:p-12 lg:p-24 justify-center items-center flex z-50`};
-`
+`;
 export const Divider = styled(ParallaxLayer)`
   ${tw`absolute w-full h-full`};
   background: ${props => props.bg};
@@ -14,23 +14,23 @@ export const Divider = styled(ParallaxLayer)`
     fill: ${props => props.fill};
   }
   clip-path: ${props => props.clipPath};
-`
+`;
 
 export const Inner = styled.div`
   ${tw`w-full xxl:w-2/3 text-center lg:text-left`};
-`
+`;
 
 export const DividerMiddle = styled(Divider)`
   clip-path: polygon(0 15%, 100% 25%, 100% 85%, 0 75%);
-`
+`;
 
 export const ContactText = styled.p`
   ${tw`text-grey-light font-mono text-xl md:text-2xl lg:text-3xl`};
-`
+`;
 
 export const Footer = styled.footer`
   ${tw`text-center text-grey absolute pin-b p-6 font-mono text-md lg:text-lg`};
-`
+`;
 export const ProjectsWrapper = styled.div`
   ${tw`flex flex-wrap justify-between mt-8`};
   display: grid;
@@ -43,11 +43,11 @@ export const ProjectsWrapper = styled.div`
     grid-template-columns: 1fr;
     grid-gap: 1.5rem;
   }
-`
+`;
 
 export const WrapperDiv = styled.div`
   ${tw`w-full xl:w-2/3`};
-`
+`;
 
 export const TitleWrapper = styled.div`
   ${tw`text-white relative uppercase text-xl md:text-2xl xl:text-3xl font-mono `};
@@ -67,13 +67,13 @@ export const TitleWrapper = styled.div`
     height: 100%;
     filter: blur(1px);
   }
-`
+`;
 export const Text = styled.div`
   ${tw`opacity-85 font-mono text-white text-sm md:text-base`};
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   font-weight: 200;
   letter-spacing: -1px;
-`
+`;
 export const Input = styled.input`
   ${tw`opacity-85 font-mono text-white text-sm md:text-base`};
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -82,7 +82,7 @@ export const Input = styled.input`
   color: ${({ error, color }) => (error ? colors.pink : color)};
   width: ${({ width }) => width}%;
   padding: ${({ padding }) => padding}px;
-`
+`;
 export const LinkWrapper = styled(Link)`
   width: 100%;
   position: relative;
@@ -115,7 +115,7 @@ export const LinkWrapper = styled(Link)`
     transform: translateY(-5px);
     filter: grayscale(30%);
   }
-`
+`;
 export const BigTitle = styled.h1`
   ${tw`text-4xl lg:text-5xl font-mono text-pink mb-3 tracking-wide`};
   text-shadow: 0 5px 35px rgba(255, 255, 255, 0.15);
@@ -133,7 +133,7 @@ export const BigTitle = styled.h1`
     display: inline-flex;
     align-items: flex-start;
   }
-`
+`;
 
 export const Subtitle = styled.p`
   ${tw`text-2xl lg:text-3xl font-mono text-tealDerp mt-6 xxl:w-3/4`};
@@ -144,4 +144,4 @@ export const Subtitle = styled.p`
     font-style: normal;
     color: ${colors.pink};
   }
-`
+`;

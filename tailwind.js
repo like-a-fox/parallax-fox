@@ -25,7 +25,7 @@ View the full documentation at https://tailwindcss.com.
 */
 
 // eslint-disable-next-line
-const defaultConfig = require('tailwindcss/defaultConfig')
+const defaultConfig = require('tailwindcss/defaultConfig');
 
 /*
 |-------------------------------------------------------------------------------
@@ -134,7 +134,7 @@ const colors = {
   'pink-light': '#fa7ea8',
   'pink-lighter': '#ffbbca',
   'pink-lightest': '#ffebef',
-}
+};
 
 module.exports = {
   /*
@@ -762,4 +762,4 @@ module.exports = {
     prefix: '',
     important: false,
   },
-}
+};

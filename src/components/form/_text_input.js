@@ -1,2 +1,7 @@
-import React, { memo } from 'react'
-import PropTypes from 'prop-types'
+import React, { useRef } from 'react';
+import { Input } from '../../styles';
+
+export default function TextInput(props) {
+  const inputEl = useRef(null);
+  return <Input {...props} ref={inputEl} />;
+}

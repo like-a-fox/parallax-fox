@@ -1,7 +1,7 @@
-import React, { memo } from 'react'
-import { SVG } from '../'
-import { UpDown, UpDownWide, Divider, DividerMiddle } from '../../styles'
-import { colors } from '../../../tailwind'
+import React, { memo } from 'react';
+import { SVG } from '../';
+import { UpDown, UpDownWide, Divider, DividerMiddle } from '../../styles';
+import { colors } from '../../../tailwind';
 
 export const TopAboutDivider = () => (
   <Divider
@@ -10,7 +10,7 @@ export const TopAboutDivider = () => (
     speed={0.2}
     offset={3}
   />
-)
+);
 let UpDownSvgs = () => (
   <UpDown opacity={0.7}>
     <SVG
@@ -45,8 +45,8 @@ let UpDownSvgs = () => (
       top="80%"
     />
   </UpDown>
-)
-UpDownSvgs = memo(UpDownSvgs)
+);
+UpDownSvgs = memo(UpDownSvgs);
 let UpDownWideSvgs = () => (
   <UpDownWide opacity={0.7}>
     <SVG
@@ -80,8 +80,8 @@ let UpDownWideSvgs = () => (
       top="10%"
     />
   </UpDownWide>
-)
-UpDownWideSvgs = memo(UpDownWideSvgs)
+);
+UpDownWideSvgs = memo(UpDownWideSvgs);
 export const BottomAboutDivider = () => (
   <Divider speed={0.1} offset={3}>
     <UpDownSvgs />
@@ -110,7 +110,7 @@ export const BottomAboutDivider = () => (
       top="70%"
     />
   </Divider>
-)
+);
 
 export const MiddleProjectsDivider = () => (
   <DividerMiddle
@@ -119,7 +119,7 @@ export const MiddleProjectsDivider = () => (
     offset={`${1}.1`}
     factor={2}
   />
-)
+);
 let UpDownProject = () => (
   <UpDown opacity={0.7}>
     <SVG icon="box" width={6} stroke={colors.tealDerp} left="85%" top="75%" />
@@ -140,8 +140,8 @@ let UpDownProject = () => (
       top="60%"
     />
   </UpDown>
-)
-UpDownProject = memo(UpDownProject)
+);
+UpDownProject = memo(UpDownProject);
 
 let UpDownWideProject = () => (
   <UpDownWide opacity={0.7}>
@@ -185,9 +185,9 @@ let UpDownWideProject = () => (
       top="10%"
     />
   </UpDownWide>
-)
+);
 
-UpDownWideProject = memo(UpDownWideProject)
+UpDownWideProject = memo(UpDownWideProject);
 
 export const LowerProjectsDivider = () => (
   <Divider speed={0.1} offset={1} factor={2}>
@@ -200,4 +200,4 @@ export const LowerProjectsDivider = () => (
     <SVG icon="hexa" width={16} stroke={colors.red} left="75%" top="30%" />
     <SVG icon="hexa" width={8} stroke={colors.burgDee} left="80%" top="70%" />
   </Divider>
-)
+);

@@ -1,9 +1,9 @@
-import React, { memo } from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import tw from 'tailwind.macro'
-import { width as twWidth } from '../../tailwind'
-import { hidden } from '../styles'
+import React, { memo } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import tw from 'tailwind.macro';
+import { width as twWidth } from '../../tailwind';
+import { hidden } from '../styles';
 
 const Wrapper = styled.svg`
   ${tw`absolute`};
@@ -15,7 +15,7 @@ const Wrapper = styled.svg`
   left: ${props => props.left};
   top: ${props => props.top};
   opacity: ${props => props.opacity};
-`
+`;
 
 const icons = {
   triangle: {
@@ -78,7 +78,7 @@ const icons = {
     ),
     viewBox: '0 0 100 100',
   },
-}
+};
 
 const SVG = ({
   stroke,
@@ -102,9 +102,9 @@ const SVG = ({
   >
     {icons[icon].shape}
   </Wrapper>
-)
+);
 
-export default memo(SVG)
+export default memo(SVG);
 
 SVG.propTypes = {
   stroke: PropTypes.string,
@@ -115,7 +115,7 @@ SVG.propTypes = {
   top: PropTypes.string,
   hiddenMobile: PropTypes.bool,
   opacity: PropTypes.number,
-}
+};
 
 SVG.defaultProps = {
   stroke: 'transparent',
@@ -125,4 +125,4 @@ SVG.defaultProps = {
   top: '0%',
   hiddenMobile: false,
   opacity: 0.7,
-}
+};

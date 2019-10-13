@@ -29,7 +29,7 @@ const arrayOfTiles = [
     subtitle: `Observe it alllllll`,
     pathname: 'rxjs',
   },
-]
+];
 
 const tiles = arrayOfTiles.reduce(
   (prev, { title, subtitle, pathname }) => ({
@@ -41,5 +41,5 @@ const tiles = arrayOfTiles.reduce(
     },
   }),
   {}
-)
-export const tile_data = { ...tiles }
+);
+export const tile_data = { ...tiles };

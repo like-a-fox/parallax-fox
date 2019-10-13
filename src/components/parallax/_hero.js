@@ -1,7 +1,7 @@
-import React, { memo } from 'react'
-import PropTypes from 'prop-types'
-import { colors } from '../../../tailwind'
-import { SVG } from '../'
+import React, { memo } from 'react';
+import PropTypes from 'prop-types';
+import { colors } from '../../../tailwind';
+import { SVG } from '../';
 import {
   UpDown,
   UpDownWide,
@@ -10,7 +10,7 @@ import {
   Subtitle,
   Content,
   WrapperDiv,
-} from '../../styles'
+} from '../../styles';
 
 const HeroContentBase = ({ children, offset }) => (
   <>
@@ -186,14 +186,14 @@ const HeroContentBase = ({ children, offset }) => (
       <WrapperDiv>{children}</WrapperDiv>
     </Content>
   </>
-)
+);
 
 HeroContentBase.propTypes = {
   children: PropTypes.node.isRequired,
   offset: PropTypes.number.isRequired,
-}
+};
 
-const HeroContent = memo(HeroContentBase)
+const HeroContent = memo(HeroContentBase);
 
 const Hero = ({ offset }) => (
   <HeroContent offset={offset}>
@@ -207,10 +207,10 @@ const Hero = ({ offset }) => (
       <br /> <em>&copy; {'Like A Fox Development'} </em>
     </Subtitle>
   </HeroContent>
-)
+);
 
 Hero.propTypes = {
   offset: PropTypes.number.isRequired,
-}
+};
 
-export default memo(Hero)
+export default memo(Hero);

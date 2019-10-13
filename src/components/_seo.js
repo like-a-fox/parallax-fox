@@ -1,11 +1,18 @@
-import React, { memo } from 'react'
-import Helmet from 'react-helmet'
-import PropTypes from 'prop-types'
-import { graphql, useStaticQuery } from 'gatsby'
-import config from '../../config/website'
+import React, { memo } from 'react';
+import Helmet from 'react-helmet';
+import PropTypes from 'prop-types';
+import { graphql, useStaticQuery } from 'gatsby';
 
 function HeadBase({ schemaOrgWebPage, breadcrumb }) {
-  const { inLanguage, title, description, image, url } = schemaOrgWebPage
+  const {
+    inLanguage,
+    title,
+    description,
+    image,
+    url,
+    ogs,
+    themeMeta,
+  } = schemaOrgWebPage;
   return (
     <Helmet>
       <html lang={inLanguage} />
@@ -26,12 +33,15 @@ function HeadBase({ schemaOrgWebPage, breadcrumb }) {
       />
       <meta name="parallax-fox" content={description} />
       <link rel="shortcut icon" href="/favicon.ico" />
-      <meta name="msapplication-TileColor" content={config.backgroundColor} />
+      <meta
+        name="msapplication-TileColor"
+        content={themeMeta.backgroundColor}
+      />
       <meta name="msapplication-config" content="/browserconfig.xml" />
       <meta name="description" content={description} />
       <meta name="image" content={image} />
-      <meta property="og:locale" content={config.ogLanguage} />
-      <meta property="og:site_name" content={config.ogSiteName} />
+      <meta property="og:locale" content={ogs.language} />
+      <meta property="og:site_name" content={ogs.siteName} />
       <meta property="og:title" content={title} />
       <meta property="og:type" content="website" />
       <meta property="og:description" content={description} />
@@ -42,16 +52,16 @@ function HeadBase({ schemaOrgWebPage, breadcrumb }) {
       </script>
       <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
     </Helmet>
-  )
+  );
 }
 
 HeadBase.propTypes = {
   breadcrumb: PropTypes.object,
   schemaOrgWebPage: PropTypes.object,
-}
-const Head = memo(HeadBase)
+};
+const Head = memo(HeadBase);
 
-export default () => {
+export default function SEO() {
   const data = useStaticQuery(
     graphql`
       query MetaDataQuery {
@@ -61,36 +71,28 @@ export default () => {
             breadcrumb {
               description
               name
-              itemListElement {
-                position
-                item {
-                  _id
-                  name
-                }
-              }
-            }
-            itemListElement {
-              position
-              item {
-                name
-                _id
-              }
+              _context
+              _type
             }
             schemaOrgWebPage {
               author {
                 name
+                _type
               }
               copyrightHolder {
                 name
+                _type
               }
               copyrightYear(fromNow: true)
               creator {
                 name
+                _type
               }
               description
               headline
               image {
                 url
+                _type
               }
               inLanguage
               mainEntityOfPage
@@ -99,12 +101,23 @@ export default () => {
               url
               publisher {
                 name
+                _type
               }
+              _context
+              _type
+              ogs {
+                language
+                siteName
+              }
+            }
+            themeMeta {
+              backgroundColor
+              primaryColor
             }
           }
         }
       }
     `
-  )
-  return <Head {...data.site.siteMetadata} />
+  );
+  return <Head {...data.site.siteMetadata} />;
 }

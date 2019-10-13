@@ -1,5 +1,5 @@
-import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import {
   ProjectsWrapper,
   LinkWrapper,
@@ -8,11 +8,11 @@ import {
   Title,
   Content,
   Inner,
-} from '../../styles'
-import { tile_data } from './_tile_data'
-import { LowerProjectsDivider, MiddleProjectsDivider } from './_dividers'
+} from '../../styles';
+import { tile_data } from './_tile_data';
+import { LowerProjectsDivider, MiddleProjectsDivider } from './_dividers';
 
-export default () => {
+export default function Projects() {
   const data = useStaticQuery(graphql`
     query TileBackgroundImages {
       __typename
@@ -28,7 +28,7 @@ export default () => {
         }
       }
     }
-  `)
+  `);
   return (
     <>
       <MiddleProjectsDivider />
@@ -38,8 +38,8 @@ export default () => {
           <ProjectsWrapper>
             {data.allImageSharp.nodes.map(
               ({ id, fluid: { srcWebp, originalName } }) => {
-                let tile = tile_data[`${originalName.split('_')[0]}`]
-                let { path, title, subtitle } = tile
+                let tile = tile_data[`${originalName.split('_')[0]}`];
+                let { path, title, subtitle } = tile;
                 return (
                   <LinkWrapper key={id} to={path} bg={srcWebp}>
                     <TitleWrapper>
@@ -47,7 +47,7 @@ export default () => {
                       <Text>{subtitle}</Text>
                     </TitleWrapper>
                   </LinkWrapper>
-                )
+                );
               }
             )}
           </ProjectsWrapper>
@@ -55,5 +55,5 @@ export default () => {
       </Content>
       <LowerProjectsDivider />
     </>
-  )
+  );
 }

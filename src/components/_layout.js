@@ -1,8 +1,9 @@
-import 'typeface-cantata-one'
-import 'typeface-open-sans'
-import React, { memo } from 'react'
-import { SEO } from './'
-import { createGlobalStyle } from 'styled-components'
+import 'typeface-cantata-one';
+import 'typeface-open-sans';
+import React, { memo } from 'react';
+import PropTypes from 'prop-types';
+import { SEO } from './';
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
@@ -28,7 +29,7 @@ const GlobalStyle = createGlobalStyle`
     color:#bc8999;
     text-decoration: none;
   }
-`
+`;
 
 const Layout = ({ children }) => (
   <>
@@ -36,6 +37,13 @@ const Layout = ({ children }) => (
     <GlobalStyle />
     {children}
   </>
-)
+);
 
-export default memo(Layout)
+Layout.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element),
+  ]),
+};
+
+export default memo(Layout);

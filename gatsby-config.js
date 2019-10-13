@@ -1,7 +1,7 @@
-const config = require('./config/website')
-const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
-const homeURL = `${config.siteUrl}${realPrefix}`
-const image = `${homeURL}${config.siteLogo}`
+const config = require('./config/website');
+const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
+const homeURL = `${config.siteUrl}${realPrefix}`;
+const image = `${homeURL}${config.siteLogo}`;
 
 // schema.org in JSONLD format
 // https://developers.google.com/search/docs/guides/intro-structured-data
@@ -43,13 +43,13 @@ const schemaOrgWebPage = {
     '@type': 'ImageObject',
     url: image,
   },
-}
+};
 
 const themeMeta = {
   ...config.theme,
   primaryColor: config.themeColor,
   backgroundColor: config.backgroundColor,
-}
+};
 
 // Initial breadcrumb list
 
@@ -62,7 +62,7 @@ const itemListElement = [
     },
     position: 1,
   },
-]
+];
 
 const breadcrumb = {
   '@context': 'http://schema.org',
@@ -70,7 +70,7 @@ const breadcrumb = {
   description: 'Breadcrumbs list',
   name: 'Breadcrumbs',
   itemListElement,
-}
+};
 
 module.exports = {
   /* General Information */
@@ -120,4 +120,4 @@ module.exports = {
     /* Must be placed at the end */
     `gatsby-plugin-offline`,
   ],
-}
+};
