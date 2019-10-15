@@ -5,6 +5,7 @@
   "author": "Derek Sligh<@like-a-fox>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.0",
+    "firebase": "^7.2.0",
     "gatsby": "^2.15.29",
     "gatsby-image": "^2.2.24",
     "gatsby-plugin-google-analytics": "^2.1.20",
@@ -50,8 +51,11 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
   },
   "eslintConfig": {
-    "extends": ["react-app", "eslint:recommended",
-        "plugin:react/recommended"],
+    "extends": [
+      "react-app",
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
     "plugins": [
       "react-hooks"
     ],

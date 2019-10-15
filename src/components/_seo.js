@@ -3,16 +3,8 @@ import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
 
-function HeadBase({ schemaOrgWebPage, breadcrumb }) {
-  const {
-    inLanguage,
-    title,
-    description,
-    image,
-    url,
-    ogs,
-    themeMeta,
-  } = schemaOrgWebPage;
+function HeadBase({ schemaOrgWebPage, breadcrumb, themeMeta }) {
+  const { inLanguage, title, description, image, url, ogs } = schemaOrgWebPage;
   return (
     <Helmet>
       <html lang={inLanguage} />
@@ -58,6 +50,7 @@ function HeadBase({ schemaOrgWebPage, breadcrumb }) {
 HeadBase.propTypes = {
   breadcrumb: PropTypes.object,
   schemaOrgWebPage: PropTypes.object,
+  themeMeta: PropTypes.object,
 };
 const Head = memo(HeadBase);
 
