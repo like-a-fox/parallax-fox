@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 function TextInput(props) {
   const {
-    label='test',
+    label = 'test',
     type,
     className,
     name,
@@ -57,4 +57,4 @@ TextInput.propTypes = {
   height: PropTypes.number,
 };
 
-export default memo(TextInput)
+export default memo(TextInput);

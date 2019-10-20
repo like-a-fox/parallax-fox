@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 function TextAreaInput(props) {
   const {
-    label='test',
+    label = 'test',
     className,
     name,
     value,

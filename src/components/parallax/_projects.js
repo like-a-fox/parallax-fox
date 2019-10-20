@@ -11,7 +11,7 @@ import {
   Inner,
 } from '../../styles';
 import { tile_data } from './_tile_data';
-import { LowerProjectsDivider, MiddleProjectsDivider } from './_dividers';
+import { MiddleProjectsDivider } from './_dividers';
 
 function ProjectLink({ id, fluid: { srcWebp, originalName } }) {
   let tile = tile_data[`${originalName.split('_')[0]}`];
@@ -57,7 +57,7 @@ export default function Projects() {
   return (
     <>
       <MiddleProjectsDivider />
-      <Content speed={0.4} offset={`${1}.2`} factor={2}>
+      <Content className="projects" speed={0.4} offset={`${1}.2`} factor={2}>
         <Inner>
           <Title>Projects</Title>
           <ProjectsWrapper>
@@ -67,7 +67,6 @@ export default function Projects() {
           </ProjectsWrapper>
         </Inner>
       </Content>
-      <LowerProjectsDivider />
     </>
   );
 }

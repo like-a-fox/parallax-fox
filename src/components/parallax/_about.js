@@ -8,13 +8,12 @@ import {
   Content,
   Title,
 } from '../../styles';
-import { TopAboutDivider, BottomAboutDivider } from './_dividers';
+import { TopAboutDivider } from './_dividers';
 import avatar from '../../images/avatar.png';
 
 const About = () => (
   <>
     <TopAboutDivider />
-    <BottomAboutDivider />
     <Content speed={0.4} offset={3}>
       <Inner>
         <Title>About</Title>

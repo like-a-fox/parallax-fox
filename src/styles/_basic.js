@@ -6,6 +6,10 @@ import { colors } from '../../tailwind';
 
 export const Content = styled(ParallaxLayer)`
   ${tw`p-6 md:p-12 lg:p-24 justify-center items-center flex z-50`};
+
+  &.hero {
+    mix-blend-mode: color-dodge;
+  }
 `;
 export const Divider = styled(ParallaxLayer)`
   ${tw`absolute w-full h-full`};
@@ -31,7 +35,7 @@ export const ContactInner = styled.div`
     justify-content: flex-start;
     flex-direction: column;
   }
-  @media screen(max-width:700px) {
+  @media (max-width: 700px) {
     flex-direction: column;
     div: {
       width: 100%;
@@ -94,27 +98,43 @@ export const Text = styled.div`
   font-weight: 200;
   letter-spacing: -1px;
 `;
+
+//Input Styles
+
 export const InputWrapper = styled.div`
-  ${tw`relative no-underline rounded-lg text-white flex-col flex justify-end`};
+  ${tw`relative no-underline rounded-lg text-white flex-col flex justify-end font-mono`};
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 `;
+
+export const InputLabel = styled.label`
+  font-size: ${({ fontSize }) => fontSize || '1.2rem'};
+  color: ${({ color }) => color || colors.white};
+  display: inline-flex;
+  text-transform: uppercase;
+  opacity: 0.7;
+  transform: translate(8px, 8px);
+  font-family: inherit;
+  z-index: 1000;
+`;
+
 export const Input = styled.input`
   text-shadow: 0 2px 10px rgba(20, 20, 20, 0.3);
   opacity: 0.7;
   background-color: #23262b;
-  height: ${({ height }) => height || 48}px;
+  height: ${({ height }) => height || 52}px;
   box-shadow: 0 4px 0 0
     ${({ underlineColor, error }) =>
-      underlineColor ? colors.greyDigo : error ? error : colors.greyDigo};
+      underlineColor ? colors.greyDigo : error ? error : colors.pink};
   border: none;
   outline: none;
-  opacity: 0.7;
+  opacity: 0.9;
   width: ${({ width }) => width}%;
   padding: 8px;
   padding-left: ${({ padding }) => padding || 12}px;
   padding-top: 12px;
-  font-size: 0.9rem;
-  margin-bottom: 16px;
+  font-size: 1.3rem;
+  font-family: inherit;
+  margin-bottom: 24px;
   font-weight: 200;
   color: ${({ error, color }) =>
     error ? colors.pink : color ? color : colors.pink};
@@ -123,42 +143,23 @@ export const Input = styled.input`
   }
 `;
 
-export const FormButton = styled.a`
-  ${tw`shadow-sm`}
-  text-decoration: none;
-  color: #23262b;
-  margin-top: 24px;
-  opacity: 0.7;
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  background-color: ${colors.greyDigo};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 48px;
-  min-width: 50%;
-  flex-grow: 1;
-  text-transform: uppercase;
-  &:hover {
-    cursor: pointer;
-    filter: hue-rotate(45deg) grayscale(50%);
-  }
-`;
+//Text Area Alt
 
 export const TextArea = styled.textarea`
   text-shadow: 0 2px 10px rgba(20, 20, 20, 0.3);
-  font-size: 0.9rem;
+  font-size: 1.3rem;
   font-weight: 200;
   min-height: 120px;
   letter-spacing: -1px;
   resize: none;
   padding: 8px;
-  opacity: 0.7;
+  opacity: 0.9;
+  font-family: inherit;
   text-transform: capitalize;
   background-color: #23262b;
   box-shadow: 0 4px 0 0
     ${({ underlineColor, error }) =>
-      underlineColor ? colors.greyDigo : error ? error : colors.greyDigo};
+      underlineColor ? colors.greyDigo : error ? error : colors.pink};
   border: none;
   outline: none;
   color: ${({ error, color }) =>
@@ -171,21 +172,39 @@ export const TextArea = styled.textarea`
   }
 `;
 
+//Form
+
 export const Form = styled.form`
-  ${tw`shadow-lg relative rounded-lg text-white flex-col flex stretch`}
+  ${tw`shadow-lg relative rounded-lg text-white flex-col flex stretch font-mono`}
   width: 100%;
   flex-grow: 1;
   padding: 24px;
+  background-color: #161719;
+  opacity: 0.8;
 `;
 
-export const InputLabel = styled.label`
-  font-size: ${({ fontSize }) => fontSize || '.7rem'};
-  color: ${({ color }) => color || colors.greyDigo};
-  display: inline-flex;
+//Button For Form
+export const FormButton = styled.a`
+  ${tw`shadow-sm text-xl font-mono`}
+  text-decoration: none;
+  color: #23262b;
+  margin-top: 24px;
+  opacity: 0.9;
+  font-weight: 600;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  background-color: ${colors.pink};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  min-width: 50%;
+  flex-grow: 1;
   text-transform: uppercase;
-  opacity: 0.7;
-  transform: translate(8px, 8px);
-  z-index: 1000;
+  &:hover {
+    cursor: pointer;
+    filter: hue-rotate(45deg) grayscale(50%);
+  }
 `;
 
 export const LinkWrapper = styled(Link)`
