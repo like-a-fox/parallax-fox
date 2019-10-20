@@ -184,6 +184,9 @@ export const Form = styled.form`
   padding: 24px;
   background-color: #161719;
   opacity: 0.8;
+  @media (max-width: 700px) {
+    margin-bottom: 80px;
+  }
 `;
 
 //Button For Form
@@ -201,6 +204,7 @@ export const FormButton = styled.a`
   justify-content: center;
   align-items: center;
   height: 48px;
+  max-height: 48px;
   min-width: 50%;
   flex-grow: 1;
   text-transform: uppercase;
