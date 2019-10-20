@@ -29,7 +29,7 @@ export const ContactInner = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   width: -webkit-fill-available;
-  > div {
+  &.contact {
     width: 40%;
     height: 100%;
     justify-content: flex-start;
@@ -37,8 +37,11 @@ export const ContactInner = styled.div`
   }
   @media (max-width: 700px) {
     flex-direction: column;
-    > div: {
-      width: 100%;
+    &.contact {
+      width: -webkit-fill-available;
+      .contact-inner {
+        width: -webkit-fill-available;
+      }
     }
   }
 `;

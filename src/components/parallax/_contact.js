@@ -50,14 +50,13 @@ const ContactSection = memo(ContactSectionBase);
 
 const Contact = ({ offset }) => (
   <ContactSection offset={offset}>
-    <ContactInner>
-      <Inner>
+    <ContactInner className="contact">
+      <Inner className="contact-title">
         <Title>Get in touch</Title>
         <ContactText>
           Say <a href="mailto:likeafox.dev@gmail.com">Hi </a>
         </ContactText>
       </Inner>
-
       <ContactForm />
     </ContactInner>
     <Footer>
