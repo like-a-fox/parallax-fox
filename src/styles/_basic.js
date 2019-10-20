@@ -144,7 +144,7 @@ export const Input = styled.input`
   color: ${({ error, color }) =>
     error ? colors.pink : color ? color : colors.pink};
   &:hover {
-    box-shadow: 0 4px 0 0 #6b6177;
+    box-shadow: 0 4px 0 0 ${colors.grey};
   }
 `;
 
@@ -173,7 +173,7 @@ export const TextArea = styled.textarea`
   width: 100%;
   padding: ${({ padding }) => padding || 12}px;
   &:hover {
-    box-shadow: 0 4px 0 0 #6b6177;
+    box-shadow: 0 4px 0 0 ${colors.grey};
   }
 `;
 
@@ -212,7 +212,7 @@ export const FormButton = styled.a`
   text-transform: uppercase;
   &:hover {
     cursor: pointer;
-    filter: hue-rotate(45deg) grayscale(50%);
+    background-color:${colors.grey};
   }
 `;
 
