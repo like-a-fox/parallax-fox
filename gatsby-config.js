@@ -1,4 +1,6 @@
+require('dotenv').config();
 const config = require('./config/website');
+
 const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
 const homeURL = `${config.siteUrl}${realPrefix}`;
 const image = `${homeURL}${config.siteLogo}`;
@@ -114,6 +116,19 @@ module.exports = {
         start_url: config.pathPrefix,
         display: `standalone`,
         icon: `src/images/icon.png`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-firebase',
+      options: {
+        features: {
+          auth: true,
+          database: true,
+          firestore: false,
+          storage: false,
+          messaging: false,
+          functions: true,
+        },
       },
     },
     `gatsby-plugin-smoothscroll`,

@@ -125,6 +125,7 @@ export const InputLabel = styled.label`
 export const Input = styled.input`
   text-shadow: 0 2px 10px rgba(20, 20, 20, 0.3);
   opacity: 0.7;
+  transition: box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   background-color: #23262b;
   height: ${({ height }) => height || 52}px;
   box-shadow: 0 4px 0 0
@@ -153,6 +154,7 @@ export const Input = styled.input`
 export const TextArea = styled.textarea`
   text-shadow: 0 2px 10px rgba(20, 20, 20, 0.3);
   font-size: 1.3rem;
+  transition: box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   font-weight: 200;
   min-height: 120px;
   letter-spacing: -1px;
@@ -194,6 +196,7 @@ export const Form = styled.form`
 //Button For Form
 export const FormButton = styled.a`
   ${tw`shadow-sm text-xl font-mono`}
+  transition: background-color 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   text-decoration: none;
   color: #23262b;
   margin-top: 24px;
@@ -212,7 +215,7 @@ export const FormButton = styled.a`
   text-transform: uppercase;
   &:hover {
     cursor: pointer;
-    background-color:${colors.grey};
+    background-color: ${colors.grey};
   }
 `;
 

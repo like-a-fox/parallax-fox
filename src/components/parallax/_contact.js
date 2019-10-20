@@ -4,7 +4,6 @@ import {
   Divider,
   Title,
   Content,
-  ContactInner,
   Inner,
   WaveWrapper,
   InnerWave,
@@ -50,15 +49,13 @@ const ContactSection = memo(ContactSectionBase);
 
 const Contact = ({ offset }) => (
   <ContactSection offset={offset}>
-    <ContactInner className="contact">
-      <Inner className="contact-title">
-        <Title>Get in touch</Title>
-        <ContactText>
-          Say <a href="mailto:likeafox.dev@gmail.com">Hi </a>
-        </ContactText>
-      </Inner>
+    <Inner className="contact-title">
+      <Title>Get in touch</Title>
+      <ContactText>
+        Say <a href="mailto:likeafox.dev@gmail.com">Hi </a>
+      </ContactText>
       <ContactForm />
-    </ContactInner>
+    </Inner>
     <Footer>
       &copy; 2019 by Like A Fox Development.{' '}
       <a href="https://github.com/like-a-fxx/parallax-fox">Github Repository</a>
