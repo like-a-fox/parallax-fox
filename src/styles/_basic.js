@@ -30,10 +30,12 @@ export const ContactInner = styled.div`
   align-items: flex-start;
   width: -webkit-fill-available;
   &.contact {
-    width: 40%;
-    height: 100%;
-    justify-content: flex-start;
-    flex-direction: column;
+    .contact-inner {
+      width: 40%;
+      height: 100%;
+      justify-content: flex-start;
+      flex-direction: column;
+    }
   }
   @media (max-width: 700px) {
     flex-direction: column;
