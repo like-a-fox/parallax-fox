@@ -1,11 +1,10 @@
 import React, { useRef, memo } from 'react';
-import { Input, InputWrapper, InputLabel } from '../../styles';
+import { TextArea, InputWrapper, InputLabel } from '../../styles';
 import PropTypes from 'prop-types';
 
-function TextInput(props) {
+function TextAreaInput(props) {
   const {
     label='test',
-    type,
     className,
     name,
     value,
@@ -18,14 +17,13 @@ function TextInput(props) {
     padding,
     fontSize,
   } = props;
-  const inputEl = useRef(null);
+  const textInputEl = useRef(null);
   return (
     <InputWrapper>
       <InputLabel color={color} fontSize={fontSize}>
         {label}
       </InputLabel>
-      <Input
-        type={type}
+      <TextArea
         error={error}
         padding={padding}
         className={className}
@@ -35,13 +33,13 @@ function TextInput(props) {
         width={width}
         height={height}
         underlineColor={underlineColor}
-        ref={inputEl}
+        ref={textInputEl}
       />
     </InputWrapper>
   );
 }
 
-TextInput.propTypes = {
+TextAreaInput.propTypes = {
   className: PropTypes.any,
   color: PropTypes.string,
   error: PropTypes.bool,
@@ -57,4 +55,4 @@ TextInput.propTypes = {
   height: PropTypes.number,
 };
 
-export default memo(TextInput)
+export default memo(TextAreaInput);

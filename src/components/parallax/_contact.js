@@ -5,6 +5,7 @@ import {
   Divider,
   Title,
   Content,
+  ContactInner,
   Inner,
   UpDown,
   UpDownWide,
@@ -14,7 +15,7 @@ import {
   ContactText,
 } from '../../styles';
 import { colors } from '../../../tailwind';
-import { TextField, TextInput } from '../form';
+import { ContactForm } from '../form';
 
 const ContactSectionBase = ({ children, offset }) => (
   <>
@@ -118,13 +119,16 @@ const ContactSection = memo(ContactSectionBase);
 
 const Contact = ({ offset }) => (
   <ContactSection offset={offset}>
-    <TextInput />
-    <Inner>
-      <Title>Get in touch</Title>
-      <ContactText>
-        Say <a href="mailto:likeafox.dev@gmail.com">Hi </a>
-      </ContactText>
-    </Inner>
+    <ContactInner>
+      <Inner>
+        <Title>Get in touch</Title>
+        <ContactText>
+          Say <a href="mailto:likeafox.dev@gmail.com">Hi </a>
+        </ContactText>
+      </Inner>
+
+      <ContactForm />
+    </ContactInner>
     <Footer>
       &copy; 2019 by Like A Fox Development.{' '}
       <a href="https://github.com/like-a-fxx/parallax-fox">Github Repository</a>

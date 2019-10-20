@@ -20,12 +20,32 @@ export const Inner = styled.div`
   ${tw`w-full xxl:w-2/3 text-center lg:text-left`};
 `;
 
+export const ContactInner = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: -webkit-fill-available;
+  > div {
+    width: 40%;
+    height: 100%;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+  @media screen(max-width:700px) {
+    flex-direction: column;
+    div: {
+      width: 100%;
+    }
+  }
+`;
+
 export const DividerMiddle = styled(Divider)`
   clip-path: polygon(0 15%, 100% 25%, 100% 85%, 0 75%);
 `;
 
 export const ContactText = styled.p`
   ${tw`text-grey-light font-mono text-xl md:text-2xl lg:text-3xl`};
+  margin-top: 12px;
 `;
 
 export const Footer = styled.footer`
@@ -74,15 +94,100 @@ export const Text = styled.div`
   font-weight: 200;
   letter-spacing: -1px;
 `;
-export const Input = styled.input`
-  ${tw`opacity-85 font-mono text-white text-sm md:text-base`};
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  font-weight: 200;
-  letter-spacing: -1px;
-  color: ${({ error, color }) => (error ? colors.pink : color)};
-  width: ${({ width }) => width}%;
-  padding: ${({ padding }) => padding}px;
+export const InputWrapper = styled.div`
+  ${tw`relative no-underline rounded-lg text-white flex-col flex justify-end`};
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 `;
+export const Input = styled.input`
+  text-shadow: 0 2px 10px rgba(20, 20, 20, 0.3);
+  opacity: 0.7;
+  background-color: #23262b;
+  height: ${({ height }) => height || 48}px;
+  box-shadow: 0 4px 0 0
+    ${({ underlineColor, error }) =>
+      underlineColor ? colors.greyDigo : error ? error : colors.greyDigo};
+  border: none;
+  outline: none;
+  opacity: 0.7;
+  width: ${({ width }) => width}%;
+  padding: 8px;
+  padding-left: ${({ padding }) => padding || 12}px;
+  padding-top: 12px;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+  font-weight: 200;
+  color: ${({ error, color }) =>
+    error ? colors.pink : color ? color : colors.pink};
+  &:hover {
+    box-shadow: 0 4px 0 0 #6b6177;
+  }
+`;
+
+export const FormButton = styled.a`
+  ${tw`shadow-sm`}
+  text-decoration: none;
+  color: #23262b;
+  margin-top: 24px;
+  opacity: 0.7;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  background-color: ${colors.greyDigo};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  min-width: 50%;
+  flex-grow: 1;
+  text-transform: uppercase;
+  &:hover {
+    cursor: pointer;
+    filter: hue-rotate(45deg) grayscale(50%);
+  }
+`;
+
+export const TextArea = styled.textarea`
+  text-shadow: 0 2px 10px rgba(20, 20, 20, 0.3);
+  font-size: 0.9rem;
+  font-weight: 200;
+  min-height: 120px;
+  letter-spacing: -1px;
+  resize: none;
+  padding: 8px;
+  opacity: 0.7;
+  text-transform: capitalize;
+  background-color: #23262b;
+  box-shadow: 0 4px 0 0
+    ${({ underlineColor, error }) =>
+      underlineColor ? colors.greyDigo : error ? error : colors.greyDigo};
+  border: none;
+  outline: none;
+  color: ${({ error, color }) =>
+    error ? colors.pink : color ? color : colors.pink};
+
+  width: 100%;
+  padding: ${({ padding }) => padding || 12}px;
+  &:hover {
+    box-shadow: 0 4px 0 0 #6b6177;
+  }
+`;
+
+export const Form = styled.form`
+  ${tw`shadow-lg relative rounded-lg text-white flex-col flex stretch`}
+  width: 100%;
+  flex-grow: 1;
+  padding: 24px;
+`;
+
+export const InputLabel = styled.label`
+  font-size: ${({ fontSize }) => fontSize || '.7rem'};
+  color: ${({ color }) => color || colors.greyDigo};
+  display: inline-flex;
+  text-transform: uppercase;
+  opacity: 0.7;
+  transform: translate(8px, 8px);
+  z-index: 1000;
+`;
+
 export const LinkWrapper = styled(Link)`
   width: 100%;
   position: relative;

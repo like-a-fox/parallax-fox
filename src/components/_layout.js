@@ -7,7 +7,7 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
-    box-sizing: inherit;
+    box-sizing: border-box;
   }
   html {
     text-rendering: optimizeLegibility;

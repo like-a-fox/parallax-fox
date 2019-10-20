@@ -112,14 +112,18 @@ export const BottomAboutDivider = () => (
   </Divider>
 );
 
-export const MiddleProjectsDivider = () => (
-  <DividerMiddle
-    bg="linear-gradient(to right, rgba(162, 181, 216, .7) 0%, rgba(148, 130, 186, .3) 100%)"
-    speed={-0.2}
-    offset={`${1}.1`}
-    factor={2}
-  />
+export const MiddleProjectsDivider = memo(
+  () => (
+    <DividerMiddle
+      bg="linear-gradient(to right, rgba(162, 181, 216, .7) 0%, rgba(148, 130, 186, .3) 100%)"
+      speed={-0.2}
+      offset={`${1}.1`}
+      factor={2}
+    />
+  ),
+  { displayName: 'MiddleProjectsDivider' }
 );
+
 let UpDownProject = () => (
   <UpDown opacity={0.7}>
     <SVG icon="box" width={6} stroke={colors.tealDerp} left="85%" top="75%" />
