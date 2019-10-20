@@ -37,7 +37,7 @@ export const ContactInner = styled.div`
   }
   @media (max-width: 700px) {
     flex-direction: column;
-    div: {
+    > div: {
       width: 100%;
     }
   }
