@@ -6,7 +6,7 @@ export const HeroHeaderBg = () => (
   <Divider
     bg="#23262b"
     clipPath="polygon(0 0%,100% 0%,100% 100%,0 15%)"
-    speed={0.1}
+    speed={0.5}
     offset={0}
   />
 );

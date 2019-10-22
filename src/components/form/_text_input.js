@@ -21,7 +21,7 @@ function TextInput(props) {
   const inputEl = useRef(null);
   return (
     <InputWrapper>
-      <InputLabel color={color} fontSize={fontSize}>
+      <InputLabel error={error} color={color} fontSize={fontSize}>
         {label}
       </InputLabel>
       <Input

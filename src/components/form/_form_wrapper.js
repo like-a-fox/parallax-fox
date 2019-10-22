@@ -1,11 +1,22 @@
-import React, { useRef, memo } from 'react';
+import React, { memo } from 'react';
 import { Form, FormButton } from '../../styles';
 import PropTypes from 'prop-types';
 
-function FormWrapper({ children, handleChange, handleSubmit }) {
-  const formRef = useRef(null);
+function FormWrapper({
+  formRef,
+  handleSubmit,
+  children,
+  handleFocus,
+  handleChange,
+  handleBlur,
+}) {
   return (
-    <Form ref={formRef} onChange={handleChange}>
+    <Form
+      ref={formRef}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+      onChange={handleChange}
+    >
       {children}
       <FormButton submit onClick={handleSubmit}>
         Send your stupidity
@@ -16,7 +27,10 @@ function FormWrapper({ children, handleChange, handleSubmit }) {
 
 FormWrapper.propTypes = {
   children: PropTypes.any,
+  formRef: PropTypes.any,
+  handleBlur: PropTypes.func,
   handleChange: PropTypes.func,
+  handleFocus: PropTypes.func,
   handleSubmit: PropTypes.func,
 };
 

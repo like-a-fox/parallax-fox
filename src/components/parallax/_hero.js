@@ -6,7 +6,7 @@ import { HeroHeaderBg } from './_dividers';
 const HeroContentBase = ({ children, offset }) => (
   <>
     <HeroHeaderBg />
-    <Content className="hero" speed={0.4} offset={offset}>
+    <Content className="hero" speed={-0.1} offset={offset}>
       <WrapperDiv>{children}</WrapperDiv>
     </Content>
   </>

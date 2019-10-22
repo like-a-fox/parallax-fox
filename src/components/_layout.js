@@ -9,6 +9,9 @@ const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
     box-sizing: border-box;
   }
+  *:focus {
+      outline:none;
+  }
   html {
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
