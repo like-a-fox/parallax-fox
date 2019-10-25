@@ -1,38 +1,75 @@
 import React, { useState, memo } from 'react';
-import { TextInput, TextAreaInput, FormWrapper, baseValidation } from '.';
+import {
+  TextInput,
+  TextAreaInput,
+  FormWrapper,
+  email_regex,
+  email_regex_str,
+} from '.';
+import { useFirebase } from 'gatsby-plugin-firebase';
+
+const formState = {
+  name: '',
+  email: '',
+  message: '',
+};
 
 function ContactForm() {
-  const [formState, setFormValue] = useState({
-    email: '',
-    name: '',
-    message: '',
-  });
-  const [invalidInputs, setValidCheck] = useState({
-    email: false,
-    name: false,
-    message: false,
-  });
-  const checkInput = ({ target: { name, value } }) =>
-    setValidCheck({
-      ...invalidInputs,
-      [name]: !baseValidation(value, name === 'email'),
+  const [form, formChange] = useState({ ...formState });
+  const [contact, setContact] = useState(null);
+  const [emailError, checkEmail] = useState(false);
+  const [firebaseSubmit, setFirebase] = useState();
+  const handleChange = event => {
+    const { name, value } = event.target;
+    if (name === 'email' && value !== form[name]) {
+      checkEmail(!email_regex.test(value));
+    }
+    formChange({ [name]: value });
+  };
+  useFirebase(
+    firebase =>
+      setFirebase(() => {
+        if (contact) {
+          firebase
+            .database()
+            .ref('/messages')
+            .push(contact);
+        }
+        setContact(null);
+      }),
+    [contact]
+  );
+  const handleSubmit = () => {
+    setContact(() => {
+      const { name, email, message } = form;
+      return {
+        name,
+        email,
+        message,
+        date: Date.now(),
+        html: `
+                          <div>From: ${name}</div>
+                          <div>Email: <a href="mailto:${email}">${email}</a></div>
+                          <div>Date: ${Date.now()}</div>
+                          <div>Message: ${message}</div>
+                          `,
+      };
     });
-  const focusReset = ({ target: { name } }) =>
-    setValidCheck({ ...invalidInputs, [name]: false });
-  const handleSetValue = ({ target }) =>
-    setFormValue({ ...formState, [target.name]: target.value });
+    firebaseSubmit();
+  };
+  const handleFocus = () => checkEmail(false);
   return (
     <FormWrapper
-      handleFocus={focusReset}
-      handleBlur={checkInput}
-      handleChange={handleSetValue}
+      handleFocus={handleFocus}
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
     >
       <TextInput
         name="name"
         label="Name"
         type="text"
-        error={invalidInputs.name}
-        value={formState.name}
+        required
+        value={form.name}
         placeholder="Stupid Name Here"
         width={100}
       />
@@ -40,16 +77,18 @@ function ContactForm() {
         name="email"
         label="Email"
         type="email"
-        error={invalidInputs.email}
-        value={formState.email}
+        required
+        pattern={email_regex_str}
+        error={emailError}
+        value={form.email}
         placeholder="Stupid Email..."
         width={100}
       />
       <TextAreaInput
         name="message"
         label="Message"
-        error={invalidInputs.message}
-        value={formState.message}
+        required
+        value={form.message}
         placeholder="Stupid Message..."
       />
     </FormWrapper>

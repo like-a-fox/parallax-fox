@@ -1,15 +1,11 @@
-import React, { memo } from 'react';
+import React, { memo, forwardRef } from 'react';
 import { Form, FormButton } from '../../styles';
 import PropTypes from 'prop-types';
 
-function FormWrapper({
-  formRef,
-  handleSubmit,
-  children,
-  handleFocus,
-  handleChange,
-  handleBlur,
-}) {
+function FormWrapper(
+  { handleSubmit, children, handleFocus, handleChange, handleBlur },
+  formRef
+) {
   return (
     <Form
       ref={formRef}
@@ -24,6 +20,9 @@ function FormWrapper({
     </Form>
   );
 }
+
+// eslint-disable-next-line no-func-assign
+FormWrapper = forwardRef(FormWrapper);
 
 FormWrapper.propTypes = {
   children: PropTypes.any,

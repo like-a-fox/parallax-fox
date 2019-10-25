@@ -12,8 +12,8 @@ const admin = require('firebase-admin');
 const nodemailer = require('nodemailer');
 // The Firebase Admin SDK to access the Firebase Realtime Database.
 admin.initializeApp(functions.config().firebase);
-const gmailEmail = encodeURIComponent(functions.config().gmail.email);
-const gmailPassword = encodeURIComponent(functions.config().gmail.password);
+const gmailEmail = encodeURIComponent(functions.config());
+const gmailPassword = encodeURIComponent(functions.config());
 const mailTransport = nodemailer.createTransport(
   `smtps://${gmailEmail}:${gmailPassword}@smtp.gmail.com`
 );
