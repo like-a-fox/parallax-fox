@@ -86,12 +86,5 @@
 	},
 	"bugs": {
 		"url": "https://github.com/like-a-fox/parallax-fox/issues"
-	},
-	"now": {
-		"name": "parallax-fox",
-		"version": 2,
-		"alias": [
-			"paralax-fox"
-		]
 	}
 }
