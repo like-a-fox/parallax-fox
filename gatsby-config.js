@@ -11,7 +11,6 @@ firebase.initializeApp({
 	appId: process.env.GATSBY_FIREBASE_APP_ID,
 	measurementID: process.env.GATSBY_FIREBASE_MEASUREMENT_ID
 });
-firebase.database();
 module.exports = {
 	/* General Information */
 	siteMetadata: {
