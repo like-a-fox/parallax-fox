@@ -23,13 +23,7 @@ const nodemailer = require('nodemailer');
 // TODO: Configure the `gmail.email` and `gmail.password` Google Cloud environment variables.
 const gmailEmail = process.env.FIREBASE_GMAIL_EMAIL;
 const gmailPassword = process.env.FIREBASE_GMAIL_PASSWORD;
-const mailTransport = nodemailer.createTransport({
-	service: 'gmail',
-	auth: {
-		user: gmailEmail,
-		pass: gmailPassword,
-	},
-});
+const mailTransport = nodemailer.createTransport(`smtps://${gmailEmail}:${gmailPassword}@smtp.gmail.com`);
 
 exports.sendContactMessage = functions.database
 	.ref('/messages/{pushKey}')
