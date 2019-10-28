@@ -45,7 +45,7 @@
 	],
 	"license": "MIT",
 	"scripts": {
-		"build": "gatsby build && cd ./functions && npm run deploy",
+		"build": "gatsby build",
 		"deploy": "gatsby clean && npm run build",
 		"now": "npm run deploy && now --public",
 		"develop": "gatsby develop",
