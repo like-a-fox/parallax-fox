@@ -2,14 +2,14 @@ import firebase from 'firebase/app'
 import 'firebase/database';
 
 const config = {
-	apiKey: process.env.GATSBY_FIREBASE_API_KEY,
-	authDomain: process.env.GATSBY_FIREBASE_AUTH_DOMAIN,
-	databaseURL: process.env.GATSBY_FIREBASE_DATABASE_URL,
-	projectId: process.env.GATSBY_FIREBASE_PROJECT_ID,
-	storageBucket: process.env.GATSBY_FIREBASE_STORAGE_BUCKET,
-	messagingSenderId: process.env.GATSBY_FIREBASE_MESSAGING_SENDER_ID,
-	appId: process.env.GATSBY_FIREBASE_APP_ID,
-	measurementID: process.env.GATSBY_FIREBASE_MEASUREMENT_ID
+	apiKey: "AIzaSyCYC4_YR8nHblokKMWgHYPtjmvg0lisC-g",
+	authDomain: "parallax-fox.firebaseapp.com",
+	databaseURL: "https://parallax-fox.firebaseio.com",
+	projectId: "parallax-fox",
+	storageBucket: "parallax-fox.appspot.com",
+	messagingSenderId: "595587400052",
+	appId: "1: 595587400052:web:f2dc5e1810f23c3f35ac21",
+	measurementID: "G-GF6W9N8HQN"
 }
 
 let FirebaseContext = null;
