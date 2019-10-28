@@ -4,7 +4,7 @@ require('dotenv').config();
 module.exports = {
 	/* General Information */
 	siteMetadata: {
-		...metaData
+		...metaData,
 	},
 	/* Plugins */
 	plugins: [
@@ -46,7 +46,7 @@ module.exports = {
 				printRejected: true,
 				develop: true,
 				tailwind: true,
-			}
+			},
 		},
 		/* Must be placed at the end */
 		// `gatsby-plugin-offline`,

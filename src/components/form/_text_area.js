@@ -16,7 +16,7 @@ function TextAreaInput(props) {
 		error,
 		padding,
 		fontSize,
-		handleChange
+		handleChange,
 	} = props;
 	const textInputEl = useRef(null);
 	return (
@@ -55,7 +55,7 @@ TextAreaInput.propTypes = {
 	type: PropTypes.string,
 	underlineColor: PropTypes.string,
 	value: PropTypes.string,
-	width: PropTypes.number
+	width: PropTypes.number,
 };
 
 export default memo(TextAreaInput);

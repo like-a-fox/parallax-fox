@@ -1,9 +1,7 @@
 {
 	"name": "parallax-fox",
 	"version": 2,
-	"alias": [
-		"paralax-fox"
-	],
+	"alias": ["paralax-fox"],
 	"env": {
 		"GATSBY_FIREBASE_API_KEY": "AIzaSyCYC4_YR8nHblokKMWgHYPtjmvg0lisC-g",
 		"GATSBY_FIREBASE_AUTH_DOMAIN": "parallax-fox.firebaseapp.com",

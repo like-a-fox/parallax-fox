@@ -1,17 +1,15 @@
 import React, { useState, memo, useEffect } from 'react';
 import { useFirebase } from '../../firebase';
-import {
-	TextInput,
-	TextAreaInput,
-	email_regex,
-	email_regex_str,
-} from '.';
-
+import { TextInput, TextAreaInput, email_regex, email_regex_str } from '.';
 
 import { Form } from '../../styles';
 import { default as FormButtons } from './_form_buttons';
 
-export const formatForm = ({ name = '', email = 'boop@doop.poop', message = '' }) => ({
+export const formatForm = ({
+	name = '',
+	email = 'boop@doop.poop',
+	message = '',
+}) => ({
 	name,
 	email,
 	message,
@@ -22,33 +20,36 @@ export const formatForm = ({ name = '', email = 'boop@doop.poop', message = '' }
 						  <div>Date: ${Date.now()}</div>
 						  <div>Message: ${message}</div>
 						  `,
-})
+});
 const initalForm = {
 	name: '',
 	email: '',
-	message: ''
-}
+	message: '',
+};
 function ContactForm() {
 	const [firebase] = useFirebase();
 	const [form, formChange] = useState(initalForm);
 	const [emailError, checkEmail] = useState(false);
 	const [clicked, toggleClicked] = useState(false);
 	const resetForm = () => {
-		formChange({ name: '', email: '', message: '' })
+		formChange({ name: '', email: '', message: '' });
 	};
 
 	useEffect(() => {
 		if (clicked && firebase) {
-			firebase.database().ref('/messages').push(form);
+			firebase
+				.database()
+				.ref('/messages')
+				.push(form);
 			toggleClicked(false);
 			resetForm();
 		}
-	}, [clicked, form, firebase])
+	}, [clicked, form, firebase]);
 
 	const handleSubmit = () => {
 		formChange(formatForm(form));
 		toggleClicked(true);
-	}
+	};
 	const handleChange = (event) => {
 		event.preventDefault();
 		const { name, value } = event.target;
@@ -60,8 +61,7 @@ function ContactForm() {
 	const handleFocus = () => checkEmail(false);
 
 	return (
-		<Form
-			onFocus={handleFocus}>
+		<Form onFocus={handleFocus}>
 			<TextInput
 				name="name"
 				label="Name"

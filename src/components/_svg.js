@@ -89,18 +89,18 @@ const SVG = ({
 	hiddenMobile,
 	opacity,
 }) => (
-		<Wrapper
-			opacity={opacity}
-			viewBox={icons[icon].viewBox}
-			stroke={stroke}
-			fill={fill}
-			svgWidth={twWidth[`${width}`]}
-			left={left}
-			top={top}
-			hiddenMobile={hiddenMobile}>
-			{icons[icon].shape}
-		</Wrapper>
-	);
+	<Wrapper
+		opacity={opacity}
+		viewBox={icons[icon].viewBox}
+		stroke={stroke}
+		fill={fill}
+		svgWidth={twWidth[`${width}`]}
+		left={left}
+		top={top}
+		hiddenMobile={hiddenMobile}>
+		{icons[icon].shape}
+	</Wrapper>
+);
 
 export default memo(SVG);
 

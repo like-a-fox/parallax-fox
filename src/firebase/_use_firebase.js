@@ -9,8 +9,8 @@ export const useFirebase = () => {
 				let fire = getFirebase();
 				setFirebase(fire);
 			}
-		}
+		};
 		handleFirebase();
 	}, [firebase]);
-	return [firebase]
-}
+	return [firebase];
+};

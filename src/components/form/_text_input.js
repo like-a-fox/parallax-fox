@@ -20,7 +20,7 @@ function TextInput(
 		padding,
 		fontSize,
 		required = false,
-		handleChange
+		handleChange,
 	},
 	inputRef
 ) {
@@ -71,7 +71,7 @@ TextInput.propTypes = {
 	type: PropTypes.string,
 	underlineColor: PropTypes.string,
 	value: PropTypes.string,
-	width: PropTypes.number
+	width: PropTypes.number,
 };
 
 export default memo(TextInput);

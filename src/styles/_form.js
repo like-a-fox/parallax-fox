@@ -118,40 +118,72 @@ export const FormButton = styled.a`
 	opacity: 0.7;
 	font-weight: 300;
 	color: ${colors.white};
-	box-shadow: -2px 0 0 0px ${colors.white};
 	background-color: #23262b;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 48px;
+	min-height: 48px;
 	max-height: 48px;
-	min-width: 50%;
+	min-width: 33%;
 	flex-grow: 1;
 	text-transform: uppercase;
 	&:first-child {
 		border-top-left-radius: 8px;
 		border-bottom-left-radius: 8px;
 		box-shadow: none;
+		flex-basis: 66%;
 	}
 	&:last-child {
 		border-top-right-radius: 8px;
 		border-bottom-right-radius: 8px;
+		background-color: ${colors.white};
+		color: #23262b;
 	}
 	&:hover {
 		cursor: pointer;
 		font-weight: 600;
 		color: #23262b;
 		background-color: ${colors.white};
+		opacity: 0.5;
+		&:last-child {
+			color: ${colors.white};
+			background-color: #23262b;
+		}
+	}
+	@media screen and (max-width: 600px) {
+		min-width: 100%;
+		&:first-child,
+		&:last-child {
+			border-top-left-radius: 0px;
+			border-bottom-left-radius: 0px;
+			border-top-right-radius: 0px;
+			border-bottom-right-radius: 0px;
+			margin-bottom: 18px;
+		}
 	}
 `;
 
 export const ButtonWrapper = styled.div`
 	display: flex;
-	flex-wrap:nowrap;
+	flex-wrap: nowrap;
 	width: 100%;
 	height: auto;
 	padding: 0;
-	margin-top:24px;
+	margin-top: 24px;
 	align-items: center;
 	justify-content: center;
-`
+	@media (max-width: 600px) {
+		flex-direction: column;
+		a {
+			min-width: 100%;
+			&:first-child,
+			&:last-child {
+				border-top-left-radius: none;
+				border-bottom-left-radius: none;
+				border-top-right-radius: none;
+				border-bottom-right-radius: none;
+				margin-bottom: 18px;
+			}
+		}
+	}
+`;
