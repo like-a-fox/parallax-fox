@@ -12,19 +12,6 @@ module.exports = {
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-styled-components`,
 		{
-			resolve: `gatsby-plugin-firebase`,
-			options: {
-				features: {
-					auth: false,
-					database: true,
-					firestore: false,
-					storage: false,
-					messaging: false,
-					functions: true,
-				},
-			}
-		},
-		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
 				path: `${__dirname}/src/images/`,

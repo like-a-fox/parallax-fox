@@ -1,11 +1,12 @@
-import React, { useState, memo } from 'react';
-import { useFirebase } from 'gatsby-plugin-firebase';
+import React, { useState, memo, useEffect } from 'react';
+import { useFirebase } from '../../firebase';
 import {
 	TextInput,
 	TextAreaInput,
 	email_regex,
 	email_regex_str,
 } from '.';
+
 
 import { Form } from '../../styles';
 import { default as FormButtons } from './_form_buttons';
@@ -28,6 +29,7 @@ const initalForm = {
 	message: ''
 }
 function ContactForm() {
+	const [firebase] = useFirebase();
 	const [form, formChange] = useState(initalForm);
 	const [emailError, checkEmail] = useState(false);
 	const [clicked, toggleClicked] = useState(false);
@@ -35,16 +37,16 @@ function ContactForm() {
 		formChange({ name: '', email: '', message: '' })
 	};
 
-	useFirebase((firebase) => {
+	useEffect(() => {
 		if (clicked && firebase) {
-			const data = formatForm({ ...form })
-			firebase.database().ref('/messages').push({ ...data });
+			firebase.database().ref('/messages').push(form);
 			toggleClicked(false);
 			resetForm();
 		}
-	}, [clicked])
+	}, [clicked, form, firebase])
 
 	const handleSubmit = () => {
+		formChange(formatForm(form));
 		toggleClicked(true);
 	}
 	const handleChange = (event) => {
