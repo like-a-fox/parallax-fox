@@ -20,12 +20,14 @@ function TextInput(
 		padding,
 		fontSize,
 		required = false,
+		handleChange
 	},
 	inputRef
 ) {
 	if (required) {
 		required = 'required';
 	}
+
 	return (
 		<InputWrapper>
 			<InputLabel error={error} color={color} fontSize={fontSize}>
@@ -39,7 +41,8 @@ function TextInput(
 				className={className}
 				name={name}
 				required={required}
-				defaultValue={value}
+				onChange={handleChange}
+				value={value}
 				placeholder={placeholder}
 				width={width}
 				height={height}
@@ -57,6 +60,7 @@ TextInput.propTypes = {
 	color: PropTypes.string,
 	error: PropTypes.bool,
 	fontSize: PropTypes.string,
+	handleChange: PropTypes.any,
 	height: PropTypes.number,
 	label: PropTypes.string,
 	name: PropTypes.string,
@@ -67,7 +71,7 @@ TextInput.propTypes = {
 	type: PropTypes.string,
 	underlineColor: PropTypes.string,
 	value: PropTypes.string,
-	width: PropTypes.number,
+	width: PropTypes.number
 };
 
 export default memo(TextInput);

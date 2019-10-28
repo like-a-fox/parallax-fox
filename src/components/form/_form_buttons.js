@@ -4,7 +4,6 @@ import { FormButton, ButtonWrapper } from '../../styles';
 
 
 function FormButtons({ resetForm, handleSubmit }) {
-
 	return (
 		<ButtonWrapper>
 			<FormButton onClick={handleSubmit} submit>
