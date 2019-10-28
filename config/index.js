@@ -1,4 +1,3 @@
 module.exports = {
-    ...require('./_dataformat'),
-    firebase: require('./_firebase')
-}
+	...require('./_dataformat'),
+};

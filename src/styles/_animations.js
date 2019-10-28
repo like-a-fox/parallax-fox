@@ -1,5 +1,4 @@
 import styled, { keyframes, css } from 'styled-components';
-import tw from 'tailwind.macro';
 import triangle from '../images/triangle.svg';
 
 export const rotate = keyframes`
@@ -38,58 +37,58 @@ export const upDownWide = keyframes`
   }
 `;
 export const upDownAnimation = css`
-  ${upDown} 4s ease-in-out infinite alternate;
+	${upDown} 4s ease-in-out infinite alternate;
 `;
 export const upDownWideAnimation = css`
-  ${upDownWide} 18s ease-in-out infinite alternate;
+	${upDownWide} 18s ease-in-out infinite alternate;
 `;
 export const UpDown = styled.div`
-  animation: ${upDownAnimation};
-  opacity: ${props => props.opacity};
-  ${tw`pin absolute`};
+	animation: ${upDownAnimation};
+	opacity: ${(props) => props.opacity};
+	${tw`pin absolute`};
 `;
 export const UpDownWide = styled.div`
-  animation: ${upDownWideAnimation};
-  opacity: ${props => props.opacity};
-  ${tw`pin absolute`};
+	animation: ${upDownWideAnimation};
+	opacity: ${(props) => props.opacity};
+	${tw`pin absolute`};
 `;
-export const waveAnimation = length => css`
-  animation: ${wave} ${length} linear infinite alternate;
+export const waveAnimation = (length) => css`
+	animation: ${wave} ${length} linear infinite alternate;
 `;
-export const rotateAnimation = length => css`
-  animation: ${rotate} ${length} linear infinite;
+export const rotateAnimation = (length) => css`
+	animation: ${rotate} ${length} linear infinite;
 `;
 export const hidden = css`
-  ${tw`hidden xl:block`};
+	${tw`hidden xl:block`};
 `;
 export const WaveWrapper = styled.div`
-  ${tw`absolute pin-b w-full`};
-  transform: matrix(1, 0, 0, -1, 0, 0);
+	${tw`absolute pin-b w-full`};
+	transform: matrix(1, 0, 0, -1, 0, 0);
 `;
 export const InnerWave = styled.div`
-  ${tw`relative h-full`};
-  svg {
-    width: 100%;
-    height: 40vh;
-  }
-  path {
-    ${waveAnimation('20s')};
-  }
+	${tw`relative h-full`};
+	svg {
+		width: 100%;
+		height: 40vh;
+	}
+	path {
+		${waveAnimation('20s')};
+	}
 `;
 export const Title = styled.h1`
-  ${tw`text-4xl uppercase lg:text-4xl font-mono text-grey-light mb-8 tracking-wide relative inline-block`};
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  font-weight: 200;
-  letter-spacing: -1px;
-  &:before {
-    content: '';
-    width: 40px;
-    height: 40px;
-    background: url(${triangle});
-    position: absolute;
-    background-size: 40px;
-    ${rotateAnimation('4s')};
-    left: -60px;
-    top: 5px;
-  }
+	${tw`text-4xl uppercase lg:text-4xl font-mono text-grey-light mb-8 tracking-wide relative inline-block`};
+	text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+	font-weight: 200;
+	letter-spacing: -1px;
+	&:before {
+		content: '';
+		width: 40px;
+		height: 40px;
+		background: url(${triangle});
+		position: absolute;
+		background-size: 40px;
+		${rotateAnimation('4s')};
+		left: -60px;
+		top: 5px;
+	}
 `;

@@ -1,12 +1,9 @@
 import 'typeface-cantata-one';
 import 'typeface-open-sans';
-import React, { memo, createContext, useContext  } from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { SEO } from './';
 import { createGlobalStyle } from 'styled-components';
-import {firebase} from '../../config';
-
-
 
 const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
@@ -38,18 +35,18 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Layout = ({ children }) => (
-  <>
-    <SEO />
-    <GlobalStyle />
-    {children}
-  </>
+	<>
+		<SEO />
+		<GlobalStyle />
+		{children}
+	</>
 );
 
 Layout.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.arrayOf(PropTypes.element),
-  ]),
+	children: PropTypes.oneOfType([
+		PropTypes.element,
+		PropTypes.arrayOf(PropTypes.element),
+	]),
 };
 
 export default memo(Layout);
