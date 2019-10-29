@@ -11,7 +11,7 @@ import {
 import avatar from '../../images/avatar.png';
 
 const About = ({ ...parallaxProps }) => (
-	<Content speed={0.4} {...parallaxProps}>
+	<Content className="about" speed={0.4} {...parallaxProps}>
 		<Inner>
 			<Title>About</Title>
 			<AboutHero>

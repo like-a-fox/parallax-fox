@@ -89,6 +89,6 @@ export const Title = styled.h1`
 		background-size: 40px;
 		${rotateAnimation('4s')};
 		left: -60px;
-		top: 5px;
+		top: 0;
 	}
 `;

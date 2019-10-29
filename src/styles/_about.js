@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 
 export const AboutHero = styled.div`
-	${tw`flex font-mono flex-col lg:flex-row items-center`};
+	${tw`flex font-mono flex-row items-center`};
 `;
 export const Avatar = styled.img`
 	${tw`rounded-full w-32 xl:w-48 shadow-lg h-auto`};
 `;
 export const AboutSub = styled.span`
-	${tw`text-indigo-lightest pt-12 font-mono lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl`};
+	${tw`text-indigo-lightest font-mono pl-6 lg:pl-12 text-xl lg:text-3xl xl:text-4xl`};
 	text-transform: uppercase;
+	align-items: center;
 	letter-spacing: -1px;
 `;
 export const AboutDesc = styled.p`

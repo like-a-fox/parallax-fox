@@ -25,16 +25,16 @@ ParallaxWrapperBase.propTypes = {
 const ParallaxWrapper = memo(ParallaxWrapperBase);
 
 const ParallaxPage = () => (
-	<ParallaxWrapper pages={5}>
+	<ParallaxWrapper pages={4.5}>
 		<Hero offset={0} />
 		<HeroHeaderBg offset={0} />
 		<Projects offset={1} />
-		<MiddleProjectsDivider offset={1.1} />
-		<TopAboutDivider offset={2.9} />
-		<About offset={2.9} />
-		<Contact offset={3.9} />
-		<FooterSection offset={4} />
-		<WaveLayerDivider offset={4} />
+		<MiddleProjectsDivider offset={1.3} />
+		<TopAboutDivider offset={2.4} />
+		<About offset={2.5} />
+		<Contact offset={3.5} />
+		<FooterSection offset={3.5} />
+		<WaveLayerDivider offset={3.7} />
 	</ParallaxWrapper>
 );
 export default memo(ParallaxPage);
