@@ -5,7 +5,6 @@ import { colors } from '../../tailwind';
 
 export const Content = styled(ParallaxLayer)`
 	${tw`p-6 md:p-12 lg:p-24 justify-center items-center flex z-50`};
-
 	&.hero {
 		mix-blend-mode: color-dodge;
 	}
@@ -60,16 +59,9 @@ export const Footer = styled.footer`
 	${tw`text-center text-grey absolute pin-b p-6 font-mono text-md lg:text-lg`};
 `;
 export const ProjectsWrapper = styled.div`
-	${tw`flex flex-wrap justify-between mt-8`};
-	display: grid;
-	grid-gap: 2rem;
-	grid-template-columns: repeat(2, 1fr);
-	@media (max-width: 1200px) {
-		grid-gap: 1.5rem;
-	}
+	${tw`flex flex-wrap justify-even`};
 	@media (max-width: 900px) {
-		grid-template-columns: 1fr;
-		grid-gap: 1.5rem;
+		flex-direction: column;
 	}
 `;
 
@@ -106,11 +98,22 @@ export const Text = styled.div`
 export const LinkWrapper = styled(Link)`
 	width: 100%;
 	position: relative;
+	flex-basis: calc(50% - 4rem);
 	${tw`shadow-lg relative no-underline rounded-lg text-white flex-col flex justify-end`};
 	transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	min-height: 19rem;
+	flex-grow: auto;
 	filter: grayscale(30%);
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	margin-left: 1rem;
+	margin-right: 1rem;
 	overflow: hidden;
+	@media (max-width: 900px) {
+		flex-basis: 100%;
+		margin-right: 0;
+		margin-left: 0;
+	}
 	&:before {
 		content: '';
 		opacity: 0.75;

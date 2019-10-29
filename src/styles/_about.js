@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const AboutHero = styled.div`
-	${tw`flex font-mono flex-col lg:flex-row items-center mt-8`};
+	${tw`flex font-mono flex-col lg:flex-row items-center`};
 `;
 export const Avatar = styled.img`
 	${tw`rounded-full w-32 xl:w-48 shadow-lg h-auto`};

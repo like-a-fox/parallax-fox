@@ -102,7 +102,8 @@ export const Form = styled.form`
 	width: 100%;
 	flex-grow: 1;
 	padding: 24px;
-	background-color: #161719;
+	transition: background 20ms ease-in-out;
+	background-color: ${(props) => (props.submitted ? colors.white : '#161719')};
 	opacity: 0.8;
 	@media (max-width: 700px) {
 		margin-bottom: 80px;
