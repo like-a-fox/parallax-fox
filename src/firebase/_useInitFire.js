@@ -1,10 +1,4 @@
-import {
-	createContext,
-	useContext,
-	useState,
-	useEffect,
-	useCallback,
-} from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/database';
 
@@ -48,35 +42,16 @@ export const useInitializeFirebase = () => {
 	return state;
 };
 
-export const formatForm = ({ name, email, message }) => ({
-	name,
-	email,
-	message,
-	date: Date.now(),
-	html: `
-						  <div>From: ${name}</div>
-						  <div>Email: <a href="mailto:${email}">${email}</a></div>
-						  <div>Date: ${Date.now()}</div>
-						  <div>Message: ${message}</div>
-						  `,
-});
-
-export const useMessageFire = (form, firebase) => {
-	return useCallback(() => {
-		const handleForm = (form, firebase) => {
-			const messageRef = firebase
-				.database()
-				.ref('/messages')
-				.push();
-			if (form.name && form.message && form.email) {
-				const messageForm = formatForm(form);
-				try {
-					messageRef.set({ ...messageForm });
-				} catch (err) {
-					throw new Error(err.message);
-				}
+export const messageFire = (firebase) => {
+	return (form) => {
+		const db = firebase.database();
+		const messageRef = db.ref('/messages').push();
+		if (form.name && form.message && form.email) {
+			try {
+				messageRef.set({ ...form });
+			} catch (err) {
+				throw new Error(err.message);
 			}
-		};
-		handleForm(form, firebase);
-	}, [firebase, form]);
+		}
+	};
 };

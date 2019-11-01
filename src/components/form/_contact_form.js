@@ -1,5 +1,5 @@
 import React, { useState, memo } from 'react';
-import { useMessageFire } from '../../firebase';
+import { messageFire } from '../../firebase';
 import {
 	TextInput,
 	TextAreaInput,
@@ -83,11 +83,29 @@ function ContactForm(firebase) {
 		changeInputs({ name: '', email: '', message: '' });
 		formChange(null);
 	};
-	useMessageFire(form, firebase);
+
+	const handleForm = (inputs) => {
+		const formatForm = ({ name, email, message }) => ({
+			name,
+			email,
+			message,
+			date: Date.now(),
+			html: `
+						  <div>From: ${name}</div>
+						  <div>Email: <a href="mailto:${email}">${email}</a></div>
+						  <div>Date: ${Date.now()}</div>
+						  <div>Message: ${message}</div>
+						  `,
+		});
+		const formatted = formatForm(inputs);
+		formChange(formatted);
+	};
 
 	const handleSubmit = () => {
-		formChange(inputs);
-
+		handleForm(inputs);
+		if (form) {
+			messageFire(firebase);
+		}
 		toggleClicked(true);
 		resetForm();
 	};
