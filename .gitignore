@@ -62,3 +62,6 @@ bundle-stats.json
 tailwind.custom.css
 
 .env
+
+.firebase
+.firebaserc
