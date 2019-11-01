@@ -1,7 +1,7 @@
 # Parallax Fox
 
-[Now Hosted](https://parallax-fox.now.sh) - Hosting via now.sh
-[Firebase Hosted](https://parallax-fox.firebaseapp.com) - Hosting via Firebase
+* [Now Hosted](https://parallax-fox.now.sh) - Hosting via now.sh
+* [Firebase Hosted](https://parallax-fox.firebaseapp.com) - Hosting via Firebase
 
 Just another version of my portfolio that uses:
 * React Spring
