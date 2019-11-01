@@ -1,5 +1,8 @@
 # Parallax Fox
 
+[Now Hosted](https://parallax-fox.now.sh) - Hosting via now.sh
+[Firebase Hosted](https://parallax-fox.firebaseapp.com) - Hosting via Firebase
+
 Just another version of my portfolio that uses:
 * React Spring
 * TailwindCSS
@@ -23,6 +26,9 @@ gatsby[or NPM/yarn] develop
 Deploy with:
 ```
 now --public
+//OR
+yarn[or npm run] deploy
+//script runs gatsby clean && gatsby build && firebase deploy
 ```
 
 ## Built With
