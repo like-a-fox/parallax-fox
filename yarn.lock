@@ -5614,11 +5614,6 @@ gatsby-page-utils@^0.0.27:
     micromatch "^3.1.10"
     slash "^3.0.0"
 
-gatsby-plugin-firebase@^0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-firebase/-/gatsby-plugin-firebase-0.1.3.tgz#9dab7674dd03d47a230ecfbf821fab0934a9b739"
-  integrity sha512-xUYux1rCgrZ7jTeTtISv5F+BQA3VupsfHlkG2mEVLj4bqFEbZAcRh8AwDdr5N130QZgQCG1aq9L4qQbsOXB48g==
-
 gatsby-plugin-google-analytics@^2.1.23:
   version "2.1.23"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-2.1.23.tgz#7bad5dc36787a5b2317f3c8043ff2febe7c0932e"

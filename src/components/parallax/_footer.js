@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { Content, Footer } from '../../styles';
 
 const FooterSection = ({ ...parallaxProps }) => (
-	<Content {...parallaxProps}>
+	<Content className="footer" {...parallaxProps}>
 		<Footer>
 			&copy; 2019 by Like A Fox Development.{' '}
 			<a href="https://github.com/like-a-fxx/parallax-fox">Github Repository</a>.

@@ -29,7 +29,7 @@ function TextAreaInput(props) {
 				padding={padding}
 				className={className}
 				name={name}
-				value={value}
+				defaultValue={value}
 				placeholder={placeholder}
 				width={width}
 				onChange={handleChange}

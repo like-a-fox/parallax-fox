@@ -42,7 +42,7 @@ function TextInput(
 				name={name}
 				required={required}
 				onChange={handleChange}
-				value={value}
+				defaultValue={value}
 				placeholder={placeholder}
 				width={width}
 				height={height}

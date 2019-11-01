@@ -9,6 +9,9 @@ export const Content = styled(ParallaxLayer)`
 	&.about {
 		mix-blend-mode: color-dodge;
 	}
+	&.footer {
+		z-index: 30;
+	}
 `;
 
 export const Divider = styled(ParallaxLayer)`

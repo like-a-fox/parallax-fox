@@ -1,5 +1,5 @@
-import React, { useState, memo, useEffect } from 'react';
-import { useFirebase } from '../../firebase';
+import React, { useState, memo } from 'react';
+import { useMessageFire } from '../../firebase';
 import {
 	TextInput,
 	TextAreaInput,
@@ -10,22 +10,6 @@ import PropTypes from 'prop-types';
 import { Form, FormButton } from '../../styles';
 import { default as FormButtons } from './_form_buttons';
 
-export const formatForm = ({
-	name = '',
-	email = 'boop@doop.poop',
-	message = '',
-}) => ({
-	name,
-	email,
-	message,
-	date: Date.now(),
-	html: `
-						  <div>From: ${name}</div>
-						  <div>Email: <a href="mailto:${email}">${email}</a></div>
-						  <div>Date: ${Date.now()}</div>
-						  <div>Message: ${message}</div>
-						  `,
-});
 const initalForm = {
 	name: '',
 	email: '',
@@ -35,7 +19,7 @@ function SubmittedScreen({ toggleClicked }) {
 	const [counter, setCount] = useState(0);
 	const handleClick = () => {
 		setCount(counter + 1);
-		if (counter > 3) {
+		if (counter > 1) {
 			toggleClicked(false);
 		}
 	};
@@ -53,83 +37,80 @@ function SubmittedScreen({ toggleClicked }) {
 SubmittedScreen.propTypes = {
 	toggleClicked: PropTypes.any,
 };
-function ContactForm() {
-	const [firebase] = useFirebase();
-	const [form, formChange] = useState(initalForm);
+const InitialForm = ({ inputs, emailError, handleSubmit, resetForm }) => [
+	<TextInput
+		key={'name'}
+		name="name"
+		label="Name"
+		type="text"
+		required
+		value={inputs.name}
+		placeholder="Stupid Name Here"
+		width={100}
+	/>,
+	<TextInput
+		key={'email'}
+		name="email"
+		label="Email"
+		type="email"
+		required
+		pattern={email_regex_str}
+		error={emailError}
+		value={inputs.email}
+		placeholder="Stupid Email..."
+		width={100}
+	/>,
+	<TextAreaInput
+		key={'message'}
+		name="message"
+		label="Message"
+		required
+		value={inputs.message}
+		placeholder="Stupid Message..."
+	/>,
+	<FormButtons
+		key={'buttons'}
+		handleSubmit={handleSubmit}
+		resetForm={resetForm}
+	/>,
+];
+function ContactForm(firebase) {
+	const [inputs, changeInputs] = useState(initalForm);
+	const [form, formChange] = useState(null);
 	const [emailError, checkEmail] = useState(false);
 	const [clicked, toggleClicked] = useState(false);
 	const resetForm = () => {
-		formChange({ name: '', email: '', message: '' });
+		changeInputs({ name: '', email: '', message: '' });
+		formChange(null);
 	};
-
-	useEffect(() => {
-		if (clicked && firebase) {
-			firebase
-				.database()
-				.ref('/messages')
-				.push(form);
-			resetForm();
-		}
-	}, [clicked, form, firebase]);
+	useMessageFire(form, firebase);
 
 	const handleSubmit = () => {
-		formChange(formatForm(form));
+		formChange(inputs);
+
 		toggleClicked(true);
+		resetForm();
 	};
 	const handleChange = (event) => {
-		event.preventDefault();
 		const { name, value } = event.target;
-		formChange({ ...form, [name]: value });
+		changeInputs({ ...inputs, [name]: value });
 		if (name === 'email') {
 			checkEmail(!email_regex.test(value));
 		}
 	};
 	const handleFocus = () => checkEmail(false);
-
-	const InitialForm = [
-		<TextInput
-			key={'name'}
-			name="name"
-			label="Name"
-			type="text"
-			required
-			handleChange={handleChange}
-			value={form.name}
-			placeholder="Stupid Name Here"
-			width={100}
-		/>,
-		<TextInput
-			key={'email'}
-			name="email"
-			label="Email"
-			type="email"
-			required
-			handleChange={handleChange}
-			pattern={email_regex_str}
-			error={emailError}
-			value={form.email}
-			placeholder="Stupid Email..."
-			width={100}
-		/>,
-		<TextAreaInput
-			key={'message'}
-			name="message"
-			label="Message"
-			handleChange={handleChange}
-			required
-			value={form.message}
-			placeholder="Stupid Message..."
-		/>,
-		<FormButtons
-			key={'buttons'}
-			handleSubmit={handleSubmit}
-			resetForm={resetForm}
-		/>,
-	];
-
 	return (
-		<Form submitted={clicked} onFocus={handleFocus}>
-			{!clicked ? InitialForm : <SubmittedScreen toggleClicked={toggleClicked} />}
+		<Form submitted={clicked} onChange={handleChange} onFocus={handleFocus}>
+			{!clicked ? (
+				<InitialForm
+					handleSubmit={handleSubmit}
+					inputs={inputs}
+					emailError={emailError}
+					resetForm={resetForm}
+				/>
+			) : (
+				<SubmittedScreen toggleClicked={toggleClicked} />
+			)}
 		</Form>
 	);
 }
