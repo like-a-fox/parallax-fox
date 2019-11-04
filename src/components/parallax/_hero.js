@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { BigTitle, Subtitle, Content, WrapperDiv } from '../../styles';
 
 const Hero = ({ ...parallaxProps }) => (
-	<Content className="hero" speed={-0.1} {...parallaxProps}>
+	<Content className="hero" {...parallaxProps}>
 		<WrapperDiv>
 			<BigTitle>
 				Design. <i>not aga!n</i>

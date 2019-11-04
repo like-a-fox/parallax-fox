@@ -7,11 +7,11 @@ export const Avatar = styled.img`
 	${tw`rounded-full w-32 xl:w-48 shadow-lg h-auto`};
 `;
 export const AboutSub = styled.span`
-	${tw`text-indigo-lightest font-mono pl-6 lg:pl-12 text-xl lg:text-3xl xl:text-4xl`};
+	${tw`text-indigo-lightest font-mono pl-6 lg:pl-12 text-xl lg:text-2xl xl:text-3xl`};
 	text-transform: uppercase;
 	align-items: center;
 	letter-spacing: -1px;
 `;
 export const AboutDesc = styled.p`
-	${tw`text-indigo-lighter text-lg md:text-xl lg:text-2xl font-mono pt-6 md:pt-12 text-justify`};
+	${tw`text-white text-lg md:text-xl lg:text-2xl font-mono pt-6 md:pt-12 text-justify`};
 `;

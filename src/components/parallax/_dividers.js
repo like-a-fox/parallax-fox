@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Divider, DividerMiddle, WaveWrapper, InnerWave } from '../../styles';
 export const HeroHeaderBg = ({ offset }) => (
 	<Divider
-		bg="#23262b"
+		bg="linear-gradient(to top, rgba(50, 50, 65, .2) 0%, rgba(50, 50, 65, .7) 100%)"
 		clipPath="polygon(0 0%,100% 0%,100% 100%,0 15%)"
 		speed={0.5}
 		offset={offset}
@@ -13,36 +13,27 @@ export const HeroHeaderBg = ({ offset }) => (
 HeroHeaderBg.propTypes = {
 	offset: PropTypes.number,
 };
-export const TopAboutDivider = ({ offset }) => (
+export const TopAboutDivider = ({ ...parallaxProps }) => (
 	<Divider
-		bg="#23262b"
-		clipPath="polygon(0 16%, 100% 4%, 100% 82%, 0 94%)"
-		speed={0.2}
-		offset={offset}
+		bg="linear-gradient(to right, rgba(30,40,50,.9) 0%, rgba(80, 100, 120, .7) 100%)"
+		clipPath="polygon(-40% 27% ,-18% 100%,131% 85%,73% 0%)"
+		{...parallaxProps}
 	/>
 );
 
-TopAboutDivider.propTypes = {
-	offset: PropTypes.number,
-};
-export const MiddleProjectsDivider = ({ offset }) => (
+export const MiddleProjectsDivider = ({ ...parallaxProps }) => (
 	<DividerMiddle
 		bg="linear-gradient(to right, rgba(162, 181, 216, .7) 0%, rgba(148, 130, 186, .3) 100%)"
-		speed={-0.2}
-		offset={offset}
-		factor={2}
+		{...parallaxProps}
 	/>
 );
 
-MiddleProjectsDivider.propTypes = {
-	offset: PropTypes.number,
-};
-
-export const WaveLayerDivider = ({ offset }) => (
-	<Divider fill="#23262b" speed={0.2} offset={offset}>
+export const WaveLayerDivider = ({ ...parallaxProps }) => (
+	<Divider className="wave" fill="rgba(50, 50, 65, .9)" {...parallaxProps}>
 		<WaveWrapper>
 			<InnerWave>
 				<svg
+					id="wave"
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 800 338.05"
 					preserveAspectRatio="none">
@@ -59,9 +50,3 @@ export const WaveLayerDivider = ({ offset }) => (
 		</WaveWrapper>
 	</Divider>
 );
-WaveLayerDivider.propTypes = {
-	offset: PropTypes.number,
-};
-WaveLayerDivider.defaultProps = {
-	offset: 5,
-};

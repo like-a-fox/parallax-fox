@@ -1,21 +1,10 @@
-import React, { memo } from 'react';
-import PropTypes from 'prop-types';
-import { useInitializeFirebase, FirebaseContext } from './_useInitFire';
+import { useInitializeFirebase } from './_useInitFire';
 
-function FirebaseProvider({ children }) {
+function useFirebase() {
 	const { initalizing, firebase } = useInitializeFirebase();
-	if (initalizing) {
-		return <div> ...Loading</div>;
+	if (!initalizing) {
+		return [firebase];
 	}
-	return (
-		<FirebaseContext.Provider firebase={firebase}>
-			{children}
-		</FirebaseContext.Provider>
-	);
 }
 
-FirebaseProvider.propTypes = {
-	children: PropTypes.any,
-};
-
-export default memo(FirebaseProvider);
+export default useFirebase;

@@ -4,10 +4,10 @@ import { ParallaxLayer } from 'react-spring/renderprops-addons.cjs';
 import { colors } from '../../tailwind';
 
 export const Content = styled(ParallaxLayer)`
-	${tw`p-6 md:p-12 lg:p-24 justify-center items-center flex z-50`};
-	&.hero,
-	&.about {
-		mix-blend-mode: color-dodge;
+	${tw`pl-16 pr-16 justify-center items-center flex z-50`};
+	min-height: 100vh;
+	&.hero {
+		mix-blend-mode: exclusion;
 	}
 	&.footer {
 		z-index: 30;
@@ -16,15 +16,25 @@ export const Content = styled(ParallaxLayer)`
 
 export const Divider = styled(ParallaxLayer)`
 	${tw`absolute w-full h-full`};
+	min-height: 100vh;
 	background: ${(props) => props.bg};
 	svg {
 		fill: ${(props) => props.fill};
 	}
 	clip-path: ${(props) => props.clipPath};
+	&.wave {
+		svg#wave {
+			mask-image: linear-gradient(
+				to right,
+				rgba(162, 181, 216, 0.9) 0%,
+				rgba(148, 130, 186, 0.3) 100%
+			);
+		}
+	}
 `;
 
 export const Inner = styled.div`
-	${tw`w-full xxl:w-2/3 text-center lg:text-left`};
+	${tw`w-full xxl:w-2/3 text-center h-full lg:text-left`};
 `;
 
 export const ContactInner = styled.div`
@@ -52,7 +62,11 @@ export const ContactInner = styled.div`
 `;
 
 export const DividerMiddle = styled(Divider)`
-	clip-path: polygon(0 15%, 100% 25%, 100% 85%, 0 75%);
+	opacity: ${({ flipped }) => (flipped ? 0.5 : 'initial')};
+	clip-path: ${({ flipped }) =>
+		flipped
+			? ' polygon(0 37%,75% 48%,100% 10%,100% 10%)'
+			: ' polygon(0 0%,100% 11%,100% 78%,0% 100%)'};
 `;
 
 export const ContactText = styled.p`

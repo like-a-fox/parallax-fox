@@ -41,17 +41,3 @@ export const useInitializeFirebase = () => {
 
 	return state;
 };
-
-export const messageFire = (firebase) => {
-	return (form) => {
-		const db = firebase.database();
-		const messageRef = db.ref('/messages').push();
-		if (form.name && form.message && form.email) {
-			try {
-				messageRef.set({ ...form });
-			} catch (err) {
-				throw new Error(err.message);
-			}
-		}
-	};
-};

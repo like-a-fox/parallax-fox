@@ -52,7 +52,7 @@ function Projects({ ...parallaxProps }) {
 		}
 	`);
 	return (
-		<Content className="projects" speed={0.4} factor={2} {...parallaxProps}>
+		<Content className="projects" {...parallaxProps}>
 			<Inner>
 				<Title>Projects</Title>
 				<ProjectsWrapper>

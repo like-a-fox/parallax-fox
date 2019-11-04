@@ -4,7 +4,6 @@ import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { SEO } from './';
 import { createGlobalStyle } from 'styled-components';
-import { FirebaseProvider } from '../firebase';
 
 const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
@@ -36,11 +35,11 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Layout = ({ children }) => (
-	<FirebaseProvider>
+	<>
 		<SEO />
 		<GlobalStyle />
 		{children}
-	</FirebaseProvider>
+	</>
 );
 
 Layout.propTypes = {
