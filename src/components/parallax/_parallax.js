@@ -1,7 +1,8 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { Parallax } from 'react-spring/renderprops-addons.cjs';
-import {
+import
+{
 	Hero,
 	Projects,
 	Contact,
@@ -25,17 +26,17 @@ ParallaxWrapperBase.propTypes = {
 const ParallaxWrapper = memo(ParallaxWrapperBase);
 
 const ParallaxPage = () => (
-	<ParallaxWrapper pages={5}>
+	<ParallaxWrapper pages={6}>
 		<Hero offset={0} />
 		<HeroHeaderBg offset={0} />
-		<Projects factor={2} offset={1.3} />
+		<Projects factor={2} offset={1} />
 		<MiddleProjectsDivider factor={1.7} speed={0.3} offset={1} />
-		<MiddleProjectsDivider speed={-0.1} flipped offset={3.7} />
+		<MiddleProjectsDivider factor={1.5} speed={-0.1} flipped offset={4.2} />
 		<TopAboutDivider speed={0.2} offset={3} />
-		<About speed={-0.1} offset={3} />
-		<Contact offset={4} />
-		<FooterSection offset={4} />
-		<WaveLayerDivider factor={1.5} offset={3.5} />
+		<About speed={-0.1} factor={1.5} offset={3} />
+		<Contact factor={1.5} offset={4.7} />
+		<FooterSection offset={5} />
+		<WaveLayerDivider factor={1.5} offset={4.5} />
 	</ParallaxWrapper>
 );
 export default memo(ParallaxPage);

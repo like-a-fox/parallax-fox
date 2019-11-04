@@ -4,7 +4,7 @@ import { ParallaxLayer } from 'react-spring/renderprops-addons.cjs';
 import { colors } from '../../tailwind';
 
 export const Content = styled(ParallaxLayer)`
-	${tw`pl-16 pr-16 justify-center items-center flex z-50`};
+	${tw`pl-4 pr-4 lg:pl-16 lg:pr-16 justify-center items-center flex z-50`};
 	min-height: 100vh;
 	&.hero {
 		mix-blend-mode: exclusion;
