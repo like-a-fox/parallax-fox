@@ -1,8 +1,7 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { Parallax } from 'react-spring/renderprops-addons.cjs';
-import
-{
+import {
 	Hero,
 	Projects,
 	Contact,
@@ -31,7 +30,12 @@ const ParallaxPage = () => (
 		<HeroHeaderBg offset={0} />
 		<Projects factor={2} offset={1} />
 		<MiddleProjectsDivider factor={1.7} speed={0.3} offset={1} />
-		<MiddleProjectsDivider factor={1.5} speed={-0.1} flipped offset={4.2} />
+		<MiddleProjectsDivider
+			factor={1.5}
+			speed={-0.1}
+			flipped="true"
+			offset={4.2}
+		/>
 		<TopAboutDivider speed={0.2} offset={3} />
 		<About speed={-0.1} factor={1.5} offset={3} />
 		<Contact factor={1.5} offset={4.7} />

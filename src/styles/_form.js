@@ -65,22 +65,24 @@ export const Input = styled.input`
 
 export const TextArea = styled.textarea`
 	text-shadow: 0 2px 10px rgba(20, 20, 20, 0.3);
-	font-size: 1rem;
+	opacity: 0.7;
 	transition: box-shadow 0.4s ease-in-out;
-	font-weight: 200;
-	min-height: 120px;
-	letter-spacing: -0.75px;
+	background-color: #23262b;
+	height: ${({ height }) => height || 120}px;
+	border: none;
 	resize: none;
+	outline: none;
+	width: ${({ width }) => width}%;
 	padding: 8px;
-	opacity: 0.9;
+	padding-left: ${({ padding }) => padding || 12}px;
+	padding-top: 12px;
+	font-size: 1rem;
 	font-family: inherit;
 	text-transform: uppercase;
-	background-color: #23262b;
-	border: none;
-	outline: none;
+	letter-spacing: -0.75px;
+	margin-bottom: 24px;
+	font-weight: 200;
 	color: ${colors.grey};
-	width: 100%;
-	padding: ${({ padding }) => padding || 12}px;
 	box-shadow: ${({ error }) =>
 		error ? `-4px 0px 0 0 ${colors.pink}` : `0px 2px 0 0 ${colors.white}`};
 	&:hover {
@@ -98,14 +100,14 @@ export const TextArea = styled.textarea`
 //Form
 
 export const Form = styled.form`
-	${tw`shadow-lg relative rounded-lg text-white flex-col flex stretch font-mono`}
+	${tw`shadow-lg p-4 xl: p-12 2xl:p-24 relative rounded-lg text-white flex-col flex stretch font-mono`}
 	width: 100%;
 	flex-grow: 1;
-	padding: 24px;
 	transition: background 20ms ease-in-out;
 	background-color: ${(props) => (props.submitted ? 'transparent' : '#161719')};
 	opacity: 0.8;
 	@media (max-width: 700px) {
+		padding: 0;
 		margin-bottom: 150px;
 	}
 `;

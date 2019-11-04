@@ -62,11 +62,11 @@ export const ContactInner = styled.div`
 `;
 
 export const DividerMiddle = styled(Divider)`
-	opacity: ${({ flipped }) => (flipped ? 0.5 : 'initial')};
+	opacity: ${({ flipped }) => (!flipped ? 'initial' : 0.5)};
 	clip-path: ${({ flipped }) =>
-		flipped
-			? ' polygon(0 37%,75% 48%,100% 10%,100% 10%)'
-			: ' polygon(0 0%,100% 11%,100% 78%,0% 100%)'};
+		!flipped
+			? ' polygon(0 0%,100% 11%,100% 78%,0% 100%)'
+			: ' polygon(0 37%,75% 48%,100% 10%,100% 10%)'};
 `;
 
 export const ContactText = styled.p`

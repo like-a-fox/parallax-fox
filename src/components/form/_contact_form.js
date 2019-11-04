@@ -8,10 +8,13 @@ import {
 	initalForm,
 } from './_utils';
 import { Form } from '../../styles';
+import { email_regex } from './_validate_inputs';
 
 function ContactForm() {
 	const [inputs, changeInputs] = useState(() => ({ ...initalForm }));
-	const [errors, checkErrors] = useState(() => checkInputs(inputs));
+	const [errors, checkErrors] = useState(() =>
+		Object.keys(inputs).reduce((prev, next) => ({ ...prev, [next]: false }))
+	);
 	const [firebase] = useFirebase();
 	const [formSubmit, changeForm] = useState(() => {
 		if (!inputs.message || !inputs.email || !inputs.name) {
@@ -32,9 +35,25 @@ function ContactForm() {
 	}, [formSubmit, firebase]);
 	const resetForm = () => {
 		changeInputs({ ...initalForm });
+		const removeErrors = Object.keys(errors).reduce(
+			(prev, next) => ({
+				...prev,
+				[next]: false,
+			}),
+			{}
+		);
+		checkErrors(removeErrors);
 	};
 	const handleSubmit = () => {
-		if (!inputs.message || !inputs.email || !inputs.name) {
+		checkErrors(checkInputs(inputs));
+		if (
+			!inputs.message ||
+			!inputs.email ||
+			!inputs.name ||
+			errors.message ||
+			errors.email ||
+			errors.name
+		) {
 			changeForm({ error: true, form: null, submitted: false });
 		} else {
 			const form = handleForm(inputs);
@@ -45,7 +64,10 @@ function ContactForm() {
 	const handleBlur = ({ target: { name, value } }) =>
 		checkErrors({
 			...errors,
-			[name]: value !== '' && value !== null && value !== undefined,
+			[name]:
+				name === 'email'
+					? !email_regex.test(value)
+					: value === '' || value === null || value === undefined,
 		});
 	const handleChange = (event) => {
 		const { name, value } = event.target;
@@ -67,7 +89,7 @@ function ContactForm() {
 				<InitialForm
 					handleSubmit={handleSubmit}
 					inputs={inputs}
-					emailError={errors.email}
+					errors={errors}
 					resetForm={resetForm}
 				/>
 			) : (

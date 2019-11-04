@@ -17,30 +17,24 @@ export const FirebaseContext = createContext({
 	firebase: null,
 });
 
-export const useInitFire = () =>
-{
+export const useInitFire = () => {
 	const { firebase } = useContext(FirebaseContext);
 	return firebase;
 };
 
-export const useInitializeFirebase = () =>
-{
-	const [state, setState] = useState(() =>
-	{
-		if (!firebase.apps.length)
-		{
+export const useInitializeFirebase = () => {
+	const [state, setState] = useState(() => {
+		if (!firebase.apps.length) {
 			firebase.initializeApp(config);
 			firebase.database();
 		}
 		return { initializing: !firebase, firebase };
 	});
-	function onChange(firebase)
-	{
+	function onChange(firebase) {
 		setState({ initializing: false, firebase });
 	}
 
-	useEffect(() =>
-	{
+	useEffect(() => {
 		const unsubscribe = () => onChange(firebase);
 		return () => unsubscribe();
 	}, []);

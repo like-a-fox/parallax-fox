@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import
-{
-	TextInput,
-	TextAreaInput,
-	email_regex,
-	email_regex_str,
-} from '../form';
+import { TextInput, TextAreaInput, email_regex } from '../form';
 import PropTypes from 'prop-types';
 import { FormButton } from '../../styles';
 import { default as FormButtons } from './_form_buttons';
@@ -14,14 +8,11 @@ export const initalForm = {
 	email: '',
 	message: '',
 };
-export function SubmittedScreen({ toggleClicked })
-{
+export function SubmittedScreen({ toggleClicked }) {
 	const [counter, setCount] = useState(0);
-	const handleClick = () =>
-	{
+	const handleClick = () => {
 		setCount(counter + 1);
-		if (counter > 1)
-		{
+		if (counter > 1) {
 			toggleClicked();
 		}
 	};
@@ -30,8 +21,8 @@ export function SubmittedScreen({ toggleClicked })
 			{!counter
 				? 'Send Another'
 				: counter < 2
-					? 'Are You F*cking Kidding?'
-					: 'Wow, Fine Ass Hole'}
+				? 'Are You F*cking Kidding?'
+				: 'Wow, Fine Ass Hole'}
 		</FormButton>
 	);
 }
@@ -40,41 +31,38 @@ SubmittedScreen.propTypes = {
 	toggleClicked: PropTypes.any,
 };
 
-export const InitialForm = ({
-	inputs,
-	emailError,
-	handleSubmit,
-	resetForm,
-}) => [
+export const InitialForm = ({ inputs, errors, handleSubmit, resetForm }) => {
+	const labels = Object.keys(errors).reduce(
+		(prev, next) => ({
+			...prev,
+			[next]: {
+				label: `${next}${errors[next] ? ' failllllll' : ''}`,
+				error: errors[next],
+				name: next,
+				defaultValue: inputs[next],
+				required: true,
+				type: next === 'email' ? 'email' : 'text',
+			},
+		}),
+		{}
+	);
+	return [
 		<TextInput
-			key={'name'}
-			name="name"
-			label="Name"
-			type="text"
-			required
-			value={inputs.name}
+			key="name"
 			placeholder="Stupid Name Here"
 			width={100}
+			{...labels['name']}
 		/>,
 		<TextInput
-			key={'email'}
-			name="email"
-			label="Email"
-			type="email"
-			required
-			pattern={email_regex_str}
-			error={emailError}
-			value={inputs.email}
+			key="email"
 			placeholder="Stupid Email..."
 			width={100}
+			{...labels['email']}
 		/>,
 		<TextAreaInput
-			key={'message'}
-			name="message"
-			label="Message"
-			required
-			value={inputs.message}
+			key="message"
 			placeholder="Stupid Message..."
+			{...labels['message']}
 		/>,
 		<FormButtons
 			key={'buttons'}
@@ -82,12 +70,11 @@ export const InitialForm = ({
 			resetForm={resetForm}
 		/>,
 	];
+};
 
-export const checkInputs = (inputs) =>
-{
+export const checkInputs = (inputs) => {
 	let emailError = false;
-	if (inputs.email && inputs.email.length > 0)
-	{
+	if (inputs.email && inputs.email.length > 0) {
 		emailError = !email_regex.test(inputs.email);
 	}
 	return Object.keys(inputs).reduce(
@@ -96,9 +83,9 @@ export const checkInputs = (inputs) =>
 			[nextInput]:
 				nextInput === 'email'
 					? emailError
-					: inputs[nextInput] !== '' &&
-					inputs[nextInput] !== null &&
-					inputs[nextInput] !== undefined,
+					: inputs[nextInput] === '' ||
+					  inputs[nextInput] === null ||
+					  inputs[nextInput] === undefined,
 		}),
 		{}
 	);

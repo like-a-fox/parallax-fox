@@ -21,12 +21,17 @@ export const TopAboutDivider = ({ ...parallaxProps }) => (
 	/>
 );
 
-export const MiddleProjectsDivider = ({ ...parallaxProps }) => (
+export const MiddleProjectsDivider = ({ flipped, ...parallaxProps }) => (
 	<DividerMiddle
+		flipped={(flipped && flipped.toString()) || undefined}
 		bg="linear-gradient(to right, rgba(162, 181, 216, .7) 0%, rgba(148, 130, 186, .3) 100%)"
 		{...parallaxProps}
 	/>
 );
+
+MiddleProjectsDivider.propTypes = {
+	flipped: PropTypes.any,
+};
 
 export const WaveLayerDivider = ({ ...parallaxProps }) => (
 	<Divider className="wave" fill="rgba(50, 50, 65, .9)" {...parallaxProps}>
