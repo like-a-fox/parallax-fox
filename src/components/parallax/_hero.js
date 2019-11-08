@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 import { BigTitle, Subtitle, Content, WrapperDiv } from '../../styles';
 
 const Hero = ({ ...parallaxProps }) => (
@@ -16,5 +17,9 @@ const Hero = ({ ...parallaxProps }) => (
 		</WrapperDiv>
 	</Content>
 );
+
+Hero.propTypes = {
+	mixBlend: PropTypes.any,
+};
 
 export default memo(Hero);

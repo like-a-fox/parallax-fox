@@ -1,18 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Divider, DividerMiddle, WaveWrapper, InnerWave } from '../../styles';
-export const HeroHeaderBg = ({ offset }) => (
+export const HeroHeaderBg = ({ ...parallaxProps }) => (
 	<Divider
 		bg="linear-gradient(to top, rgba(50, 50, 65, .2) 0%, rgba(50, 50, 65, .7) 100%)"
 		clipPath="polygon(0 0%,100% 0%,100% 100%,0 15%)"
 		speed={0.5}
-		offset={offset}
+		{...parallaxProps}
 	/>
 );
 
-HeroHeaderBg.propTypes = {
-	offset: PropTypes.number,
-};
 export const TopAboutDivider = ({ ...parallaxProps }) => (
 	<Divider
 		bg="linear-gradient(to right, rgba(30,40,50,.9) 0%, rgba(80, 100, 120, .7) 100%)"

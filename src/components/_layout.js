@@ -17,10 +17,12 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     box-sizing: border-box;
     -ms-overflow-style: scrollbar;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: #161719;
+    -webkit-tap-highlight-color: none;
+    background-color:${({ invert }) =>
+					invert ? 'rgb(180,180,180)' : '#161719'};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+	filter: ${(props) => props.layoutFilter};
   }
   html, body {
     width: 100%;
@@ -34,10 +36,10 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const Layout = ({ children }) => (
+const Layout = ({ children, invert = 0 }) => (
 	<>
 		<SEO />
-		<GlobalStyle />
+		<GlobalStyle invert={invert} />
 		{children}
 	</>
 );
@@ -47,6 +49,7 @@ Layout.propTypes = {
 		PropTypes.element,
 		PropTypes.arrayOf(PropTypes.element),
 	]),
+	invert: PropTypes.any,
 };
 
 export default memo(Layout);

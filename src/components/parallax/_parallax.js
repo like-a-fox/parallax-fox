@@ -13,8 +13,10 @@ import {
 	FooterSection,
 } from '.';
 
-const ParallaxWrapperBase = ({ children, pages }) => (
-	<Parallax pages={pages}>{children}</Parallax>
+const ParallaxWrapperBase = ({ children, pages, ...extraProps }) => (
+	<Parallax {...extraProps} pages={pages}>
+		{children}
+	</Parallax>
 );
 
 ParallaxWrapperBase.propTypes = {
@@ -24,23 +26,30 @@ ParallaxWrapperBase.propTypes = {
 
 const ParallaxWrapper = memo(ParallaxWrapperBase);
 
-const ParallaxPage = () => (
+const ParallaxPage = ({ mixBlend, dividerFilter, ...extraProps }) => (
 	<ParallaxWrapper pages={6}>
-		<Hero offset={0} />
-		<HeroHeaderBg offset={0} />
-		<Projects factor={2} offset={1} />
-		<MiddleProjectsDivider factor={1.7} speed={0.3} offset={1} />
+		<Hero offset={0} mixBlend={mixBlend} {...extraProps} />
+		<HeroHeaderBg offset={0} {...extraProps} />
+		<Projects factor={2} offset={1} {...extraProps} />
+		<MiddleProjectsDivider factor={1.7} speed={0.3} offset={1} {...extraProps} />
 		<MiddleProjectsDivider
 			factor={1.5}
 			speed={-0.1}
 			flipped="true"
 			offset={4.2}
+			{...extraProps}
 		/>
-		<TopAboutDivider speed={0.2} offset={3} />
-		<About speed={-0.1} factor={1.5} offset={3} />
-		<Contact factor={1.5} offset={4.7} />
-		<FooterSection offset={5} />
-		<WaveLayerDivider factor={1.5} offset={4.5} />
+		<TopAboutDivider speed={0.2} offset={3} {...extraProps} />
+		<About speed={-0.1} factor={1.5} offset={3} {...extraProps} />
+		<Contact factor={1.5} offset={4.7} {...extraProps} />
+		<FooterSection offset={5} {...extraProps} />
+		<WaveLayerDivider factor={1.5} offset={4.5} {...extraProps} />
 	</ParallaxWrapper>
 );
+
+ParallaxPage.propTypes = {
+	dividerFilter: PropTypes.any,
+	mixBlend: PropTypes.any,
+};
+
 export default memo(ParallaxPage);

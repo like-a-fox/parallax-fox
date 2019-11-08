@@ -1,11 +1,13 @@
 import React, { memo } from 'react';
-import { Layout, SEO } from '../components';
+import { Layout, SEO, ParallaxPage } from '../components';
 
 const GatsbyPage = () => (
-	<Layout>
+	<Layout invert={1}>
 		<SEO title="Gatsby Projects" />
-		<h1>NOT FOUND</h1>
-		<p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+		<ParallaxPage
+			mixBlend={'contrast'}
+			filter={'invert(1) hue-rotate(200deg) brightness(2.5)'}
+		/>
 	</Layout>
 );
 

@@ -7,7 +7,8 @@ export const Content = styled(ParallaxLayer)`
 	${tw`pl-4 pr-4 lg:pl-16 lg:pr-16 justify-center items-center flex z-50`};
 	min-height: 100vh;
 	&.hero {
-		mix-blend-mode: exclusion;
+		mix-blend-mode: ${(props) => props.mixBlend || 'exclusion'};
+		filter: ${(props) => props.filter};
 	}
 	&.footer {
 		z-index: 30;
@@ -18,6 +19,7 @@ export const Divider = styled(ParallaxLayer)`
 	${tw`absolute w-full h-full`};
 	min-height: 100vh;
 	background: ${(props) => props.bg};
+
 	svg {
 		fill: ${(props) => props.fill};
 	}

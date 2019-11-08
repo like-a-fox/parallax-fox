@@ -3,7 +3,7 @@ import { Layout, ParallaxPage } from '../components';
 
 const IndexPage = () => (
 	<Layout>
-		<ParallaxPage />
+		<ParallaxPage mixBlend={'exclusion'} />
 	</Layout>
 );
 
