@@ -1,13 +1,16 @@
+const resolveConfig = require('tailwindcss/resolveConfig');
 const colors = {
 	transparent: 'transparent',
-
 	'blue-black': '#161719',
 	'blue-grey': '#23262b',
 	greyDigo: '#6d80af',
 	burgDee: '#bc8999',
 	perpSkiz: '#9289bc',
 	tealDerp: '#d1dbf9',
-
+	primary: '#f2d2e9',
+	secondary: '#9289bc',
+	tertiary: '#d1dbf9',
+	main: '#d1dbf9',
 	black: '#222b2f',
 	'grey-darkest': '#273238',
 	'grey-darker': '#364349',
@@ -90,8 +93,7 @@ const colors = {
 	'pink-lighter': '#ffbbca',
 	'pink-lightest': '#ffebef',
 };
-
-module.exports = {
+const customConfig = {
 	theme: {
 		extend: {},
 	},
@@ -331,3 +333,5 @@ module.exports = {
 		important: false,
 	},
 };
+
+module.exports = resolveConfig(customConfig);

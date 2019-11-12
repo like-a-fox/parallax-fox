@@ -172,7 +172,7 @@ export const BigTitle = styled.h1`
 	align-items: center;
 	justify-content: flex-start;
 	i {
-		color: ${(props) => props.subColor || colors.perpSkiz};
+		color: ${(props) => props.subColor || colors.secondary};
 		height: inherit;
 		font-size: 1rem;
 		display: inline-flex;

@@ -1,0 +1,24 @@
+{
+	"plugins": [
+		[
+			"tailwind-components",
+			{
+				"config": "./tailwind.js",
+				"format": "auto"
+			}
+		]
+	],
+	"presets": [
+		[
+			"@babel/preset-env",
+			{
+				"useBuiltIns": "entry",
+				"shippedProposals": true,
+				"modules": "commonjs",
+				"targets": {
+					"node": 4
+				}
+			}
+		]
+	]
+}
