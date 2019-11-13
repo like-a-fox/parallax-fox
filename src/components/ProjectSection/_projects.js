@@ -53,7 +53,7 @@ function Projects({ ...parallaxProps }) {
 	`);
 	return (
 		<Content className='projects' {...parallaxProps}>
-			<Inner>
+			<Inner className='projects'>
 				<Title>Projects</Title>
 				<ProjectsWrapper>
 					{data.allImageSharp.edges.map(({ node }) => (

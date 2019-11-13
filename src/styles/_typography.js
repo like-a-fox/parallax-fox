@@ -4,7 +4,7 @@ import { rotateAnimation } from './_animations';
 import triangle from '../images/triangle.svg';
 
 export const Title = styled.h1`
-	${tw`text-3xl uppercase lg:text-4xl font-mono text-tertiary mb-8 tracking-wide relative inline-flex items-center justify-end pl-12`};
+	${tw`text-2xl uppercase lg:text-3xl font-mono text-tertiary mb-8 tracking-wide relative inline-flex items-center justify-end pl-12`};
 	text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 	filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.5));
 	font-weight: 200;
@@ -35,7 +35,7 @@ export const Text = styled.div`
 `;
 
 export const BigTitle = styled.h1`
-	${tw`text-4xl lg:text-5xl font-mono text-primary mb-3 tracking-wide`};
+	${tw`text-3xl lg:text-4xl font-mono text-primary mb-3 tracking-wide`};
 	text-shadow: 0 5px 35px rgba(255, 255, 255, 0.15);
 	text-transform: uppercase;
 	filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.5));

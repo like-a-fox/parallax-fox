@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import { ParallaxLayer } from 'react-spring/renderprops-addons.cjs';
 
 export const Content = styled(ParallaxLayer)`
-	${tw`pl-4 pr-4 md:pl-12 md:pr-12 xl:pl-24 xl:pr-24 justify-center items-center flex z-50`};
+	${tw`px-4 md:px-12 xl:px-16 justify-center items-center flex z-50`};
 	min-height: 100vh;
 	&.hero {
 		mix-blend-mode: ${(props) => props.mixBlend || 'exclusion'};
@@ -63,7 +63,7 @@ export const ContactInner = styled.div`
 `;
 
 export const ProjectsWrapper = styled.div`
-	${tw`flex-col md:flex flex-wrap justify-between`};
+	${tw`flex-col md:flex-row md:inline-flex flex-wrap justify-between`};
 `;
 
 export const WrapperDiv = styled.div`
@@ -74,28 +74,27 @@ export const TitleWrapper = styled.div`
 	${tw`text-tertiary rounded-sm overflow-hidden relative uppercase text-xl md:text-2xl xl:text-3xl font-mono p-4`};
 	text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 	&:before {
-		${tw`absolute bg-link -z-1 inset-0 h-full w-full`}
+		${tw`absolute  -z-1 inset-0 h-full w-full`}
 		content: ' ';
 		filter: blur(1px);
 	}
 `;
 
 export const LinkWrapper = styled(Link)`
-	${tw`shadow-lg ml-0 mr-0 h md:m-2 min-h-sm  md:min-h-wrap  w-full relative no-underline rounded-lg text-white flex-col flex-grow flex justify-end`};
+	${tw`shadow-lg ml-0 mr-0 mb-4 md:m-2 min-h-sm w-full  md:min-h-wrap md:w-1/2 relative no-underline rounded-lg text-white flex-col flex-grow flex justify-end`};
 	flex-basis: calc(50% - 1rem);
 	transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	filter: grayscale(30%);
 	overflow: hidden;
-	@media (max-width: 700px) {
-		flex-basis: 100%;
-	}
 	&:before {
-		${tw`bg-center hover:opacity-90 bg-no-repeat bg-cover absolute bg-link -z-1 h-full w-full inset-0 opacity-75`}
+		${tw`bg-center bg-no-repeat bg-cover absolute -z-1 h-full w-full inset-0`}
 		content: ' ';
 		background-image: url(${(props) => props.bg});
-		filter: grayscale(70%);
-		&:hover {
-			transform: translateY(-5px);
+		filter: opacity(0.85) grayscale(70%);
+	}
+	&:hover {
+		transform: translateY(-5px);
+		&:before {
 			filter: grayscale(30%);
 		}
 	}
