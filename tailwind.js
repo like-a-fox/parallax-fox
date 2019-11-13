@@ -97,7 +97,13 @@ const customConfig = {
 	theme: {
 		extend: {},
 	},
-	variants: {},
+	variants: {
+		position: ['before'],
+		zIndex: ['before'],
+		width: ['before', 'responsive', 'hover'],
+		height: ['before', 'responsive', 'hover'],
+		inset: ['before'],
+	},
 	plugins: [],
 	colors,
 	screens: {
@@ -314,6 +320,7 @@ const customConfig = {
 	},
 	zIndex: {
 		auto: 'auto',
+		'-1': -1,
 		'0': 0,
 		'10': 10,
 		'20': 20,

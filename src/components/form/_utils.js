@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
-import { TextInput, TextAreaInput, email_regex } from '../form';
+import { TextInput, TextAreaInput } from '../form';
 import PropTypes from 'prop-types';
 import { FormButton } from '../../styles';
 import { default as FormButtons } from './_form_buttons';
-export const initalForm = {
-	name: '',
-	email: '',
-	message: '',
-};
+
 export function SubmittedScreen({ toggleClicked }) {
 	const [counter, setCount] = useState(0);
 	const handleClick = () => {
@@ -48,20 +44,20 @@ export const InitialForm = ({ inputs, errors, handleSubmit, resetForm }) => {
 	);
 	return [
 		<TextInput
-			key="name"
-			placeholder="Stupid Name Here"
+			key='name'
+			placeholder='Stupid Name Here'
 			width={100}
 			{...labels['name']}
 		/>,
 		<TextInput
-			key="email"
-			placeholder="Stupid Email..."
+			key='email'
+			placeholder='Stupid Email...'
 			width={100}
 			{...labels['email']}
 		/>,
 		<TextAreaInput
-			key="message"
-			placeholder="Stupid Message..."
+			key='message'
+			placeholder='Stupid Message...'
 			{...labels['message']}
 		/>,
 		<FormButtons
@@ -71,35 +67,3 @@ export const InitialForm = ({ inputs, errors, handleSubmit, resetForm }) => {
 		/>,
 	];
 };
-
-export const checkInputs = (inputs) => {
-	let emailError = false;
-	if (inputs.email && inputs.email.length > 0) {
-		emailError = !email_regex.test(inputs.email);
-	}
-	return Object.keys(inputs).reduce(
-		(errorList, nextInput) => ({
-			...errorList,
-			[nextInput]:
-				nextInput === 'email'
-					? emailError
-					: inputs[nextInput] === '' ||
-					  inputs[nextInput] === null ||
-					  inputs[nextInput] === undefined,
-		}),
-		{}
-	);
-};
-
-export const handleForm = ({ name, email, message }) => ({
-	name,
-	email,
-	message,
-	date: Date.now(),
-	html: `
-						  <div>From: ${name}</div>
-						  <div>Email: <a href="mailto:${email}">${email}</a></div>
-						  <div>Date: ${Date.now()}</div>
-						  <div>Message: ${message}</div>
-						  `,
-});

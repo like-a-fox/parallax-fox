@@ -35,7 +35,7 @@ const ParallaxPage = ({ mixBlend, dividerFilter, ...extraProps }) => (
 		<MiddleProjectsDivider
 			factor={1.5}
 			speed={-0.1}
-			flipped="true"
+			flipped='true'
 			offset={4.2}
 			{...extraProps}
 		/>

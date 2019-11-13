@@ -11,11 +11,11 @@ import {
 import avatar from '../../images/avatar.png';
 
 const About = ({ ...parallaxProps }) => (
-	<Content className="about" {...parallaxProps}>
+	<Content className='about' {...parallaxProps}>
 		<Inner>
 			<Title>About</Title>
 			<AboutHero>
-				<Avatar src={avatar} alt="Like A Fox" />
+				<Avatar src={avatar} alt='Like A Fox' />
 				<AboutSub>
 					{`Well, I’m going to tell you the best and the worst thing you’ve ever
         heard. Heroes aren’t born.`}

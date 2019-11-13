@@ -3,7 +3,7 @@ import { Layout, SEO, ParallaxPage } from '../components';
 
 const GatsbyPage = () => (
 	<Layout invert={1}>
-		<SEO title="Gatsby Projects" />
+		<SEO title='Gatsby Projects' />
 		<ParallaxPage
 			mixBlend={'contrast'}
 			filter={'invert(1) hue-rotate(200deg) brightness(2.5)'}

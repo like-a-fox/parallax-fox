@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 function TextInput(
 	{
-		label = 'test',
+		label = 'name',
 		type,
 		className,
 		name,

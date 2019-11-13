@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { BigTitle, Subtitle, Content, WrapperDiv } from '../../styles';
 
 const Hero = ({ ...parallaxProps }) => (
-	<Content className="hero" {...parallaxProps}>
+	<Content className='hero' {...parallaxProps}>
 		<WrapperDiv>
 			<BigTitle>
 				Design. <i>not aga!n</i>

@@ -1,10 +1,10 @@
-import React, { useRef, memo } from 'react';
+import React, { forwardRef, memo } from 'react';
 import { TextArea, InputWrapper, InputLabel } from '../../styles';
 import PropTypes from 'prop-types';
 
-function TextAreaInput(props) {
+function TextAreaInput(props, textInputEl) {
 	const {
-		label = 'test',
+		label = 'message',
 		className,
 		name,
 		value,
@@ -18,7 +18,6 @@ function TextAreaInput(props) {
 		fontSize,
 		handleChange,
 	} = props;
-	const textInputEl = useRef(null);
 	return (
 		<InputWrapper>
 			<InputLabel color={color} fontSize={fontSize}>
@@ -40,6 +39,9 @@ function TextAreaInput(props) {
 		</InputWrapper>
 	);
 }
+
+// eslint-disable-next-line no-func-assign
+TextAreaInput = forwardRef(TextAreaInput);
 
 TextAreaInput.propTypes = {
 	className: PropTypes.any,

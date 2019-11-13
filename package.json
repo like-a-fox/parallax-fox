@@ -5,6 +5,7 @@
 	"author": "Derek Sligh<@like-a-fox>",
 	"dependencies": {
 		"babel-plugin-styled-components": "^1.10.0",
+		"babel-plugin-tailwind-components": "^0.5.10",
 		"dotenv": "^8.2.0",
 		"firebase": "^7.2.2",
 		"gatsby": "^2.17.4",
@@ -33,7 +34,7 @@
 	"devDependencies": {
 		"eslint-plugin-react": "^7.16.0",
 		"eslint-plugin-react-hooks": "^2.1.2",
-		"now": "^16.3.1",
+		"now": "^16.5.2",
 		"prettier": "^1.18.2"
 	},
 	"engines": {
@@ -53,11 +54,12 @@
 		"test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
 	},
 	"prettier": {
+		"singleQuote": true,
+		"useTabs": true,
+		"jsxSingleQuote": true,
 		"endOfLine": "lf",
 		"semi": true,
-		"singleQuote": true,
 		"tabWidth": 1,
-		"useTabs": true,
 		"jsxBracketSameLine": true,
 		"arrowParens": "always",
 		"trailingComma": "es5"

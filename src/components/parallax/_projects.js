@@ -52,7 +52,7 @@ function Projects({ ...parallaxProps }) {
 		}
 	`);
 	return (
-		<Content className="projects" {...parallaxProps}>
+		<Content className='projects' {...parallaxProps}>
 			<Inner>
 				<Title>Projects</Title>
 				<ProjectsWrapper>
