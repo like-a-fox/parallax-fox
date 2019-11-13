@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { Title, Content, Inner, ContactText } from '../../styles';
 
-import { ContactForm } from '../form';
+import { ContactForm } from '../FormComponents';
 
 const Contact = ({ ...parallaxProps }) => (
 	<Content {...parallaxProps}>

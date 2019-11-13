@@ -1,4 +1,6 @@
-export { default as Layout } from './_layout';
-export { default as SVG } from './_svg';
-export { default as SEO } from './_seo';
-export * from './parallax';
+export * from './AboutSection';
+export * from './ContactFooter';
+export * from './FormComponents';
+export * from './HeroSection';
+export * from './Layout';
+export * from './ProjectSection';

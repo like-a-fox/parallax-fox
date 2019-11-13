@@ -1,10 +1,19 @@
 import React from 'react';
-import { Layout, ParallaxPage } from '../components';
+import {
+	ParallaxPage,
+	HeroSection,
+	ProjectSection,
+	AboutSection,
+	ContactFooter,
+} from '../components';
 
 const IndexPage = () => (
-	<Layout>
-		<ParallaxPage mixBlend={'exclusion'} />
-	</Layout>
+	<ParallaxPage pages={6}>
+		<HeroSection />
+		<ProjectSection />
+		<AboutSection />
+		<ContactFooter />
+	</ParallaxPage>
 );
 
 export default IndexPage;

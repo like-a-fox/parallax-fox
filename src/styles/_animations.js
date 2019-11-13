@@ -1,5 +1,5 @@
 import styled, { keyframes, css } from 'styled-components';
-import triangle from '../images/triangle.svg';
+
 export const rotate = keyframes`
   from {
     transform: rotate(0deg);
@@ -72,24 +72,5 @@ export const InnerWave = styled.div`
 	}
 	path {
 		${waveAnimation('20s')};
-	}
-`;
-export const Title = styled.h1`
-	${tw`text-3xl uppercase lg:text-4xl font-mono text-tertiary mb-8 tracking-wide relative inline-flex items-center justify-end pl-12`};
-	text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-	filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.5));
-	font-weight: 200;
-	min-width: max-content;
-	letter-spacing: -1px;
-	&:before {
-		content: '';
-		width: 40px;
-		height: 40px;
-		background: url(${triangle});
-		position: absolute;
-		background-size: 40px;
-		${rotateAnimation('4s')};
-		left: -5px;
-		top: 0;
 	}
 `;

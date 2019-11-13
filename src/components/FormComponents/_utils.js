@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextInput, TextAreaInput } from '../form';
+import { TextInput, TextAreaInput } from '.';
 import PropTypes from 'prop-types';
 import { FormButton } from '../../styles';
 import { default as FormButtons } from './_form_buttons';

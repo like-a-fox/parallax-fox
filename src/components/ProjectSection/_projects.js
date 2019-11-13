@@ -65,13 +65,4 @@ function Projects({ ...parallaxProps }) {
 	);
 }
 
-Projects.propTypes = {
-	offset: PropTypes.number,
-	minHeight: PropTypes.string,
-	mobileHeight: PropTypes.string,
-};
-Projects.defaultProps = {
-	offset: 1,
-};
-
 export default memo(Projects);

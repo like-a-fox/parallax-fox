@@ -9,20 +9,28 @@ import {
 	Title,
 } from '../../styles';
 import avatar from '../../images/avatar.png';
+import { default as AboutDivider } from './_about_divider';
 
-const About = ({ ...parallaxProps }) => (
-	<Content className='about' {...parallaxProps}>
-		<Inner>
-			<Title>About</Title>
-			<AboutHero>
-				<Avatar src={avatar} alt='Like A Fox' />
-				<AboutSub>
-					{`Well, I’m going to tell you the best and the worst thing you’ve ever
+const About = ({ ...extraParallax }) => (
+	<>
+		<AboutDivider {...extraParallax} />
+		<Content
+			className='about'
+			speed={-0.1}
+			factor={1.5}
+			offset={3}
+			{...extraParallax}>
+			<Inner>
+				<Title>About</Title>
+				<AboutHero>
+					<Avatar src={avatar} alt='Like A Fox' />
+					<AboutSub>
+						{`Well, I’m going to tell you the best and the worst thing you’ve ever
         heard. Heroes aren’t born.`}
-				</AboutSub>
-			</AboutHero>
-			<AboutDesc>
-				{`You just go out there and grind it out. You fail and you look foolish
+					</AboutSub>
+				</AboutHero>
+				<AboutDesc>
+					{`You just go out there and grind it out. You fail and you look foolish
       and you just keep grinding. There is nothing else. There is no ‘chosen
       one,’ there is no destiny, nobody wakes up one day and finds out
       they’re amazing at something. There’s just slamming your head into the
@@ -30,9 +38,10 @@ const About = ({ ...parallaxProps }) => (
       either the wall or your head breaks. You want to be a hero? You don’t
       have to make some grand decision. There’s no inspirational music,
       there’s no montage. You just don’t quit.`}
-			</AboutDesc>
-		</Inner>
-	</Content>
+				</AboutDesc>
+			</Inner>
+		</Content>
+	</>
 );
 
 export default memo(About);
