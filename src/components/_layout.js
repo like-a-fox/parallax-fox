@@ -30,6 +30,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+
   a {
     color:#bc8999;
     text-decoration: none;

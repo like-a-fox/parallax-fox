@@ -1,6 +1,5 @@
 import React, { memo, forwardRef } from 'react';
 import { Input, InputWrapper, InputLabel } from '../../styles';
-import { empty_regex_str } from '.';
 import PropTypes from 'prop-types';
 
 function TextInput(
@@ -12,7 +11,7 @@ function TextInput(
 		value,
 		placeholder,
 		width,
-		pattern = empty_regex_str,
+		pattern,
 		color,
 		height,
 		underlineColor,

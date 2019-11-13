@@ -4,7 +4,7 @@ import { ParallaxLayer } from 'react-spring/renderprops-addons.cjs';
 import { colors } from '../../tailwind';
 
 export const Content = styled(ParallaxLayer)`
-	${tw`pl-4 pr-4 lg:pl-16 lg:pr-16 justify-center items-center flex z-50`};
+	${tw`pl-4 pr-4 md:pl-12 md:pr-12 xl:pl-24 xl:pr-24 justify-center items-center flex z-50`};
 	min-height: 100vh;
 	&.hero {
 		mix-blend-mode: ${(props) => props.mixBlend || 'exclusion'};
@@ -91,7 +91,7 @@ export const WrapperDiv = styled.div`
 `;
 
 export const TitleWrapper = styled.div`
-	${tw`text-white relative uppercase text-xl md:text-2xl xl:text-3xl font-mono `};
+	${tw`text-tertiary relative uppercase text-xl md:text-2xl xl:text-3xl font-mono `};
 	text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 	overflow: hidden;
 	padding: 1rem;
@@ -110,7 +110,7 @@ export const TitleWrapper = styled.div`
 	}
 `;
 export const Text = styled.div`
-	${tw`opacity-85 font-mono text-white text-sm md:text-base`};
+	${tw`opacity-85 font-mono text-tertiary text-sm md:text-base`};
 	text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 	font-weight: 200;
 	letter-spacing: -1px;
@@ -162,9 +162,10 @@ export const LinkWrapper = styled(Link)`
 	}
 `;
 export const BigTitle = styled.h1`
-	${tw`text-4xl lg:text-5xl font-mono text-pink mb-3 tracking-wide`};
+	${tw`text-4xl lg:text-5xl font-mono text-primary mb-3 tracking-wide`};
 	text-shadow: 0 5px 35px rgba(255, 255, 255, 0.15);
 	text-transform: uppercase;
+	filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.5));
 	font-weight: 200;
 	letter-spacing: -2px;
 	height: 2.25rem;
@@ -181,8 +182,9 @@ export const BigTitle = styled.h1`
 `;
 
 export const Subtitle = styled.p`
-	${tw`text-2xl lg:text-3xl font-mono text-tealDerp mt-6 xxl:w-3/4`};
+	${tw`text-2xl lg:text-3xl font-mono text-tertiary mt-6 xxl:w-3/4`};
 	text-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+	filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.5));
 	em {
 		font-size: 13px;
 		text-transform: uppercase;
