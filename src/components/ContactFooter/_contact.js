@@ -4,7 +4,7 @@ import { Title, Content, Inner, ContactText } from '../../styles';
 import { ContactForm } from '../FormComponents';
 
 const Contact = ({ ...parallaxProps }) => (
-	<Content {...parallaxProps}>
+	<Content className='contact-section' {...parallaxProps}>
 		<Inner className='contact-title'>
 			<Title>Get in touch</Title>
 			<ContactText>

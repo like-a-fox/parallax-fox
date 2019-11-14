@@ -53,16 +53,16 @@ export const TextArea = styled.textarea`
 //Form
 
 export const Form = styled.form`
-	${tw`shadow-lg mb-8 md:m-auto p-0 md:p-4 xl:p-12 2xl:p-24 relative w-full opacity-75 bg-black-soft flex-grow rounded-lg text-white flex-col items-stretch font-mono`}
+	${tw`shadow-lg mb-8 md:m-auto p-2 md:p-4 xl:p-12 2xl:p-24 relative w-full opacity-75 bg-black-soft flex-grow rounded-lg text-white flex-col items-stretch font-mono`}
 	transition: background 20ms ease-in-out;
 	background-color: ${(props) => props.submitted && 'transparent'};
 `;
 
 //Button For Form
 export const FormButton = styled.a`
-	${tw`rounded-none mb-4 sm:mb-auto shadow-sm font-mono no-underline text-base opacity-75 font-light text-main bg-black-soft h-16 flex-grow uppercase flex justify-center items-center sm:rounded-l-sm`}
+	${tw`rounded-none sm:mb-0 shadow-sm font-mono no-underline text-base opacity-75 font-light text-main bg-black-soft h-16 flex-grow uppercase flex justify-center items-center sm:rounded-l-sm`}
 	transition: background-color 0.2s ease-in-out;
-	&:last-child {
+	&:first-child {
 		${tw`sm:rounded-r-sm bg-black-link text-tertiary hover:text-black-soft hover:bg-tertiary`}
 	}
 	&:hover {
@@ -71,26 +71,5 @@ export const FormButton = styled.a`
 `;
 
 export const ButtonWrapper = styled.div`
-	display: flex;
-	flex-wrap: nowrap;
-	width: 100%;
-	height: auto;
-	padding: 0;
-	margin-top: 24px;
-	align-items: center;
-	justify-content: center;
-	@media (max-width: 600px) {
-		flex-direction: column;
-		a {
-			min-width: 100%;
-			&:first-child,
-			&:last-child {
-				border-top-left-radius: none;
-				border-bottom-left-radius: none;
-				border-top-right-radius: none;
-				border-bottom-right-radius: none;
-				margin-bottom: 18px;
-			}
-		}
-	}
+	${tw`flex-col md:flex-row nowrap w-full h-auto justify-around items-center p-0 mt-4`}
 `;

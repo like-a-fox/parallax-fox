@@ -12,6 +12,9 @@ export const Content = styled(ParallaxLayer)`
 	&.footer {
 		z-index: 30;
 	}
+	&.contact-section {
+		${tw`flex-col justify-start items-start`}
+	}
 `;
 
 export const Divider = styled(ParallaxLayer)`
@@ -41,7 +44,7 @@ export const DividerMiddle = styled(Divider)`
 `;
 
 export const Inner = styled.div`
-	${tw`w-full xxl:w-2/3 text-center h-full lg:text-left`};
+	${tw`w-full xxl:w-2/3 text-center flex flex-col items-start justify-around lg:text-left`};
 `;
 
 export const ContactInner = styled.div`
@@ -63,7 +66,7 @@ export const ContactInner = styled.div`
 `;
 
 export const ProjectsWrapper = styled.div`
-	${tw`flex-col md:flex-row md:inline-flex flex-wrap justify-between`};
+	${tw`flex-col flex md:flex-row md:inline-flex md:flex-wrap justify-between`};
 `;
 
 export const WrapperDiv = styled.div`
@@ -81,11 +84,10 @@ export const TitleWrapper = styled.div`
 `;
 
 export const LinkWrapper = styled(Link)`
-	${tw`shadow-lg ml-0 mr-0 mb-4 md:m-2 min-h-sm w-full  md:min-h-wrap md:w-1/2 relative no-underline rounded-lg text-white flex-col flex-grow flex justify-end`};
+	${tw`shadow-lg mx-0 my-4 md:m-2 min-h-sm w-full  md:min-h-wrap md:w-1/2 relative no-underline rounded-lg text-white flex-col overflow-hidden flex-grow flex justify-end`};
 	flex-basis: calc(50% - 1rem);
 	transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	filter: grayscale(30%);
-	overflow: hidden;
 	&:before {
 		${tw`bg-center bg-no-repeat bg-cover absolute -z-1 h-full w-full inset-0`}
 		content: ' ';
