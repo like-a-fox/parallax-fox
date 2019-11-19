@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-	ParallaxPage,
+	ParallaxLayout,
 	HeroSection,
 	ProjectSection,
 	AboutSection,
@@ -8,12 +8,12 @@ import {
 } from '../components';
 
 const IndexPage = () => (
-	<ParallaxPage pages={6}>
+	<ParallaxLayout pages={6}>
 		<HeroSection />
 		<ProjectSection />
 		<AboutSection />
 		<ContactFooter />
-	</ParallaxPage>
+	</ParallaxLayout>
 );
 
 export default IndexPage;

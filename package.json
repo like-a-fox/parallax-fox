@@ -4,6 +4,7 @@
 	"version": "1.0.0",
 	"author": "Derek Sligh<@like-a-fox>",
 	"dependencies": {
+		"@loadable/component": "^5.10.3",
 		"babel-plugin-styled-components": "^1.10.0",
 		"babel-plugin-tailwind-components": "^0.5.10",
 		"dotenv": "^8.2.0",

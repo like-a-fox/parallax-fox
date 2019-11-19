@@ -1,7 +1,7 @@
 {
 	"name": "parallax-fox",
 	"version": 2,
-	"alias": ["parallax-fox", "xeiko-again", "like-a-fox"],
+	"alias": ["parallax-fox", "xeiko-again", "like-a-fox", "xeiko"],
 	"build": {
 		"env": {
 			"GATSBY_FIREBASE_API_KEY": "AIzaSyCYC4_YR8nHblokKMWgHYPtjmvg0lisC-g",

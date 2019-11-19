@@ -11,9 +11,9 @@ const Hero = ({ offset = 0, ...extraParallax }) => (
 					Design. <i>not aga!n</i>
 				</BigTitle>
 				<Subtitle>
-					{`I'm Derek, and if one more person asks me to make a word press site,
-      I'm gonna stab someone. Or use jQuery. Seriously!
-      The 90s called and they want their shitty JavaScript library back.`}
+					{`I'm Derek, and if one more person asks me to make a wordpress site, or use jquery,
+      I'm gonna stab someone. Seriously...
+      The 90s called and they want their shitty CMS and JavaScript library back.`}
 					<br /> <em>&copy; {'Like A Fox Development'} </em>
 				</Subtitle>
 			</WrapperDiv>

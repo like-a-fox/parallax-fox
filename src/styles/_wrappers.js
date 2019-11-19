@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { Link } from 'gatsby';
-import { ParallaxLayer } from 'react-spring/renderprops-addons.cjs';
+import { ParallaxLayer, Parallax } from 'react-spring/renderprops-addons.cjs';
+
+export const ParallaxPage = styled(Parallax)`
+	filter: ${(props) => props.loading};
+`;
 
 export const Content = styled(ParallaxLayer)`
 	${tw`px-4 md:px-12 xl:px-16 justify-center items-center flex z-50`};

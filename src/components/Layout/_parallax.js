@@ -1,19 +1,29 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import { Parallax } from 'react-spring/renderprops-addons.cjs';
-import { default as Layout } from './_layout';
+import { ParallaxPage } from '../../styles';
+import { Layout, Loading } from './';
 
-const ParallaxPage = ({ children, pages = 6, ...extraProps }) => (
+const ParallaxLayout = ({
+	loading = false,
+	children,
+	pages = 6,
+	...extraProps
+}) => (
 	<Layout>
-		<Parallax {...extraProps} pages={pages}>
+		{loading ? <Loading /> : null}
+		<ParallaxPage
+			{...extraProps}
+			loading={loading ? 'blur(20px)' : ''}
+			pages={pages}>
 			{children}
-		</Parallax>
+		</ParallaxPage>
 	</Layout>
 );
 
-ParallaxPage.propTypes = {
+ParallaxLayout.propTypes = {
 	children: PropTypes.arrayOf(PropTypes.element).isRequired,
+	loading: PropTypes.bool,
 	pages: PropTypes.number.isRequired,
 };
 
-export default memo(ParallaxPage);
+export default memo(ParallaxLayout);
