@@ -4,7 +4,6 @@ import { ParallaxLayer } from 'react-spring/renderprops-addons.cjs';
 
 export const Content = styled(ParallaxLayer)`
 	${tw`px-4 md:px-12 xl:px-16 justify-center items-center flex z-50`};
-	min-height: 100vh;
 	&.hero {
 		mix-blend-mode: ${(props) => props.mixBlend || 'exclusion'};
 		filter: ${(props) => props.filter};
@@ -84,7 +83,7 @@ export const TitleWrapper = styled.div`
 `;
 
 export const LinkWrapper = styled(Link)`
-	${tw`shadow-lg mx-0 my-4 md:m-2 min-h-sm w-full  md:min-h-wrap md:w-1/2 relative no-underline rounded-lg text-white flex-col overflow-hidden flex-grow flex justify-end`};
+	${tw`shadow-lg mx-0 my-1 md:m-2 min-h-sm w-full  md:min-h-wrap md:w-1/2 relative no-underline rounded-lg text-white flex-col overflow-hidden flex-grow flex justify-end`};
 	flex-basis: calc(50% - 1rem);
 	transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	filter: grayscale(30%);
