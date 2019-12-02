@@ -3,11 +3,12 @@ import { Link } from 'gatsby';
 import { ParallaxLayer, Parallax } from 'react-spring/renderprops-addons.cjs';
 
 export const ParallaxPage = styled(Parallax)`
+	top: 0;
 	filter: ${(props) => props.loading};
 `;
 
 export const Content = styled(ParallaxLayer)`
-	${tw`px-4 md:px-12 xl:px-16 justify-center items-center flex z-50`};
+	${tw`px-4 md:px-12 xl:px-16 justify-center w-full items-center flex z-50`};
 	&.hero {
 		mix-blend-mode: ${(props) => props.mixBlend || 'exclusion'};
 		filter: ${(props) => props.filter};
@@ -16,13 +17,14 @@ export const Content = styled(ParallaxLayer)`
 		z-index: 30;
 	}
 	&.contact-section {
-		${tw`flex-col justify-start items-start`}
+		${tw`flex-col justify-start items-start w-full xxl:items-center`}
 	}
 `;
 
 export const Divider = styled(ParallaxLayer)`
 	${tw`absolute w-full h-full min-h-screen`};
 	background: ${(props) => props.bg};
+	top: 0;
 	svg {
 		fill: ${(props) => props.fill};
 	}

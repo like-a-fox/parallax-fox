@@ -31,6 +31,10 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
+  body {
+	  ${tw`flex flex-column items-center justify-start`}
+  }
+
   a {
     color:#bc8999;
     text-decoration: none;
