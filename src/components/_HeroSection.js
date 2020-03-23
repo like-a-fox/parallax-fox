@@ -1,5 +1,5 @@
-import React, { memo } from 'react';
-import { BigTitle, Subtitle, Content, WrapperDiv, Divider } from '../../styles';
+import React,{memo} from 'react';
+import {BigTitle,Content,Divider,Subtitle,WrapperDiv} from '../styles';
 
 /**
  * @component HeroSection

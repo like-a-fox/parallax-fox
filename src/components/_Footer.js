@@ -1,5 +1,5 @@
-import React, { memo } from 'react';
-import { Content, Footer as FooterStyled } from '../styles';
+import React,{memo} from 'react';
+import {Content,Footer as FooterStyled} from '../styles';
 
 /**
  * @component Footer

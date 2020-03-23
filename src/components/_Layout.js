@@ -1,9 +1,9 @@
+import PropTypes from 'prop-types';
+import React,{memo} from 'react';
+import {createGlobalStyle} from 'styled-components';
 import 'typeface-cantata-one';
 import 'typeface-open-sans';
-import React, { memo } from 'react';
-import PropTypes from 'prop-types';
-import { SEO } from './Layout';
-import { createGlobalStyle } from 'styled-components';
+import {default as SEO} from './_SEO';
 
 const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {

@@ -1,5 +1,5 @@
-import React, { memo } from 'react';
-import { LoadingSpinner, LoadingInner, LoadingCircle } from '../styles';
+import React,{memo} from 'react';
+import {LoadingCircle,LoadingInner,LoadingSpinner} from '../styles';
 
 function LoadingBubbles() {
 	return (

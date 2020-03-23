@@ -1,16 +1,16 @@
-import React,{memo,useMemo} from 'react';
-import {useStaticQuery,graphql} from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import PropTypes from 'prop-types';
+import React, { memo, useMemo } from 'react';
 import {
-	ProjectsWrapper,
-	LinkWrapper,
-	TitleWrapper,
-	Text,
 	DividerMiddle,
-} from '../../styles';
-import {default as SectionTemplate} from './_SectionTemplate';
+	LinkWrapper,
+	ProjectsWrapper,
+	Text,
+	TitleWrapper,
+} from '../styles';
+import { default as SectionTemplate } from './_SectionTemplate';
 
-const ProjectsDivider=(props) => (
+const ProjectsDivider = (props) => (
 	<>
 		<DividerMiddle
 			factor={1.7}
@@ -36,16 +36,16 @@ const ProjectsDivider=(props) => (
  * @type {import('react').FunctionComponent}
  * @param {object} props
  * @param {{id: string,fluid: {src: string}}} props.node
- * @param {shap} props.tile
+ * @param {{ pathname:string, title:string, subtitle:string }} props.tile
  */
-const ProjectLink=memo(function ProjectLink(props) {
+const ProjectLink = memo(function ProjectLink(props) {
 	let {
 		id,
-		fluid: {src},
-	}=props.node;
-	let {path,title,subtitle}=props.tile;
+		fluid: { src },
+	} = props.node;
+	let { pathname, title, subtitle } = props.tile;
 	return (
-		<LinkWrapper key={id} to={path} bg={src}>
+		<LinkWrapper key={id} to={pathname} bg={src}>
 			<TitleWrapper>
 				{title}
 				<Text>{subtitle}</Text>
@@ -54,56 +54,29 @@ const ProjectLink=memo(function ProjectLink(props) {
 	);
 });
 
-ProjectLink.propTypes={
+ProjectLink.propTypes = {
 	node: PropTypes.shape({
 		id: PropTypes.string,
 		fluid: PropTypes.shape({
 			src: PropTypes.string,
 		}),
 	}),
-	tile: PropTypes.shap({
-		path: PropTypes.string,
+	tile: PropTypes.shape({
+		pathname: PropTypes.string,
 		title: PropTypes.string,
 		subtitle: PropTypes.string,
 	}),
 };
 
-const ProjectsSection=(props) => {
-	const data=useStaticQuery(graphql`
+const ProjectsSection = (props) => {
+	const data = useStaticQuery(graphql`
 		{
 			site {
 				siteMetadata {
 					tileData {
-						angular {
-							path
-							subtitle
-							title
-						}
-						firebase {
-							path
-							subtitle
-							title
-						}
-						gatsbyjs {
-							path
-							subtitle
-							title
-						}
-						graphql {
-							subtitle
-							path
-							title
-						}
-						react {
-							path
-							subtitle
-							title
-						}
-						rxjs {
-							path
-							subtitle
-							title
-						}
+						pathname
+						subtitle
+						title
 					}
 				}
 			}
@@ -122,14 +95,15 @@ const ProjectsSection=(props) => {
 			}
 		}
 	`);
-	const Tiles=useMemo(() => {
-		return data.allImageSharp.edges.map(({node}) => {
-			let tile=
-				data.site.siteMetadata.tileData[`${node.originalName.split('_')[0]}`];
+	const Tiles = useMemo(() => {
+		return data.allImageSharp.edges.map(({ node }) => {
+			let tile = data.site.siteMetadata.tileData.find(
+				({ pathname }) =>pathname && pathname === node.fluid.originalName.split('_')[0]
+			);
 			return <ProjectLink key={node.id} node={node} tile={tile} />;
 		});
-	},[data]);
-	const Divider=<ProjectsDivider {...props} />;
+	}, [data]);
+	const Divider = <ProjectsDivider {...props} />;
 	return (
 		<SectionTemplate
 			factor={2}

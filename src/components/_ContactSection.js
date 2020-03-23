@@ -1,15 +1,11 @@
 import PropTypes from "prop-types";
-import React, { memo, useState } from 'react';
-import { ContactText } from '../styles';
-import {
-	FormWrapper,
-	StandardInput,
-	StandardTextArea
-} from './_FormComponents';
-import {default as SectionTemplate} from './_SectionTemplate';
-import {default as Footer} from './_Footer';
-import {default as WaveDivider} from './_WaveDivider';
+import React,{memo,useState} from 'react';
 import {useSendFire} from '../firebase';
+import {ContactText} from '../styles';
+import {default as Footer} from './_Footer';
+import {FormWrapper,StandardInput,StandardTextArea} from './_FormComponents';
+import {default as SectionTemplate} from './_SectionTemplate';
+import {default as WaveDivider} from './_WaveDivider';
 
 
 /**
@@ -24,9 +20,9 @@ const ContactSection=(props)=> {
 	const { name, email, message, ...wrapperProps } = useSendFire();
 	const [emailError, setEmailError] = useState(false);
 	const handleEmailValidation = (event) => {
-		const { name, value } = event.targe;
+		const { name, value } = event.target;
 		const email_regex_str = /\S+@\S+\.\S+/gi;
-		if (name === 'email') {
+		if (name && name === 'email') {
 			if (value) {
 				const emailValid = email_regex_str.test(value);
 				if (!emailValid && !emailError) {

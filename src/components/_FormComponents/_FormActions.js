@@ -10,20 +10,20 @@ import { FormButton, ButtonWrapper } from '../../styles';
  * @param {function} props.resetForm
  */
 const FormActions = (props) => {
-	const { resetForm, handleSubmit } = props;
+	const { handleReset, handleSubmit } = props;
 	return (
 		<ButtonWrapper>
 			<FormButton onClick={handleSubmit} submit>
 				Send It Stupid
 			</FormButton>
-			<FormButton onClick={resetForm}>whoopsies!</FormButton>
+			<FormButton onClick={handleReset}>whoopsies!</FormButton>
 		</ButtonWrapper>
 	);
 };
 
 FormActions.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  resetForm: PropTypes.func.isRequired
+  handleReset: PropTypes.func.isRequired
 };
 
 export default memo(FormActions);

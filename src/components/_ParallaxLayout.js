@@ -1,8 +1,8 @@
-import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import { ParallaxPage } from '../styles';
-import {default as Layout} from './_Layout'
-import {default as LoadingBubbles} from './_LoadingBubbles'
+import React,{memo} from 'react';
+import {ParallaxPage} from '../styles';
+import {default as Layout} from './_Layout';
+import {default as LoadingBubbles} from './_LoadingBubbles';
 
 /**
  * @component ParallaxLayout
