@@ -3,32 +3,49 @@ import { colors } from '../../tailwind';
 
 //Input Styles
 
+const inputHoverShadow = `
+	box-shadow: inset 0 0 0 2px rgba(147,128,214,0.3);
+	border-radius: 4px;
+	transition: box-shadow 0.5s ease;
+`;
+
 export const InputWrapper = styled.div`
 	${tw`relative no-underline rounded-lg text-white flex-col flex justify-end font-mono`};
 	transition: color 0.4s ease-in-out;
 	&:hover label {
 		color: ${colors.white};
-		font-weight: 600;
 	}
 	&:focus-within label {
 		color: ${colors.perpSkiz};
-		font-weight: 400;
 	}
 `;
 
 export const InputLabel = styled.label`
 	${tw`text-lg text-tertiary inline-flex uppercase font-mono z-1000 opacity-75`}
 	color: ${(props) => props.error && colors.primary};
-	font-weight: ${(props) => (props.error ? 600 : 'initial')};
 	transform: translate(8px, 8px);
+	${(props) =>
+		props.required
+			? `
+	&:after {
+		content: '*';
+		position: relative;
+		left: 0;
+		padding-left: .2rem;
+	}
+	`
+			: ''}
 `;
 
 export const Input = styled.input`
-	${tw`opacity-75 w-full shadow-default hover:shadow-hover focus:shadow-focus bg-black-link uppercase mb-4 text-grey text-mono text-base h-16 border-none pl-3 outline-none font-thin`}
+	${tw`opacity-75 w-full shadow-default hover:shadow-hover focus:shadow-focus bg-black-link uppercase mb-4 text-grey text-mono text-md h-16 border-none pl-3 outline-none font-thin`}
 	text-shadow: 0 2px 10px rgba(20, 20, 20, 0.3);
-	transition: box-shadow 0.4s ease-in-out;
+	transition: box-shadow 0.1s ease-in-out;
 	letter-spacing: -0.75px;
 	box-shadow: ${(props) => props.error && `-4px 0px 0 0 ${colors.pink}`};
+	&:hover {
+		${inputHoverShadow}
+	}
 	&::placeholder {
 		color: ${({ error }) => (error ? colors.pink : colors.grey)};
 		opacity: 0.5;
@@ -38,12 +55,15 @@ export const Input = styled.input`
 //Text Area Alt
 
 export const TextArea = styled.textarea`
-	${tw`opacity-75 w-full shadow-default hover:shadow-hover focus:shadow-focus bg-black-link uppercase mb-4 p-3 text-grey text-mono text-base h-48 border-none outline-none font-thin`}
+	${tw`opacity-75 w-full shadow-default hover:shadow-hover focus:shadow-focus bg-black-link uppercase mb-4 p-3 text-grey text-mono text-lg h-48 border-none outline-none font-thin`}
 	text-shadow: 0 2px 10px rgba(20, 20, 20, 0.3);
 	transition: box-shadow 0.4s ease-in-out;
 	resize: none;
 	letter-spacing: -0.75px;
-	box-shadow: ${(props) => props.error && `-4px 0px 0 0 ${colors.pink}`};
+	box-shadow: ${(props) => props.error&&`-4px 0px 0 0 ${colors.pink}`};
+	&:hover {
+		${inputHoverShadow}
+	}
 	&::placeholder {
 		color: ${({ error }) => (error ? colors.pink : colors.grey)};
 		opacity: 0.5;
@@ -73,3 +93,4 @@ export const FormButton = styled.a`
 export const ButtonWrapper = styled.div`
 	${tw`flex-col md:flex-row nowrap w-full h-auto justify-around items-center p-0 mt-4`}
 `;
+

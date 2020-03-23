@@ -1,9 +1,9 @@
+import PropTypes from 'prop-types';
+import React,{memo} from 'react';
+import {createGlobalStyle} from 'styled-components';
 import 'typeface-cantata-one';
 import 'typeface-open-sans';
-import React, { memo } from 'react';
-import PropTypes from 'prop-types';
-import { SEO } from './';
-import { createGlobalStyle } from 'styled-components';
+import {default as SEO} from './_SEO';
 
 const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
@@ -12,6 +12,9 @@ const GlobalStyle = createGlobalStyle`
   *:focus {
       outline:none;
   }
+  *::-webkit-scrollbar {
+  display: none;
+	}
   html {
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
@@ -41,20 +44,33 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const Layout = ({ children, invert = 0 }) => (
-	<>
-		<SEO />
-		<GlobalStyle invert={invert} />
-		{children}
-	</>
-);
-
+/**
+ * @component Layout
+ * @type {import('react').FunctionComponent}
+ * @param {object} props
+ * @param {oneOfType} props.children
+ * @param {boolean} props.invert
+ */
+const Layout = (props) => {
+	const { children, invert } = props;
+	return (
+		<>
+			<SEO />
+			<GlobalStyle invert={invert} />
+			{children}
+		</>
+	);
+};
 Layout.propTypes = {
 	children: PropTypes.oneOfType([
 		PropTypes.element,
 		PropTypes.arrayOf(PropTypes.element),
 	]),
-	invert: PropTypes.any,
+	invert: PropTypes.bool,
+};
+
+Layout.defaultProps = {
+	invert: false,
 };
 
 export default memo(Layout);

@@ -12,5 +12,6 @@ export const AboutSub = styled.span`
 	letter-spacing: -1px;
 `;
 export const AboutDesc = styled.p`
-	${tw`text-main xl:text-2xl font-mono pt-6 md:pt-12 text-justify`};
+	${tw`text-main xl:text-2xl font-mono pt-6 md:text-lg text-justify`};
 `;
+
