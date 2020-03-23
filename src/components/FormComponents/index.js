@@ -1,3 +1,4 @@
-export { default as TextInput } from './_text_input';
-export { default as TextAreaInput } from './_text_area';
-export { default as ContactForm } from './_contact_form';
+export { default as StandardInput } from './_StandardInput';
+export { default as StandardTextArea } from './_StandardTextArea';
+export { default as FormWrapper } from './_FormWrapper';
+

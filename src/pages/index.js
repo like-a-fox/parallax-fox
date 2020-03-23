@@ -1,19 +1,30 @@
 import React from 'react';
 import {
-	ParallaxLayout,
-	HeroSection,
-	ProjectSection,
 	AboutSection,
 	ContactFooter,
+	HeroSection,
+	Loading,
+	ParallaxLayout,
+	ProjectSection,
 } from '../components';
 
-const IndexPage = () => (
-	<ParallaxLayout pages={6}>
-		<HeroSection />
-		<ProjectSection />
-		<AboutSection />
-		<ContactFooter />
-	</ParallaxLayout>
-);
+const IndexPage = () => {
+	const Hero = <HeroSection />;
+	const Projects = <ProjectSection />;
+	const About = <AboutSection />;
+	const Contact = <ContactFooter />;
+	if (!Hero || !Projects || !About || !Contact) {
+		return <Loading />;
+	}
+	return (
+		<ParallaxLayout pages={6}>
+			{Hero}
+			{Projects}
+			{About}
+			{Contact}
+		</ParallaxLayout>
+	);
+};
 
 export default IndexPage;
+

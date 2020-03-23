@@ -12,6 +12,9 @@ const GlobalStyle = createGlobalStyle`
   *:focus {
       outline:none;
   }
+  *::-webkit-scrollbar {
+  display: none;
+	}
   html {
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
