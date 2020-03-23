@@ -15,7 +15,12 @@ const AboutDivider = memo(function AboutDivider({ ...parallaxProps }) {
 	);
 });
 
-const AboutSection = (props) => {
+/**
+ * @component AboutSection
+ * @type {import('react').FunctionComponent}
+ * @param {object} props
+ */
+const AboutSection=(props) => {
 	const Divider = <AboutDivider {...props} />;
 	return (
 		<SectionTemplate
@@ -45,6 +50,7 @@ const AboutSection = (props) => {
 		</SectionTemplate>
 	);
 };
+
 
 export default memo(AboutSection);
 

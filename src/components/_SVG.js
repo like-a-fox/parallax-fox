@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { width as twWidth } from '../../../tailwind';
-import { hidden } from '../../styles';
+import { width as twWidth } from '../../tailwind';
+import { hidden } from '../styles';
 
 const Wrapper = styled.svg`
 	${tw`absolute`};

@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
-import { colors } from '../../../tailwind';
+import { colors } from '../../tailwind';
 
 function HeadBase({ schemaOrgWebPage, breadcrumb }) {
 	const { inLanguage, title, description, image, url, ogs } = schemaOrgWebPage;

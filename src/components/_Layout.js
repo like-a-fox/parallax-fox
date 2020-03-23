@@ -2,7 +2,7 @@ import 'typeface-cantata-one';
 import 'typeface-open-sans';
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import { SEO } from './';
+import { SEO } from './Layout';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
@@ -44,20 +44,33 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const Layout = ({ children, invert = 0 }) => (
-	<>
-		<SEO />
-		<GlobalStyle invert={invert} />
-		{children}
-	</>
-);
-
+/**
+ * @component Layout
+ * @type {import('react').FunctionComponent}
+ * @param {object} props
+ * @param {oneOfType} props.children
+ * @param {boolean} props.invert
+ */
+const Layout = (props) => {
+	const { children, invert } = props;
+	return (
+		<>
+			<SEO />
+			<GlobalStyle invert={invert} />
+			{children}
+		</>
+	);
+};
 Layout.propTypes = {
 	children: PropTypes.oneOfType([
 		PropTypes.element,
 		PropTypes.arrayOf(PropTypes.element),
 	]),
-	invert: PropTypes.any,
+	invert: PropTypes.bool,
+};
+
+Layout.defaultProps = {
+	invert: false,
 };
 
 export default memo(Layout);

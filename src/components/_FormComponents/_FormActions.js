@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FormButton, ButtonWrapper } from '../../styles';
 
 /**
- * @component
+ * @component FormActions
  * @type {import('react').FunctionComponent}
  * @param {object} props
  * @param {function} props.handleSubmit
@@ -27,3 +27,4 @@ FormActions.propTypes = {
 };
 
 export default memo(FormActions);
+

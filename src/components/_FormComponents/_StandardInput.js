@@ -1,9 +1,9 @@
 import React, { memo, forwardRef, useState } from 'react';
-import { TextArea, InputWrapper, InputLabel } from '../../styles';
+import { Input, InputWrapper, InputLabel } from '../../styles';
 import PropTypes from 'prop-types';
 
 /**
- * @component
+ * @component StandardInput
  * @type {import('react').FunctionComponent}
  * @param {object} props
  * @param {string} props.className
@@ -16,7 +16,7 @@ import PropTypes from 'prop-types';
  * @param {string} props.type
  * @param {any} props.value
  */
-const StandardTextArea = forwardRef(function StandardTextArea(
+const StandardInput = forwardRef(function StandardInput(
 	{ label, type, className, name, value, placeholder, error, required, onBlur },
 	inputRef
 ) {
@@ -53,7 +53,7 @@ const StandardTextArea = forwardRef(function StandardTextArea(
 			<InputLabel required={required} error={errors}>
 				{label}
 			</InputLabel>
-			<TextArea
+			<Input
 				type={type}
 				error={errors}
 				className={className}
@@ -69,7 +69,7 @@ const StandardTextArea = forwardRef(function StandardTextArea(
 	);
 });
 
-StandardTextArea.propTypes = {
+StandardInput.propTypes = {
 	className: PropTypes.string,
 	error: PropTypes.bool,
 	label: PropTypes.string.isRequired,
@@ -81,10 +81,10 @@ StandardTextArea.propTypes = {
 	value: PropTypes.any,
 };
 
-StandardTextArea.defaultProps = {
+StandardInput.defaultProps = {
 	type: 'text',
 	error: false,
 	required: false,
 };
 
-export default memo(StandardTextArea);
+export default memo(StandardInput);

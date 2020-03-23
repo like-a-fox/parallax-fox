@@ -1,4 +1,5 @@
-const arrayOfTiles = [
+
+module.exports=[
 	{
 		title: 'Angular',
 		subtitle: '2+ None of that AngularJS Shit',
@@ -30,16 +31,3 @@ const arrayOfTiles = [
 		pathname: 'rxjs',
 	},
 ];
-
-const tiles = arrayOfTiles.reduce(
-	(prev, { title, subtitle, pathname }) => ({
-		...prev,
-		[pathname]: {
-			title,
-			subtitle,
-			path: `/${pathname}`,
-		},
-	}),
-	{}
-);
-export const tile_data = { ...tiles };
