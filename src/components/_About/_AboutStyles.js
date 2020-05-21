@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { ParallaxLayer } from 'react-spring/renderprops-addons.cjs';
+import { fade } from '../../styles';
 
 export const AboutHeader = styled.div`
 	${tw`flex font-mono text-primary flex-row items-center m-6`};
@@ -19,6 +20,9 @@ export const AboutDescription = styled.p`
 export const AboutDivider = styled(ParallaxLayer)`
 	opacity: 0.5;
 	${tw`absolute w-full h-full min-h-screen`};
+	animation: ${fade};
+	animation-iteration-count: 1;
+	animation-fill-mode: none;
 	background: linear-gradient(
 		to right,
 		rgba(30, 40, 50, 0.9) 0%,

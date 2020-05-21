@@ -1,8 +1,20 @@
 import PropTypes from 'prop-types';
 import React, { memo } from 'react';
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, keyframes, css } from 'styled-components';
 import { SnackbarProvider } from 'notistack';
 import 'typeface-cantata-one';
+
+const fadeOpacity = keyframes`
+  0% { 
+        opacity: 0; 
+    } 
+  100% { 
+        opacity: 1; 
+     } 
+`;
+const fadeAnimation = css`
+	${fadeOpacity} 3s ease-in-out;
+`;
 
 const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
@@ -33,6 +45,9 @@ const GlobalStyle = createGlobalStyle`
 
   body {
 	  ${tw`flex flex-column items-stretch justify-start`}
+    animation: ${fadeAnimation}; 
+    animation-iteration-count: 1; 
+    animation-fill-mode: both; 
   }
 
   a {

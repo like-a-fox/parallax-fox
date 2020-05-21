@@ -1,5 +1,43 @@
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { ParallaxLayer } from 'react-spring/renderprops-addons.cjs';
+
+const fadeBackground = keyframes`
+	from {
+		opacity: .5;
+	}
+	to {
+		opacity: 1;
+	}
+`;
+
+export const fade = css`
+	${fadeBackground} 2s ease-in;
+`;
+const slideElement = keyframes`
+	from {
+		transform: translateX(300px);
+	}
+	to {
+		transform: translateX(0px)
+	}
+`;
+
+const oddSlideElement = keyframes`
+from {
+	transform: translateX(-300px);
+}
+to {
+	transform: translateX(0px)
+}
+`;
+
+export const slide = css`
+	${slideElement} 3s ease-in;
+`;
+
+export const oddSlide = css`
+	${oddSlideElement} 2s ease;
+`;
 
 export const Content = styled(ParallaxLayer)`
 	${tw`px-4 md:px-12 xl:px-16 justify-center w-full items-center flex z-50`};
@@ -18,6 +56,9 @@ export const Content = styled(ParallaxLayer)`
 export const Divider = styled(ParallaxLayer)`
 	${tw`absolute w-full h-full min-h-screen`};
 	background: ${(props) => props.bg};
+	animation: ${fade};
+	animation-iteration-count: 1;
+	animation-fill-mode: none;
 	top: 0;
 	svg {
 		fill: ${(props) => props.fill};

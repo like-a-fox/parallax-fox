@@ -3,11 +3,11 @@ import { LoadingCircle, LoadingInner, LoadingSpinner } from './_LoadingStyles';
 
 const Loading = () => {
 	return (
-		<LoadingSpinner>
-			<LoadingInner size={300}>
+		<LoadingSpinner diameter={90}>
+			<LoadingInner>
 				<LoadingCircle
 					zindex='inherit'
-					diameter={200}
+					diameter={70}
 					bg='117, 93, 99, .7'
 					top={100}
 					left={100}
@@ -15,7 +15,7 @@ const Loading = () => {
 				/>
 				<LoadingCircle
 					zindex='1001'
-					diameter={30}
+					diameter={35}
 					bg='86,79,114,0.9'
 					top={50}
 					left={50}

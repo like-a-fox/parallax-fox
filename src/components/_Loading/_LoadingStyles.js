@@ -27,8 +27,8 @@ const negativeRotateAnimation = (length) => css`
 
 export const LoadingCircle = styled.div`
 	${tw`absolute shadow-lg rounded-full`}
-	height: ${(props) => props.diameter}px;
-	width: ${(props) => props.diameter}px;
+	height: ${(props) => props.diameter}vh;
+	width: ${(props) => props.diameter}vh;
 	background-color: rgba(${(props) => props.bg});
 	top: ${(props) => props.top};
 	left: ${(props) => props.left};
@@ -37,19 +37,19 @@ export const LoadingCircle = styled.div`
 	z-index: ${(props) => props.zindex};
 	transform-origin: ${(props) => props.transform}px ${(props) =>
 	props.transform}px;
-	${rotateAnimation('1.5s')}
+	${rotateAnimation('5s')}
 `;
 
 export const LoadingInner = styled.div`
 	${tw`absolute shadow-lg h-full w-full rounded-full`}
 	transform: translateZ(0) scale(1);
 	background-color: rgba(120, 140, 152, 0.5);
-	width: ${(props) => props.size}px;
-	height: ${(props) => props.size}px;
+	width: ${(props) => props.diameter}vh;
+	height: ${(props) => props.diameter}vh;
 	backface-visibility: hidden;
-	left: ${(props) => props.size / 2};
+	left: calc(100vw / 2);
 	transform-origin: 80px 100px;
-	${negativeRotateAnimation('3s')}
+	${negativeRotateAnimation('8s')}
 `;
 
 export const LoadingSpinner = styled.div`
