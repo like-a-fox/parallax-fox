@@ -1,5 +1,5 @@
 /* eslint-disable filenames/match-regex */
-import React, { memo } from 'react';
+import React from 'react';
 import { Layout, SEO } from '../components';
 
 const NotFoundPage = () => (
@@ -10,4 +10,4 @@ const NotFoundPage = () => (
 	</Layout>
 );
 
-export default memo(NotFoundPage);
+export default NotFoundPage;
