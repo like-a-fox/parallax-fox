@@ -32,7 +32,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-	  ${tw`flex flex-column items-center justify-start`}
+	  ${tw`flex flex-column items-stretch justify-start`}
   }
 
   a {

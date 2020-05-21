@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { FormButton, ButtonWrapper } from '../../styles';
+import { FormButton, ButtonWrapper } from './_FormStyles';
 
 export const FormActions = (props) => {
 	const { submitted, setFormStatus, handleSubmit, handleReset } = props;

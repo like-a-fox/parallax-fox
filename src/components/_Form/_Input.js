@@ -1,5 +1,5 @@
 import React, { forwardRef, useState } from 'react';
-import { Input, InputWrapper, InputLabel } from '../../styles';
+import { Input, InputWrapper, InputLabel } from './_FormStyles';
 import PropTypes from 'prop-types';
 
 const StandardInput = forwardRef(function StandardInput(props, inputRef) {

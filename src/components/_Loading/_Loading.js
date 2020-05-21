@@ -1,7 +1,7 @@
-import React, { memo } from 'react';
-import { LoadingCircle, LoadingInner, LoadingSpinner } from '../styles';
+import React from 'react';
+import { LoadingCircle, LoadingInner, LoadingSpinner } from './_LoadingStyles';
 
-const LoadingBubbles = () => {
+const Loading = () => {
 	return (
 		<LoadingSpinner>
 			<LoadingInner size={300}>
@@ -26,4 +26,4 @@ const LoadingBubbles = () => {
 	);
 };
 
-export default memo(LoadingBubbles);
+export default Loading;

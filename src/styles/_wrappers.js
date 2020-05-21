@@ -1,10 +1,5 @@
 import styled from 'styled-components';
-import { ParallaxLayer, Parallax } from 'react-spring/renderprops-addons.cjs';
-
-export const ParallaxPage = styled(Parallax)`
-	top: 0;
-	filter: ${(props) => props.loading};
-`;
+import { ParallaxLayer } from 'react-spring/renderprops-addons.cjs';
 
 export const Content = styled(ParallaxLayer)`
 	${tw`px-4 md:px-12 xl:px-16 justify-center w-full items-center flex z-50`};

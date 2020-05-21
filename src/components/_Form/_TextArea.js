@@ -1,5 +1,5 @@
 import React, { memo, forwardRef, useState } from 'react';
-import { TextArea, InputWrapper, InputLabel } from '../../styles';
+import { TextArea, InputWrapper, InputLabel } from './_FormStyles';
 import PropTypes from 'prop-types';
 
 /**

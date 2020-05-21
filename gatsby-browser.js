@@ -4,11 +4,11 @@ import React from 'react';
 import 'firebase/auth';
 import 'firebase/database';
 import { default as Providers } from './src/components/_Providers';
-import { default as LoadingBubbles } from './src/components/_LoadingBubbles';
+import { Loading } from './src/components/_Loading';
 
 export const wrapRootElement = ({ element }) =>
 	typeof window !== 'undefined' ? (
-		<React.Suspense fallback={<LoadingBubbles />}>
+		<React.Suspense fallback={<Loading />}>
 			<Providers>{element}</Providers>{' '}
 		</React.Suspense>
 	) : (

@@ -1,18 +1,21 @@
 /* eslint-disable filenames/match-regex */
 import React from 'react';
-import { About, Contact, Hero, ParallaxLayout, Projects } from '../components';
+import { Parallax } from 'react-spring/renderprops-addons.cjs';
+import { About, Contact, Hero, Layout, Projects } from '../components';
 
 const IndexPage = () => {
 	const isSSR = typeof window !== 'undefined';
 	return (
 		<>
 			{isSSR && (
-				<ParallaxLayout pages={7}>
-					<Hero />
-					<Projects />
-					<About />
-					<Contact />
-				</ParallaxLayout>
+				<Layout>
+					<Parallax pages={7}>
+						<Hero />
+						<Projects />
+						<About />
+						<Contact />
+					</Parallax>
+				</Layout>
 			)}
 		</>
 	);
