@@ -2,21 +2,26 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import avatar from '../../images/avatar.png';
 import { Content, Inner, Title } from '../../styles';
-import { AboutDesc, AboutHero, AboutSub, Avatar } from './_AboutStyles';
+import {
+	AboutDescription,
+	AboutHeader,
+	AboutSubTitle,
+	AboutAvatar,
+} from './_AboutStyles';
 
 const AboutSection = (props) => {
 	return (
 		<Content className={'about'} {...props}>
 			<Inner>
 				<Title>About</Title>
-				<AboutHero>
-					<Avatar src={avatar} alt='Like A Fox' />
-					<AboutSub>
+				<AboutHeader>
+					<AboutAvatar src={avatar} alt='Like A Fox' />
+					<AboutSubTitle>
 						Well, I’m going to tell you the best and the worst thing you’ve ever
 						heard. Heroes aren’t born.
-					</AboutSub>
-				</AboutHero>
-				<AboutDesc>
+					</AboutSubTitle>
+				</AboutHeader>
+				<AboutDescription>
 					You just go out there and grind it out. You fail and you look foolish
 					and you just keep grinding. There is nothing else. There is no ‘chosen
 					one,’ there is no destiny, nobody wakes up one day and finds out
@@ -25,7 +30,7 @@ const AboutSection = (props) => {
 					either the wall or your head breaks. You want to be a hero? You don’t
 					have to make some grand decision. There’s no inspirational music,
 					there’s no montage. You just don’t quit.
-				</AboutDesc>
+				</AboutDescription>
 			</Inner>
 		</Content>
 	);

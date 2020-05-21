@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'gatsby';
-import { Divider } from '../../styles';
+import { ParallaxLayer } from 'react-spring/renderprops-addons.cjs';
 
 export const ProjectsWrapper = styled.div`
 	${tw`flex-col flex md:flex-row md:inline-flex md:flex-wrap justify-between`};
@@ -35,12 +35,33 @@ export const LinkWrapper = styled(Link)`
 	}
 `;
 
-export const DividerMiddle = styled(Divider)`
-	opacity: ${({ flipped }) => (!flipped ? 'initial' : 0.5)};
-	clip-path: ${({ flipped }) =>
-		!flipped
-			? ' polygon(0 0%,100% 11%,100% 78%,0% 100%)'
-			: ' polygon(0 37%,75% 48%,100% 10%,100% 10%)'};
+export const ProjectsUpperDivider = styled(ParallaxLayer)`
+	${tw`absolute w-full h-full min-h-screen`};
+	background: linear-gradient(
+		to right,
+		rgba(162, 181, 216, 0.7) 0%,
+		rgba(148, 130, 186, 0.3) 100%
+	);
+	top: 0;
+	svg {
+		fill: ${(props) => props.fill};
+	}
+	clip-path: polygon(0 0%, 100% 11%, 100% 78%, 0% 100%);
+`;
+
+export const ProjectsLowerDivider = styled(ParallaxLayer)`
+	opacity: 0.5;
+	${tw`absolute w-full h-full min-h-screen`};
+	background: linear-gradient(
+		to right,
+		rgba(162, 181, 216, 0.7) 0%,
+		rgba(148, 130, 186, 0.3) 100%
+	);
+	top: 0;
+	svg {
+		fill: ${(props) => props.fill};
+	}
+	clip-path: polygon(0 37%, 75% 48%, 100% 10%, 100% 10%);
 `;
 
 export const LinkText = styled.div`

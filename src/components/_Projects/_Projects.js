@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { default as ProjectsDivider } from './_ProjectsDivider';
+import { UpperDivider, LowerDivider } from './_ProjectsDivider';
 import { default as ProjectTiles } from './_ProjectTiles';
 import { ProjectsWrapper } from './_ProjectsStyles';
 import { Inner, Content, Title } from '../../styles';
@@ -15,7 +15,7 @@ import { Inner, Content, Title } from '../../styles';
 const Projects = (props) => {
 	return (
 		<>
-			<ProjectsDivider />
+			<UpperDivider />
 			<Content className={'projects'} {...props}>
 				<Inner>
 					<Title>Projects</Title>
@@ -24,6 +24,7 @@ const Projects = (props) => {
 					</ProjectsWrapper>
 				</Inner>
 			</Content>
+			<LowerDivider />
 		</>
 	);
 };

@@ -1,25 +1,33 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import { DividerMiddle } from './_ProjectsStyles';
+import { ProjectsUpperDivider, ProjectsLowerDivider } from './_ProjectsStyles';
 
-const ProjectsDivider = (props) => (
-	<>
-		<DividerMiddle
-			factor={1.7}
-			speed={0.3}
-			offset={1}
-			bg='linear-gradient(to right, rgba(162, 181, 216, .7) 0%, rgba(148, 130, 186, .3) 100%)'
-			{...props}
-		/>
+export const UpperDivider = (props) => {
+	return <ProjectsUpperDivider {...props} />;
+};
 
-		<DividerMiddle
-			factor={1.5}
-			speed={-0.7}
-			flipped='true'
-			offset={4.2}
-			bg='linear-gradient(to right, rgba(162, 181, 216, .7) 0%, rgba(148, 130, 186, .3) 100%)'
-			{...props}
-		/>
-	</>
-);
+UpperDivider.propTypes = {
+	factor: PropTypes.number,
+	offset: PropTypes.number,
+	speed: PropTypes.number,
+};
+UpperDivider.defaultProps = {
+	factor: 1.7,
+	speed: 0.3,
+	offset: 1,
+};
 
-export default ProjectsDivider;
+export const LowerDivider = (props) => {
+	return <ProjectsLowerDivider {...props} />;
+};
+
+LowerDivider.propTypes = {
+	factor: PropTypes.number,
+	offset: PropTypes.number,
+	speed: PropTypes.number,
+};
+LowerDivider.defaultProps = {
+	factor: 1.5,
+	speed: -0.5,
+	offset: 4.2,
+};

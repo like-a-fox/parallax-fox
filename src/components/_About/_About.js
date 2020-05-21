@@ -1,11 +1,11 @@
 import React from 'react';
-import { default as AboutDivider } from './_AboutDivider';
+import { AboutDivider } from './_AboutStyles';
 import { default as AboutSection } from './_AboutSection';
 
 const About = () => {
 	return (
 		<>
-			<AboutDivider />
+			<AboutDivider speed={-0.2} offset={3} />
 			<AboutSection />
 		</>
 	);
