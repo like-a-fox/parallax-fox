@@ -41,7 +41,7 @@ const FORM_INITIAL_STATE = {
 	message: '',
 };
 
-export default function useSendFire() {
+export const useContactForm = () => {
 	const [form, changeInputs] = useState({ ...FORM_INITIAL_STATE });
 	const [submitted, setFormStatus] = useState(false);
 	const [errorMessage, setErrorMessage] = useState(false);
@@ -87,4 +87,4 @@ export default function useSendFire() {
 		handleFocus,
 		handleBlur,
 	};
-}
+};

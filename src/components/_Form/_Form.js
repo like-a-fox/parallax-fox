@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { memo } from 'react';
-import { default as FormActions } from './_FormActions';
+import { default as FormActions } from './_Actions';
 import { Form } from '../../styles';
 
 const FormWrapper = (props) => {

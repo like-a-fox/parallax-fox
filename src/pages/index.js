@@ -1,12 +1,6 @@
 /* eslint-disable filenames/match-regex */
 import React from 'react';
-import {
-	AboutSection,
-	ContactSection,
-	HeroSection,
-	ParallaxLayout,
-	ProjectsSection,
-} from '../components';
+import { About, Contact, Hero, ParallaxLayout, Projects } from '../components';
 
 const IndexPage = () => {
 	const isSSR = typeof window !== 'undefined';
@@ -14,10 +8,10 @@ const IndexPage = () => {
 		<>
 			{isSSR && (
 				<ParallaxLayout pages={7}>
-					<HeroSection />
-					<ProjectsSection />
-					<AboutSection />
-					<ContactSection />
+					<Hero />
+					<Projects />
+					<About />
+					<Contact />
 				</ParallaxLayout>
 			)}
 		</>

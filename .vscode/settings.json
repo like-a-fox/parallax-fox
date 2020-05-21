@@ -11,5 +11,7 @@
 	"prettier.jsxSingleQuote": true,
 	"prettier.packageManager": "yarn",
 	"prettier.singleQuote": true,
-	"propTypes.arrayLike": true
+	"propTypes.arrayLike": true,
+	"editor.renderFinalNewline": false,
+	"files.autoSaveDelay": 4000
 }

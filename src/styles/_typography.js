@@ -21,25 +21,12 @@ export const Title = styled.h1`
 		top: 0;
 	}
 `;
-export const ContactText = styled.p`
-	${tw`text-grey-light font-mono text-xl md:text-2xl lg:text-3xl`};
-`;
 
 export const Text = styled.div`
 	${tw`opacity-85 font-mono text-tertiary text-sm md:text-base`};
 	text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 	font-weight: 200;
 	letter-spacing: -1px;
-`;
-
-export const BigTitle = styled.h1`
-	${tw`text-2xl lg:text-3xl font-thin xl:text-4xl h-8 flex items-center uppercase justify-start font-mono text-primary mb-3`};
-	text-shadow: 0 5px 35px rgba(255, 255, 255, 0.15);
-	filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.5));
-	letter-spacing: -2px;
-	i {
-		${tw`text-secondary h-full text-base inline-flex items-start `}
-	}
 `;
 
 export const Subtitle = styled.p`
