@@ -37,7 +37,7 @@ export const LoadingCircle = styled.div`
 	z-index: ${(props) => props.zindex};
 	transform-origin: ${(props) => props.transform}px ${(props) =>
 	props.transform}px;
-	${rotateAnimation('3s')}
+	${rotateAnimation('1.5s')}
 `;
 
 export const LoadingInner = styled.div`
@@ -49,7 +49,7 @@ export const LoadingInner = styled.div`
 	backface-visibility: hidden;
 	left: ${(props) => props.size / 2};
 	transform-origin: 80px 100px;
-	${negativeRotateAnimation('5s')}
+	${negativeRotateAnimation('3s')}
 `;
 
 export const LoadingSpinner = styled.div`
@@ -65,6 +65,6 @@ export const LoadingSpinner = styled.div`
 			rgba(50, 50, 65, 0.2) 0%,
 			rgba(50, 50, 65, 0.7) 100%
 		);
-		clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0 15%);
+		clip-path: polygon(0px 0%, 0% 100%, 100% 100%, 0px 15%);
 	}
 `;
