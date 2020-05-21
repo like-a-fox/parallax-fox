@@ -37,7 +37,7 @@ const ContactSection = (props) => {
 	return (
 		<>
 			<SectionTemplate
-				factor={1.5}
+				factor={1}
 				offset={4.7}
 				contentClassName={'contact'}
 				sectionTitle={'Get In Touch'}
@@ -54,7 +54,6 @@ const ContactSection = (props) => {
 						type={'email'}
 						required
 						onBlur={handleEmailValidation}
-						error={emailError}
 					/>
 					<StandardTextArea
 						name={'message'}

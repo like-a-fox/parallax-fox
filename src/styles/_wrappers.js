@@ -56,8 +56,9 @@ export const ContactInner = styled.div`
 	${tw`flex-col md:flex justify-between items-start`}
 	width: -webkit-fill-available;
 	&.contact {
+		height: unset;
 		.contact-inner {
-			${tw`w-2/5 h-full justify-start flex-col`}
+			${tw`w-2/5 justify-start flex-col`}
 		}
 	}
 	@media (max-width: 700px) {

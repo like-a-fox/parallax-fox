@@ -43,9 +43,9 @@ const ProjectLink = memo(function ProjectLink(props) {
 		id,
 		fluid: { src },
 	} = props.node;
-	let { pathname, title, subtitle } = props.tile;
+	let { /* pathname, */ title, subtitle } = props.tile;
 	return (
-		<LinkWrapper key={id} to={pathname} bg={src}>
+		<LinkWrapper key={id} to={'/'} bg={src}>
 			<TitleWrapper>
 				{title}
 				<Text>{subtitle}</Text>
@@ -62,7 +62,7 @@ ProjectLink.propTypes = {
 		}),
 	}),
 	tile: PropTypes.shape({
-		pathname: PropTypes.string,
+		/* 	pathname: PropTypes.string, */
 		title: PropTypes.string,
 		subtitle: PropTypes.string,
 	}),

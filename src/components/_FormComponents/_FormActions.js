@@ -1,29 +1,56 @@
-import React, { memo } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FormButton, ButtonWrapper } from '../../styles';
 
-/**
- * @component FormActions
- * @type {import('react').FunctionComponent}
- * @param {object} props
- * @param {function} props.handleSubmit
- * @param {function} props.resetForm
- */
-const FormActions = (props) => {
-	const { handleReset, handleSubmit } = props;
+export const FormActions = (props) => {
+	const { submitted, setFormStatus, handleSubmit, handleReset } = props;
+	const [clicks, setClicks] = useState(0);
+	const handleClick = () => {
+		if (submitted) {
+			if (clicks < 2) {
+				setClicks(clicks + 1);
+			} else {
+				handleReset();
+				setClicks(0);
+				setFormStatus(false);
+			}
+		}
+	};
+	const buttonText =
+		submitted &&
+		(clicks === 0
+			? 'Send Another Message?'
+			: clicks === 1
+			? 'Oh Really One Message Isnt Enough?'
+			: 'Seriously? Wow You Are Selfish');
+	if (!submitted) {
+		return (
+			<ButtonWrapper>
+				<FormButton onClick={handleSubmit} submit>
+					Send It Stupid
+				</FormButton>
+				<FormButton onClick={handleReset}>whoopsies!</FormButton>
+			</ButtonWrapper>
+		);
+	}
+
 	return (
 		<ButtonWrapper>
-			<FormButton onClick={handleSubmit} submit>
-				Send It Stupid
-			</FormButton>
-			<FormButton onClick={handleReset}>whoopsies!</FormButton>
+			<FormButton onClick={handleClick}> {buttonText} </FormButton>
 		</ButtonWrapper>
 	);
 };
 
 FormActions.propTypes = {
-	handleSubmit: PropTypes.func.isRequired,
-	handleReset: PropTypes.func.isRequired,
+	setFormStatus: PropTypes.func,
+	submitted: PropTypes.bool,
+	handleSubmit: PropTypes.func,
+	handleReset: PropTypes.func,
 };
 
-export default memo(FormActions);
+FormActions.defaultProps = {
+	submitted: false,
+	setFormStatus: () => null,
+};
+
+export default FormActions;

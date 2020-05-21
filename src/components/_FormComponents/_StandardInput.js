@@ -24,8 +24,8 @@ const StandardInput = forwardRef(function StandardInput(
 	const [errors, setErrors] = useState(() => !!error);
 	const checkInput = (event) => {
 		const { value } = event.target;
-		const empty_regex_str = /[A-Za-z0-9]{1,20}/gi;
-		const errorCheck = empty_regex_str.test(value);
+		const empty_regex_str = /[A-Za-z0-9]+/gi;
+		const errorCheck = !empty_regex_str.test(value);
 		if (required && errorCheck) {
 			setErrors(errorCheck);
 		}
