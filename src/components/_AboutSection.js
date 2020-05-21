@@ -1,7 +1,7 @@
-import React,{memo} from 'react';
+import React, { memo } from 'react';
 import avatar from '../images/avatar.png';
-import {AboutDesc,AboutHero,AboutSub,Avatar,Divider} from '../styles';
-import {default as SectionTemplate} from './_SectionTemplate';
+import { AboutDesc, AboutHero, AboutSub, Avatar, Divider } from '../styles';
+import { default as SectionTemplate } from './_SectionTemplate';
 
 const AboutDivider = memo(function AboutDivider({ ...parallaxProps }) {
 	return (
@@ -20,7 +20,7 @@ const AboutDivider = memo(function AboutDivider({ ...parallaxProps }) {
  * @type {import('react').FunctionComponent}
  * @param {object} props
  */
-const AboutSection=(props) => {
+const AboutSection = (props) => {
 	const Divider = <AboutDivider {...props} />;
 	return (
 		<SectionTemplate
@@ -34,23 +34,22 @@ const AboutSection=(props) => {
 			<AboutHero>
 				<Avatar src={avatar} alt='Like A Fox' />
 				<AboutSub>
-					Well, I’m going to tell you the best and the worst thing you’ve ever heard.
-					Heroes aren’t born.
+					Well, I’m going to tell you the best and the worst thing you’ve ever
+					heard. Heroes aren’t born.
 				</AboutSub>
 			</AboutHero>
 			<AboutDesc>
-				You just go out there and grind it out. You fail and you look foolish and
-				you just keep grinding. There is nothing else. There is no ‘chosen one,’
-				there is no destiny, nobody wakes up one day and finds out they’re amazing
-				at something. There’s just slamming your head into the wall, refusing to
-				take no for an answer. Being relentless, until either the wall or your head
-				breaks. You want to be a hero? You don’t have to make some grand decision.
-				There’s no inspirational music, there’s no montage. You just don’t quit.
+				You just go out there and grind it out. You fail and you look foolish
+				and you just keep grinding. There is nothing else. There is no ‘chosen
+				one,’ there is no destiny, nobody wakes up one day and finds out they’re
+				amazing at something. There’s just slamming your head into the wall,
+				refusing to take no for an answer. Being relentless, until either the
+				wall or your head breaks. You want to be a hero? You don’t have to make
+				some grand decision. There’s no inspirational music, there’s no montage.
+				You just don’t quit.
 			</AboutDesc>
 		</SectionTemplate>
 	);
 };
 
-
 export default memo(AboutSection);
-

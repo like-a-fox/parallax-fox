@@ -14,4 +14,3 @@ export const AboutSub = styled.span`
 export const AboutDesc = styled.p`
 	${tw`text-main xl:text-2xl font-mono pt-6 md:text-lg text-justify`};
 `;
-

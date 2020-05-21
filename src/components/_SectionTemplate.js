@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import React,{memo} from 'react';
-import {Content,Inner,Title} from '../styles';
+import React, { memo } from 'react';
+import { Content, Inner, Title } from '../styles';
 
 /**
  * @component SectionTemplate
@@ -11,7 +11,7 @@ import {Content,Inner,Title} from '../styles';
  * @param {string} props.contentClassName
  * @param {string} props.sectionTitle
  */
-const SectionTemplate=(props)=> {
+const SectionTemplate = (props) => {
 	const {
 		Divider,
 		children,
@@ -30,16 +30,18 @@ const SectionTemplate=(props)=> {
 			</Content>
 		</>
 	);
-}
+};
 
 SectionTemplate.propTypes = {
-  Divider: PropTypes.element,
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]).isRequired,
-  contentClassName: PropTypes.string.isRequired,
-  sectionTitle: PropTypes.string.isRequired
+	Divider: PropTypes.element,
+	children: PropTypes.oneOfType([
+		PropTypes.element,
+		PropTypes.arrayOf(PropTypes.element),
+	]).isRequired,
+	contentClassName: PropTypes.string.isRequired,
+	sectionTitle: PropTypes.string.isRequired,
 };
-SectionTemplate.defaultProps={
-	Divider: null
-}
+SectionTemplate.defaultProps = {
+	Divider: null,
+};
 export default memo(SectionTemplate);
-

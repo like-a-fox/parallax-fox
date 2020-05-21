@@ -1,5 +1,4 @@
-
-module.exports=[
+module.exports = [
 	{
 		title: 'Angular',
 		subtitle: '2+ None of that AngularJS Shit',

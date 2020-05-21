@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import React,{memo} from 'react';
-import {ParallaxPage} from '../styles';
-import {default as Layout} from './_Layout';
-import {default as LoadingBubbles} from './_LoadingBubbles';
+import React, { memo } from 'react';
+import { ParallaxPage } from '../styles';
+import { default as Layout } from './_Layout';
+import { default as LoadingBubbles } from './_LoadingBubbles';
 
 /**
  * @component ParallaxLayout
@@ -13,8 +13,8 @@ import {default as LoadingBubbles} from './_LoadingBubbles';
  * @param {number} props.pages
  */
 const ParallaxLayout = (props) => {
-	const {loading,children,pages,...extraProps}=props;
-	if(loading) {
+	const { loading, children, pages, ...extraProps } = props;
+	if (loading) {
 		return <LoadingBubbles />;
 	}
 	return (
@@ -30,15 +30,14 @@ const ParallaxLayout = (props) => {
 };
 
 ParallaxLayout.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
-  loading: PropTypes.bool,
-  pages: PropTypes.number.isRequired
+	children: PropTypes.arrayOf(PropTypes.element).isRequired,
+	loading: PropTypes.bool,
+	pages: PropTypes.number.isRequired,
 };
 
-ParallaxLayout.defaultProps={
+ParallaxLayout.defaultProps = {
 	loading: false,
-	pages: 6
-}
+	pages: 6,
+};
 
 export default memo(ParallaxLayout);
-

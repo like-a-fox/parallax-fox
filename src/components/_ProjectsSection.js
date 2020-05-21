@@ -81,7 +81,9 @@ const ProjectsSection = (props) => {
 				}
 			}
 			allImageSharp(
-				filter: { fluid: { originalName: { glob: "*_background.{png,jpg,jpeg}" } } }
+				filter: {
+					fluid: { originalName: { glob: "*_background.{png,jpg,jpeg}" } }
+				}
 			) {
 				edges {
 					node {
@@ -98,7 +100,8 @@ const ProjectsSection = (props) => {
 	const Tiles = useMemo(() => {
 		return data.allImageSharp.edges.map(({ node }) => {
 			let tile = data.site.siteMetadata.tileData.find(
-				({ pathname }) =>pathname && pathname === node.fluid.originalName.split('_')[0]
+				({ pathname }) =>
+					pathname && pathname === node.fluid.originalName.split('_')[0]
 			);
 			return <ProjectLink key={node.id} node={node} tile={tile} />;
 		});

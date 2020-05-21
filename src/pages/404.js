@@ -1,3 +1,4 @@
+/* eslint-disable filenames/match-regex */
 import React, { memo } from 'react';
 import { Layout, SEO } from '../components';
 

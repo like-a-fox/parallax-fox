@@ -1,8 +1,8 @@
 import { useState, useCallback } from 'react';
-import { default as useFirebase } from './_useFirebase';
-
+import firebase from 'gatsby-plugin-firebase';
+import { useSnackbar } from 'notistack';
 export const email_regex_str = '\\S+@\\S+\\.\\S+';
-export const empty_regex_str = '[A-Za-z0-9]{1,20}';
+export const empty_regex_str = '[A-Za-z0-9]+';
 export const email_regex = new RegExp(email_regex_str);
 export const empty_regex = new RegExp(empty_regex_str);
 
@@ -18,38 +18,58 @@ export const handleForm = ({ name, email, message }) => ({
 						  <div>Message: ${message}</div>
 						  `,
 });
+const baseValidation = (field) =>
+	field !== null && field !== undefined && empty_regex.test(field);
+const validateForm = (form) => {
+	const { name, email, message } = form;
+	let errors = [];
+	if (!baseValidation(name)) {
+		errors.push('Name Input has errors');
+	}
+	if (!baseValidation(email) || !email_regex.test(email)) {
+		errors.push('Email Input has errors');
+	}
+	if (!baseValidation(message)) {
+		errors.push('Message Input has errors');
+	}
+	return errors;
+};
+
+const FORM_INITIAL_STATE = {
+	name: '',
+	email: '',
+	message: '',
+};
 
 export default function useSendFire() {
-	const [form, changeInputs] = useState({ name: '', email: '', message: '' });
+	const [form, changeInputs] = useState({ ...FORM_INITIAL_STATE });
 	const [submitted, setFormStatus] = useState(false);
-	const [errorMessage, setErrorMessage] = useState('');
-	const firebase = useFirebase();
+	const [errorMessage, setErrorMessage] = useState(false);
+	const { enqueueSnackbar } = useSnackbar();
+	const db = firebase.database();
 	function handleReset() {
 		changeInputs({ name: '', email: '', message: '' });
 		setFormStatus(false);
 	}
 	const handleSubmit = useCallback(() => {
-		let valid =
-			form &&
-			form.name &&
-			form.email &&
-			!empty_regex.test(form.name) &&
-			!email_regex.test(form.email) &&
-			!submitted;
+		let valid = !validateForm(form).length && !submitted;
 		if (valid) {
 			let formattedInputs = handleForm(form);
-			firebase.database().ref('/messages').push(formattedInputs);
+			db.ref('/messages').push(formattedInputs);
 			setFormStatus(true);
 		} else {
-			setErrorMessage(
-				'Failed to submit your form please check that all input fields are valid'
-			);
+			for (let error of validateForm(form)) {
+				enqueueSnackbar(`Form Submit Failed: ${error}`, {
+					variant: 'error',
+				});
+			}
+			setErrorMessage(true);
 		}
-	}, [form, setErrorMessage, firebase, setFormStatus, submitted]);
+	}, [form, setErrorMessage, enqueueSnackbar, db, setFormStatus, submitted]);
 
 	const handleFocus = () => {
 		if (errorMessage) {
-			setErrorMessage('');
+			setErrorMessage(false);
 		}
 	};
 	const handleBlur = (event) => {
@@ -68,4 +88,3 @@ export default function useSendFire() {
 		handleBlur,
 	};
 }
-

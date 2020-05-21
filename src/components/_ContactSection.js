@@ -1,12 +1,15 @@
-import PropTypes from "prop-types";
-import React,{memo,useState} from 'react';
-import {useSendFire} from '../firebase';
-import {ContactText} from '../styles';
-import {default as Footer} from './_Footer';
-import {FormWrapper,StandardInput,StandardTextArea} from './_FormComponents';
-import {default as SectionTemplate} from './_SectionTemplate';
-import {default as WaveDivider} from './_WaveDivider';
-
+import PropTypes from 'prop-types';
+import React, { memo, useState } from 'react';
+import { useSendFire } from '../firebase';
+import { ContactText } from '../styles';
+import { default as Footer } from './_Footer';
+import {
+	FormWrapper,
+	StandardInput,
+	StandardTextArea,
+} from './_FormComponents';
+import { default as SectionTemplate } from './_SectionTemplate';
+import { default as WaveDivider } from './_WaveDivider';
 
 /**
  * @component ContactSection
@@ -16,7 +19,7 @@ import {default as WaveDivider} from './_WaveDivider';
  * @param {string} props.message
  * @param {string} props.name
  */
-const ContactSection=(props)=> {
+const ContactSection = (props) => {
 	const { name, email, message, ...wrapperProps } = useSendFire();
 	const [emailError, setEmailError] = useState(false);
 	const handleEmailValidation = (event) => {
@@ -53,26 +56,29 @@ const ContactSection=(props)=> {
 						onBlur={handleEmailValidation}
 						error={emailError}
 					/>
-					<StandardTextArea name={'message'} value={message} label={'Message'} />
+					<StandardTextArea
+						name={'message'}
+						value={message}
+						label={'Message'}
+					/>
 				</FormWrapper>
 			</SectionTemplate>
 			<Footer />
 			<WaveDivider />
 		</>
 	);
-}
+};
 
 ContactSection.propTypes = {
-  email: PropTypes.string,
-  message: PropTypes.string,
-  name: PropTypes.string
-}
+	email: PropTypes.string,
+	message: PropTypes.string,
+	name: PropTypes.string,
+};
 
-ContactSection.defaultProps={
+ContactSection.defaultProps = {
 	name: '',
 	email: '',
-	message: ''
-}
+	message: '',
+};
 
-export default memo(ContactSection)
-
+export default memo(ContactSection);

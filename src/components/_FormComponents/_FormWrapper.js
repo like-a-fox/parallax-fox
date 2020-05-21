@@ -15,7 +15,14 @@ import { Form } from '../../styles';
  * @param {boolean} props.submitted
  */
 const FormWrapper = (props) => {
-	const { children, handleSubmit, handleReset,handleBlur,handleFocus, submitted } = props;
+	const {
+		children,
+		handleSubmit,
+		handleReset,
+		handleBlur,
+		handleFocus,
+		submitted,
+	} = props;
 	const FormButtons = !submitted ? (
 		<FormActions handleSubmit={handleSubmit} handleReset={handleReset} />
 	) : null;
@@ -26,7 +33,6 @@ const FormWrapper = (props) => {
 		</Form>
 	);
 };
-
 
 FormWrapper.propTypes = {
 	children: PropTypes.oneOfType([

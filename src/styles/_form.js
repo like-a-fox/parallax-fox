@@ -38,7 +38,7 @@ export const InputLabel = styled.label`
 `;
 
 export const Input = styled.input`
-	${tw`opacity-75 w-full shadow-default hover:shadow-hover focus:shadow-focus bg-black-link uppercase mb-4 text-grey text-mono text-md h-16 border-none pl-3 outline-none font-thin`}
+	${tw`opacity-75 w-full shadow-default hover:shadow-hover focus:shadow-focus bg-black-link uppercase mb-4 text-grey text-mono text-md sm:text-sm h-16 border-none pl-3 outline-none font-thin`}
 	text-shadow: 0 2px 10px rgba(20, 20, 20, 0.3);
 	transition: box-shadow 0.1s ease-in-out;
 	letter-spacing: -0.75px;
@@ -60,7 +60,7 @@ export const TextArea = styled.textarea`
 	transition: box-shadow 0.4s ease-in-out;
 	resize: none;
 	letter-spacing: -0.75px;
-	box-shadow: ${(props) => props.error&&`-4px 0px 0 0 ${colors.pink}`};
+	box-shadow: ${(props) => props.error && `-4px 0px 0 0 ${colors.pink}`};
 	&:hover {
 		${inputHoverShadow}
 	}
@@ -80,7 +80,7 @@ export const Form = styled.form`
 
 //Button For Form
 export const FormButton = styled.a`
-	${tw`rounded-none sm:mb-0 shadow-sm font-mono no-underline text-base opacity-75 font-light text-main bg-black-soft h-16 flex-grow uppercase flex justify-center items-center sm:rounded-l-sm`}
+	${tw`rounded-none mb-4 shadow-sm font-mono no-underline text-base opacity-75 font-light text-main bg-black-soft h-16 flex-grow uppercase flex justify-center items-center sm:rounded-l-sm`}
 	transition: background-color 0.2s ease-in-out;
 	&:first-child {
 		${tw`sm:rounded-r-sm bg-black-link text-tertiary hover:text-black-soft hover:bg-tertiary`}
@@ -93,4 +93,3 @@ export const FormButton = styled.a`
 export const ButtonWrapper = styled.div`
 	${tw`flex-col md:flex-row nowrap w-full h-auto justify-around items-center p-0 mt-4`}
 `;
-

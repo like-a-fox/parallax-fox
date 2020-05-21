@@ -22,9 +22,8 @@ const FormActions = (props) => {
 };
 
 FormActions.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
-  handleReset: PropTypes.func.isRequired
+	handleSubmit: PropTypes.func.isRequired,
+	handleReset: PropTypes.func.isRequired,
 };
 
 export default memo(FormActions);
-

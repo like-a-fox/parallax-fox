@@ -1,6 +1,5 @@
-import React,{memo} from 'react';
-import {Divider,InnerWave,WaveWrapper} from '../styles';
-
+import React, { memo } from 'react';
+import { Divider, InnerWave, WaveWrapper } from '../styles';
 
 export default memo(function WaveDivider(props) {
 	return (
@@ -31,4 +30,3 @@ export default memo(function WaveDivider(props) {
 		</Divider>
 	);
 });
-

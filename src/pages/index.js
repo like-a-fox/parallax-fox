@@ -1,3 +1,4 @@
+/* eslint-disable filenames/match-regex */
 import React from 'react';
 import {
 	AboutSection,
@@ -19,4 +20,3 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
-

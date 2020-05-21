@@ -1,4 +1,6 @@
 {
 	"svg.preview.background": "transparent",
-	"prettier.configPath": "package.json"
+	"prettier.configPath": "package.json",
+	"eslint.packageManager": "yarn",
+	"eslint.alwaysShowStatus": true
 }

@@ -3,15 +3,28 @@
 	"description": "Parallax Like A Fox Portfolio",
 	"version": "1.0.0",
 	"author": "Derek Sligh<@like-a-fox>",
+	"scripts": {
+		"build": "gatsby clean && gatsby build",
+		"deploy": "gatsby clean && gatsby build && firebase deploy",
+		"now": "yarn deploy && now --public",
+		"develop": "gatsby develop",
+		"format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+		"serve": "gatsby serve",
+		"lint": "eslint \"src/**/*.{js,jsx,json,md}\"",
+		"lint:fix": "yarn format && eslint \"src/**/*.{js,jsx,json,md}\" --fix",
+		"flow": "./node_modules/flow-bin/cli.js"
+	},
 	"dependencies": {
 		"@hot-loader/react-dom": "^16.13.0",
 		"@loadable/component": "^5.12.0",
+		"@material-ui/core": "^4.9.14",
 		"babel-plugin-styled-components": "^1.10.7",
 		"babel-plugin-tailwind-components": "^0.5.10",
 		"dotenv": "^8.2.0",
 		"firebase": "^7.12.0",
 		"gatsby": "^2.20.2",
 		"gatsby-image": "^2.3.0",
+		"gatsby-plugin-firebase": "^0.2.0-beta.4",
 		"gatsby-plugin-google-analytics": "^2.2.0",
 		"gatsby-plugin-manifest": "^2.3.1",
 		"gatsby-plugin-offline": "^3.1.0",
@@ -23,6 +36,7 @@
 		"gatsby-plugin-tailwindcss": "^1.0.3",
 		"gatsby-source-filesystem": "^2.2.1",
 		"gatsby-transformer-sharp": "^2.4.1",
+		"notistack": "^0.9.16",
 		"prop-types": "^15.7.2",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
@@ -35,10 +49,16 @@
 		"typeface-open-sans": "^0.0.75"
 	},
 	"devDependencies": {
+		"@babel/core": "^7.9.0",
+		"babel-loader": "^8.1.0",
+		"eslint-plugin-filenames": "^1.3.2",
+		"eslint-plugin-import": "^2.20.2",
 		"eslint-plugin-react": "^7.19.0",
-		"eslint-plugin-react-hooks": "^2.5.1",
-		"now": "^17.0.4",
-		"prettier": "^2.0.1"
+		"eslint-plugin-react-hooks": "^3.0.0",
+		"husky": "^4.2.3",
+		"lint-staged": "^10.1.2",
+		"now": "^18.0.0",
+		"prettier": "^2.0.4"
 	},
 	"engines": {
 		"node": ">=10"
@@ -47,14 +67,12 @@
 		"gatsby"
 	],
 	"license": "MIT",
-	"scripts": {
-		"build": "gatsby build",
-		"deploy": "gatsby clean && yarn build && firebase deploy",
-		"now": "yarn deploy && now --public",
-		"develop": "gatsby develop",
-		"format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-		"serve": "gatsby serve",
-		"test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+	"husky": {
+		"hooks": {
+			"pre-commit": "yarn lint:fix && git add .",
+			"lint-staged": "yarn lint:fix",
+			"pre-push": "yarn deploy"
+		}
 	},
 	"prettier": {
 		"singleQuote": true,
@@ -62,7 +80,6 @@
 		"jsxSingleQuote": true,
 		"endOfLine": "lf",
 		"semi": true,
-		"tabWidth": 1,
 		"jsxBracketSameLine": true,
 		"arrowParens": "always",
 		"trailingComma": "es5"
@@ -74,14 +91,25 @@
 		"extends": [
 			"react-app",
 			"eslint:recommended",
-			"plugin:react/recommended"
+			"plugin:react/recommended",
+			"plugin:import/errors",
+			"plugin:import/warnings"
 		],
 		"plugins": [
-			"react-hooks"
+			"react-hooks",
+			"filenames",
+			"import"
 		],
 		"rules": {
 			"react-hooks/rules-of-hooks": "error",
-			"react-hooks/exhaustive-deps": "warn"
+			"react-hooks/exhaustive-deps": "warn",
+			"react/prop-types": "error",
+			"filenames/match-regex": [
+				2,
+				"^(_[a-zA-Z]+|[index]+)",
+				true
+			],
+			"no-mixed-spaces-and-tabs": "off"
 		}
 	},
 	"repository": {

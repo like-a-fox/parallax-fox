@@ -1,8 +1,8 @@
-import {graphql,useStaticQuery} from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import PropTypes from 'prop-types';
-import React,{memo} from 'react';
+import React, { memo } from 'react';
 import Helmet from 'react-helmet';
-import {colors} from '../../tailwind';
+import { colors } from '../../tailwind';
 
 function HeadBase({ schemaOrgWebPage, breadcrumb }) {
 	const { inLanguage, title, description, image, url, ogs } = schemaOrgWebPage;

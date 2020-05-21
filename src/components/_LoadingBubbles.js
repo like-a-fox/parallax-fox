@@ -1,5 +1,5 @@
-import React,{memo} from 'react';
-import {LoadingCircle,LoadingInner,LoadingSpinner} from '../styles';
+import React, { memo } from 'react';
+import { LoadingCircle, LoadingInner, LoadingSpinner } from '../styles';
 
 function LoadingBubbles() {
 	return (
@@ -27,4 +27,3 @@ function LoadingBubbles() {
 }
 
 export default memo(LoadingBubbles);
-
