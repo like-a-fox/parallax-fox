@@ -26,7 +26,7 @@ const AboutSection = (props) => {
 		<SectionTemplate
 			speed={-0.1}
 			factor={1.5}
-			offset={3}
+			offset={3.5}
 			Divider={Divider}
 			contentClassName={'about'}
 			sectionTitle={'About'}

@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { LoadingCircle, LoadingInner, LoadingSpinner } from '../styles';
 
-function LoadingBubbles() {
+const LoadingBubbles = () => {
 	return (
 		<LoadingSpinner>
 			<LoadingInner size={300}>
@@ -24,6 +24,6 @@ function LoadingBubbles() {
 			</LoadingInner>
 		</LoadingSpinner>
 	);
-}
+};
 
 export default memo(LoadingBubbles);

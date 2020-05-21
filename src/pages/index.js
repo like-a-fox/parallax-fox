@@ -10,7 +10,7 @@ import {
 
 const IndexPage = () => {
 	return (
-		<ParallaxLayout pages={6}>
+		<ParallaxLayout pages={7}>
 			<HeroSection />
 			<ProjectsSection />
 			<AboutSection />

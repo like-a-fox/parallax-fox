@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { memo, useState } from 'react';
+import React, { memo } from 'react';
 import { useSendFire } from '../firebase';
 import { ContactText } from '../styles';
 import { default as Footer } from './_Footer';
@@ -21,24 +21,11 @@ import { default as WaveDivider } from './_WaveDivider';
  */
 const ContactSection = (props) => {
 	const { name, email, message, ...wrapperProps } = useSendFire();
-	const [emailError, setEmailError] = useState(false);
-	const handleEmailValidation = (event) => {
-		const { name, value } = event.target;
-		const email_regex_str = /\S+@\S+\.\S+/gi;
-		if (name && name === 'email') {
-			if (value) {
-				const emailValid = email_regex_str.test(value);
-				if (!emailValid && !emailError) {
-					setEmailError(true);
-				}
-			}
-		}
-	};
 	return (
 		<>
 			<SectionTemplate
 				factor={1}
-				offset={4.7}
+				offset={5.7}
 				contentClassName={'contact'}
 				sectionTitle={'Get In Touch'}
 				{...props}>
@@ -53,7 +40,7 @@ const ContactSection = (props) => {
 						label={'Email'}
 						type={'email'}
 						required
-						onBlur={handleEmailValidation}
+						email
 					/>
 					<StandardTextArea
 						name={'message'}

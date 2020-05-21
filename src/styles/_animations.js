@@ -116,5 +116,17 @@ export const LoadingInner = styled.div`
 
 export const LoadingSpinner = styled.div`
 	${tw`fixed inset-0 z-1000 flex justify-center items-center h-screen w-screen`}
-	overflow: hidden;
+	top: 0;
+	overflow: visible;
+	&:after {
+		content: ' ';
+		height: -webkit-fill-available;
+		width: 100%;
+		background: linear-gradient(
+			to top,
+			rgba(50, 50, 65, 0.2) 0%,
+			rgba(50, 50, 65, 0.7) 100%
+		);
+		clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0 15%);
+	}
 `;

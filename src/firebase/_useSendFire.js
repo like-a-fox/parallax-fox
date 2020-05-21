@@ -82,7 +82,6 @@ export default function useSendFire() {
 		...form,
 		submitted,
 		setFormStatus,
-		errorMessage,
 		handleReset,
 		handleSubmit,
 		handleFocus,

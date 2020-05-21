@@ -35,7 +35,7 @@ export const FormActions = (props) => {
 	}
 
 	return (
-		<ButtonWrapper>
+		<ButtonWrapper submitted>
 			<FormButton onClick={handleClick}> {buttonText} </FormButton>
 		</ButtonWrapper>
 	);

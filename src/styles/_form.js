@@ -22,7 +22,8 @@ export const InputWrapper = styled.div`
 
 export const InputLabel = styled.label`
 	${tw`text-base text-tertiary inline-flex uppercase font-mono z-1000 opacity-75`}
-	color: ${(props) => props.error && colors.primary};
+	color: ${(props) => props.error && colors.pink};
+	font-weight: ${(props) => props.error && 600};
 	transform: translate(8px, 8px);
 	${(props) =>
 		props.required
@@ -42,7 +43,7 @@ export const Input = styled.input`
 	text-shadow: 0 2px 10px rgba(20, 20, 20, 0.3);
 	transition: box-shadow 0.1s ease-in-out;
 	letter-spacing: -0.75px;
-	box-shadow: ${(props) => props.error && `-4px 0px 0 0 ${colors.pink}`};
+	box-shadow: ${(props) => props.error && `-4px 0px 0 -1px ${colors.pink}`};
 	&:hover {
 		${inputHoverShadow}
 	}
@@ -60,7 +61,7 @@ export const TextArea = styled.textarea`
 	transition: box-shadow 0.4s ease-in-out;
 	resize: none;
 	letter-spacing: -0.75px;
-	box-shadow: ${(props) => props.error && `-4px 0px 0 0 ${colors.pink}`};
+	box-shadow: ${(props) => props.error && `-4px 0px 0 -1px ${colors.pink}`};
 	&:hover {
 		${inputHoverShadow}
 	}
@@ -75,7 +76,8 @@ export const TextArea = styled.textarea`
 export const Form = styled.form`
 	${tw`shadow-lg mb-8 md:m-auto p-2 md:p-4 xl:p-12 2xl:p-24 relative w-full opacity-75 bg-black-soft flex-grow rounded-lg text-white flex-col items-stretch font-mono`}
 	transition: background 20ms ease-in-out;
-	background-color: ${(props) => props.submitted && 'transparent'};
+	padding-bottom: ${(props) => props.submitted && '3rem'};
+	padding-top: ${(props) => props.submitted && '3rem'};
 `;
 
 //Button For Form
@@ -92,4 +94,5 @@ export const FormButton = styled.a`
 
 export const ButtonWrapper = styled.div`
 	${tw`flex-col md:flex-row nowrap w-full h-auto justify-around items-center p-0 mt-4`}
+	margin-top: ${(props) => props.submitted && '0px'};
 `;

@@ -8,7 +8,7 @@ import { Content, Footer as FooterStyled } from '../styles';
  */
 const Footer = (props) => {
 	return (
-		<Content className='footer' offset={5} {...props}>
+		<Content className='footer' offset={6} {...props}>
 			<FooterStyled>
 				&copy; 2019 by Like A Fox Development.{' '}
 				<a href='https://github.com/like-a-fxx/parallax-fox'>

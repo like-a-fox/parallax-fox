@@ -7,7 +7,7 @@ export default memo(function WaveDivider(props) {
 			className='wave'
 			fill='rgba(50, 50, 65, .9)'
 			factor={1.5}
-			offset={4.5}
+			offset={5.5}
 			{...props}>
 			<WaveWrapper>
 				<InnerWave>

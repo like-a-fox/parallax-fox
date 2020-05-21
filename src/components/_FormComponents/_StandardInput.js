@@ -1,34 +1,17 @@
-import React, { memo, forwardRef, useState } from 'react';
+import React, { forwardRef, useState } from 'react';
 import { Input, InputWrapper, InputLabel } from '../../styles';
 import PropTypes from 'prop-types';
 
-/**
- * @component StandardInput
- * @type {import('react').FunctionComponent}
- * @param {object} props
- * @param {string} props.className
- * @param {boolean} props.error
- * @param {string} props.label
- * @param {string} props.name
- * @param {function} props.onBlur
- * @param {string} props.placeholder
- * @param {boolean} props.required
- * @param {string} props.type
- * @param {any} props.value
- */
-const StandardInput = forwardRef(function StandardInput(
-	{ label, type, className, name, value, placeholder, error, required, onBlur },
-	inputRef
-) {
+const StandardInput = forwardRef(function StandardInput(props, inputRef) {
+	const { label, value, required, email, ...inputProps } = props;
 	const [inputValue, setInputValue] = useState(() => value || '');
-	const [errors, setErrors] = useState(() => !!error);
-	const checkInput = (event) => {
-		const { value } = event.target;
-		const empty_regex_str = /[A-Za-z0-9]+/gi;
-		const errorCheck = !empty_regex_str.test(value);
-		if (required && errorCheck) {
-			setErrors(errorCheck);
-		}
+	const [errors, setErrors] = useState(false);
+	const checkInput = () => {
+		const empty_regex_str = /\w+/i;
+		const email_regex_str = /\S+@\S+\.\S+/i;
+		let validEmail = !email || email_regex_str.test(inputValue);
+		let validRequired = !required || empty_regex_str.test(inputValue);
+		setErrors(!validEmail || !validRequired);
 	};
 	const onFocus = () => {
 		if (errors) {
@@ -42,11 +25,12 @@ const StandardInput = forwardRef(function StandardInput(
 		}
 	};
 
-	const handleBlur = (event) => {
-		if (onBlur) {
-			onBlur(event);
+	const onBlur = (event) => {
+		const { value } = event.target;
+		if (value !== inputValue) {
+			setInputValue(value);
 		}
-		checkInput(event);
+		checkInput(value);
 	};
 	return (
 		<InputWrapper>
@@ -54,37 +38,30 @@ const StandardInput = forwardRef(function StandardInput(
 				{label}
 			</InputLabel>
 			<Input
-				type={type}
 				error={errors}
-				className={className}
-				name={name}
 				onChange={onChange}
 				onFocus={onFocus}
-				onBlur={handleBlur}
-				defaultValue={value}
-				placeholder={placeholder}
+				onBlur={onBlur}
+				value={inputValue}
 				ref={inputRef}
+				{...inputProps}
 			/>
 		</InputWrapper>
 	);
 });
 
 StandardInput.propTypes = {
-	className: PropTypes.string,
-	error: PropTypes.bool,
-	label: PropTypes.string.isRequired,
-	name: PropTypes.string.isRequired,
-	onBlur: PropTypes.func,
-	placeholder: PropTypes.string,
+	email: PropTypes.bool,
+	label: PropTypes.string,
 	required: PropTypes.bool,
 	type: PropTypes.string,
-	value: PropTypes.any,
+	value: PropTypes.string,
 };
 
 StandardInput.defaultProps = {
 	type: 'text',
-	error: false,
 	required: false,
+	email: false,
 };
 
-export default memo(StandardInput);
+export default StandardInput;
