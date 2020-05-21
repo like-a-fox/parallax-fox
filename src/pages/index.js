@@ -9,13 +9,18 @@ import {
 } from '../components';
 
 const IndexPage = () => {
+	const isSSR = typeof window !== 'undefined';
 	return (
-		<ParallaxLayout pages={7}>
-			<HeroSection />
-			<ProjectsSection />
-			<AboutSection />
-			<ContactSection />
-		</ParallaxLayout>
+		<>
+			{isSSR && (
+				<ParallaxLayout pages={7}>
+					<HeroSection />
+					<ProjectsSection />
+					<AboutSection />
+					<ContactSection />
+				</ParallaxLayout>
+			)}
+		</>
 	);
 };
 
