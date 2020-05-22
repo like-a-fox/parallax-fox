@@ -18,6 +18,19 @@ const negRotate = keyframes`
   }
 `;
 
+const loadingFade = keyframes`
+	from {
+		opacity: 0.5;
+	}
+	to {
+		opacity: 1;
+	}
+`;
+
+const loading = css`
+	animation: ${loadingFade} 2s ease alternate 1 forwards;
+`;
+
 const rotateAnimation = (length) => css`
 	animation: ${rotate} ${length} linear infinite;
 `;
@@ -54,6 +67,7 @@ export const LoadingInner = styled.div`
 
 export const LoadingSpinner = styled.div`
 	${tw`fixed inset-0 z-1000 flex justify-center items-center h-screen w-screen`}
+	${loading}
 	top: 0;
 	overflow: visible;
 	&:after {

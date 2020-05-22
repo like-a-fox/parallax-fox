@@ -13,7 +13,7 @@ const fadeOpacity = keyframes`
      } 
 `;
 const fadeAnimation = css`
-	${fadeOpacity} 3s ease-in-out;
+	${fadeOpacity} 3s ease alternate 1 forward;
 `;
 
 const GlobalStyle = createGlobalStyle`
@@ -46,8 +46,6 @@ const GlobalStyle = createGlobalStyle`
   body {
 	  ${tw`flex flex-column items-stretch justify-start`}
     animation: ${fadeAnimation}; 
-    animation-iteration-count: 1; 
-    animation-fill-mode: both; 
   }
 
   a {

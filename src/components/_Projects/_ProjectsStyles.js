@@ -19,17 +19,13 @@ export const TitleWrapper = styled.div`
 
 export const LinkWrapper = styled(Link)`
 	${tw`shadow-lg mx-0 my-1 md:m-2 min-h-sm w-full  md:min-h-wrap md:w-1/2 relative no-underline rounded-lg text-white flex-col overflow-hidden flex-grow flex justify-end`};
-	animation: ${slide};
-	animation-iteration-count: 1;
-	animation-fill-mode: both;
-	animation-delay: 1s;
+	${slide}
+	animation-delay: 2s;
 	flex-basis: calc(50% - 1rem);
 	transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-	&:nth-of-type(3n + 2) {
-		animation: ${oddSlide};
-		animation-iteration-count: 1;
-		animation-fill-mode: none;
-		animation-delay: 0;
+	&:nth-of-type(3n-1) {
+		${oddSlide}
+		animation-delay: 1.5s;
 	}
 	filter: grayscale(30%);
 	&:before {

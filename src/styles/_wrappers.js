@@ -16,27 +16,31 @@ export const fade = css`
 const slideElement = keyframes`
 	from {
 		transform: translateX(300px);
+		opacity: .25;
 	}
 	to {
-		transform: translateX(0px)
+		transform: translateX(0px);
+		opacity: 1;
 	}
 `;
 
 const oddSlideElement = keyframes`
 from {
 	transform: translateX(-300px);
+	opacity: .75;
 }
 to {
-	transform: translateX(0px)
+	transform: translateX(0px);
+	opacity: 1;
 }
 `;
 
 export const slide = css`
-	${slideElement} 3s ease-in;
+	animation: ${slideElement} 3s ease-in forwards;
 `;
 
 export const oddSlide = css`
-	${oddSlideElement} 2s ease;
+	animation: ${oddSlideElement} 2s ease alternate 1 backwards;
 `;
 
 export const Content = styled(ParallaxLayer)`
