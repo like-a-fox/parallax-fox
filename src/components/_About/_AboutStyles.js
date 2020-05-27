@@ -9,7 +9,7 @@ export const AboutAvatar = styled.img`
 	${tw`rounded-full w-32 xl:w-48 shadow-lg h-auto`};
 `;
 export const AboutSubTitle = styled.span`
-	${tw`text-pink uppercase text-justify justify-start items-stretch h-32 xl:48 flex font-mono pl-8 lg:pl-12 text-lg lg:text-2xl xl:text-3xl `};
+	${tw`text-pink uppercase text-justify justify-start items-stretch h-32 xl:48 flex font-mono pl-8 lg:pl-12 text-md lg:text-lg xl:text-2xl `};
 	filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.5));
 	letter-spacing: -1px;
 `;

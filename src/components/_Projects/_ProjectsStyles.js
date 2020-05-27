@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 import { ParallaxLayer } from 'react-spring/renderprops-addons.cjs';
-import { fade, slide, oddSlide } from '../../styles';
+import { fade } from '../../styles';
 
 export const ProjectsWrapper = styled.div`
 	${tw`flex-col flex md:flex-row md:inline-flex md:flex-wrap justify-between`};
@@ -19,14 +19,10 @@ export const TitleWrapper = styled.div`
 
 export const LinkWrapper = styled(Link)`
 	${tw`shadow-lg mx-0 my-1 md:m-2 min-h-sm w-full  md:min-h-wrap md:w-1/2 relative no-underline rounded-lg text-white flex-col overflow-hidden flex-grow flex justify-end`};
-	${slide}
 	animation-delay: 2s;
 	flex-basis: calc(50% - 1rem);
-	transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-	&:nth-of-type(3n-1) {
-		${oddSlide}
-		animation-delay: 1.5s;
-	}
+	transition: transform 1.4s;
+	transition-delay: ${(props) => (props.delay + 1) * 50}ms;
 	filter: grayscale(30%);
 	&:before {
 		${tw`bg-center bg-no-repeat bg-cover absolute -z-1 h-full w-full inset-0`}
@@ -35,7 +31,7 @@ export const LinkWrapper = styled(Link)`
 		filter: opacity(0.85) grayscale(70%);
 	}
 	&:hover {
-		transform: translateY(-5px);
+		transform: translateY(-7px);
 		&:before {
 			filter: grayscale(30%);
 		}

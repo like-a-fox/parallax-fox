@@ -32,12 +32,12 @@ const ProjectTiles = () => {
 		}
 	`);
 
-	return data.allImageSharp.edges.map(({ node }) => {
+	return data.allImageSharp.edges.map(({ node }, index) => {
 		let tile = data.site.siteMetadata.tileData.find(
 			({ pathname }) =>
 				pathname && pathname === node.fluid.originalName.split('_')[0]
 		);
-		return <ProjectsLink key={node.id} node={node} tile={tile} />;
+		return <ProjectsLink key={node.id} node={node} tile={tile} delay={index} />;
 	});
 };
 
