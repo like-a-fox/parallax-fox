@@ -5,8 +5,7 @@
 	"author": "Derek Sligh<@like-a-fox>",
 	"scripts": {
 		"build": "gatsby clean && gatsby build",
-		"deploy": "yarn build && firebase deploy",
-		"now": "yarn deploy && now --public",
+		"deploy": "yarn build && firebase deploy && vercel",
 		"develop": "gatsby develop",
 		"format": "prettier --write \"**/*.{js,jsx,json,md}\"",
 		"serve": "gatsby serve",
@@ -65,8 +64,7 @@
 	"husky": {
 		"hooks": {
 			"pre-commit": "yarn lint:fix && git add .",
-			"lint-staged": "yarn lint:fix",
-			"pre-push": "yarn deploy"
+			"lint-staged": "yarn lint:fix"
 		}
 	},
 	"prettier": {
