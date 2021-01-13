@@ -1,3 +1,4 @@
+import React from 'react';
 import styled, { keyframes, css } from 'styled-components';
 
 const rotate = keyframes`
@@ -48,8 +49,8 @@ export const LoadingCircle = styled.div`
 	bottom: ${(props) => props.bottom};
 	right: ${(props) => props.right};
 	z-index: ${(props) => props.zindex};
-	transform-origin: ${(props) => props.transform}px ${(props) =>
-	props.transform}px;
+	transform-origin: ${(props) => props.transform}px
+		${(props) => props.transform}px;
 	${rotateAnimation('5s')}
 `;
 
@@ -82,3 +83,30 @@ export const LoadingSpinner = styled.div`
 		clip-path: polygon(0px 0%, 0% 100%, 100% 100%, 0px 15%);
 	}
 `;
+
+const Loading = () => {
+	return (
+		<LoadingSpinner diameter={90}>
+			<LoadingInner>
+				<LoadingCircle
+					zindex='inherit'
+					diameter={70}
+					bg='117, 93, 99, .7'
+					top={100}
+					left={100}
+					transform={10}
+				/>
+				<LoadingCircle
+					zindex='1001'
+					diameter={35}
+					bg='86,79,114,0.9'
+					top={50}
+					left={50}
+					transform={50}
+				/>
+			</LoadingInner>
+		</LoadingSpinner>
+	);
+};
+
+export default Loading;

@@ -18,7 +18,7 @@ const ContactFooter = (props) => {
 	return (
 		<Content {...props}>
 			<Footer>
-				&copy; 2019 by Like A Fox Development.{' '}
+				&copy; 2021 by Like A Fox Development.{' '}
 				<a href='https://github.com/like-a-fxx/parallax-fox'>
 					Github Repository
 				</a>

@@ -1,6 +1,5 @@
 import { useState, useCallback } from 'react';
 import firebase from 'gatsby-plugin-firebase';
-import { useSnackbar } from 'notistack';
 export const email_regex_str = '\\S+@\\S+\\.\\S+';
 export const empty_regex_str = '[A-Za-z0-9]+';
 export const email_regex = new RegExp(email_regex_str);
@@ -45,7 +44,6 @@ export const useContactForm = () => {
 	const [form, changeInputs] = useState({ ...FORM_INITIAL_STATE });
 	const [submitted, setFormStatus] = useState(false);
 	const [errorMessage, setErrorMessage] = useState(false);
-	const { enqueueSnackbar } = useSnackbar();
 	const db = firebase.database();
 	function handleReset() {
 		changeInputs({ name: '', email: '', message: '' });
@@ -58,14 +56,9 @@ export const useContactForm = () => {
 			db.ref('/messages').push(formattedInputs);
 			setFormStatus(true);
 		} else {
-			for (let error of validateForm(form)) {
-				enqueueSnackbar(`Form Submit Failed: ${error}`, {
-					variant: 'error',
-				});
-			}
 			setErrorMessage(true);
 		}
-	}, [form, setErrorMessage, enqueueSnackbar, db, setFormStatus, submitted]);
+	}, [form, setErrorMessage, db, setFormStatus, submitted]);
 
 	const handleFocus = () => {
 		if (errorMessage) {

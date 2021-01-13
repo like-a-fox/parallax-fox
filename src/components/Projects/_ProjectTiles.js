@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import React, { memo } from 'react';
+import React from 'react';
 import { default as ProjectsLink } from './_ProjectsLink';
 
 const ProjectTiles = () => {
@@ -41,4 +41,4 @@ const ProjectTiles = () => {
 	});
 };
 
-export default memo(ProjectTiles);
+export default ProjectTiles;

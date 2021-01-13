@@ -1,16 +1,15 @@
 import PropTypes from 'prop-types';
-import React, { memo } from 'react';
+import React from 'react';
 import { createGlobalStyle, keyframes, css } from 'styled-components';
-import { SnackbarProvider } from 'notistack';
 import 'typeface-cantata-one';
 
 const fadeOpacity = keyframes`
-  0% { 
-        opacity: 0; 
-    } 
-  100% { 
-        opacity: 1; 
-     } 
+  0% {
+        opacity: 0;
+    }
+  100% {
+        opacity: 1;
+     }
 `;
 const fadeAnimation = css`
 	${fadeOpacity} 3s ease alternate 1 forward;
@@ -45,7 +44,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
 	  ${tw`flex flex-column items-stretch justify-start`}
-    animation: ${fadeAnimation}; 
+    animation: ${fadeAnimation};
   }
 
   a {
@@ -56,13 +55,10 @@ const GlobalStyle = createGlobalStyle`
 
 function Providers({ children }) {
 	return (
-		<SnackbarProvider
-			autoHideDuration={1250}
-			anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-			maxSnack={3}>
+		<>
 			<GlobalStyle />
 			{children}
-		</SnackbarProvider>
+		</>
 	);
 }
 
@@ -74,4 +70,4 @@ Providers.propTypes = {
 	]),
 };
 
-export default memo(Providers);
+export default Providers;

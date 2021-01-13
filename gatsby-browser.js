@@ -3,8 +3,8 @@
 import React from 'react';
 import 'firebase/auth';
 import 'firebase/database';
-import { default as Providers } from './src/components/_Providers';
-import { Loading } from './src/components/_Loading';
+import { default as Providers } from './src/components/Providers';
+import { default as Loading } from './src/components/Loading';
 
 export const wrapRootElement = ({ element }) =>
 	typeof window !== 'undefined' ? (

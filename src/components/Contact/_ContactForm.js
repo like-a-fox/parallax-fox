@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, TextArea } from '../_Form';
+import { Form, Input, TextArea } from '../Form';
 import { useContactForm } from './_useContactForm';
 
 const ContactForm = () => {
