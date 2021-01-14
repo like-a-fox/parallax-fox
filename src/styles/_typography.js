@@ -40,3 +40,11 @@ export const Subtitle = styled.p`
 		color: ${colors.pink};
 	}
 `;
+
+export const ContactText = styled.p`
+	${tw`text-grey-light font-mono text-xl md:text-2xl lg:text-3xl`};
+`;
+
+export const Footer = styled.footer`
+	${tw`text-center text-grey absolute pin-b p-6 font-mono text-md lg:text-lg`};
+`;

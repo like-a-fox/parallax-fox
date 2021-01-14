@@ -73,7 +73,7 @@ export const TextArea = styled.textarea`
 
 //Form
 
-export const Form = styled.form`
+export const StyledForm = styled.form`
 	${tw`shadow-lg mb-8 md:m-auto p-2 md:p-4 xl:p-12 2xl:p-24 relative w-full opacity-75 bg-black-soft flex-grow rounded-lg text-white flex-col items-stretch font-mono`}
 	transition: background 20ms ease-in-out;
 	padding-bottom: ${(props) => props.submitted && '3rem'};

@@ -1,31 +1,52 @@
-import PropTypes from 'prop-types';
-import React, { memo } from 'react';
+import React from 'react';
 import { default as FormActions } from './_Actions';
-import { Form } from './_FormStyles';
+import { StyledForm } from './_FormStyles';
+import { default as TextArea } from './_TextArea';
+import { default as Input } from './_Input';
+import { useForm } from './_useForm';
 
-const FormWrapper = (props) => {
-	const { children, handleBlur, handleFocus, submitted, ...formProps } = props;
+const Form = (props) => {
+	const {
+		name,
+		email,
+		message,
+		submitted,
+		errors,
+		handleReset,
+		handleSubmit,
+		...formProps
+	} = useForm();
 
 	return (
-		<Form onBlur={handleBlur} onFocus={handleFocus} submitted={submitted}>
-			{!submitted ? children : null}
-			<FormActions submitted={submitted} {...formProps} />
-		</Form>
+		<StyledForm {...formProps}>
+			{!submitted ? (
+				<>
+					<Input
+						error={errors.indexOf('name') !== -1}
+						name={'name'}
+						value={name}
+						label={'Name'}
+						required
+					/>
+					<Input
+						name={'email'}
+						value={email}
+						label={'Email'}
+						type={'email'}
+						error={errors.indexOf('email') !== -1}
+						required
+						email
+					/>
+					<TextArea name={'message'} value={message} label={'Message'} />
+				</>
+			) : null}
+			<FormActions
+				handleReset={handleReset}
+				handleSubmit={handleSubmit}
+				submitted={submitted}
+			/>
+		</StyledForm>
 	);
 };
 
-FormWrapper.propTypes = {
-	children: PropTypes.oneOfType([
-		PropTypes.element,
-		PropTypes.arrayOf(PropTypes.element),
-	]),
-	handleBlur: PropTypes.func,
-	handleFocus: PropTypes.func,
-	submitted: PropTypes.bool,
-};
-
-FormWrapper.defaultProps = {
-	submitted: false,
-};
-
-export default memo(FormWrapper);
+export default Form;

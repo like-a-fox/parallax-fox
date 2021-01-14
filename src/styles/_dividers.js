@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import { Divider } from '../../styles';
+import { Divider } from './_wrappers';
 import styled, { keyframes, css } from 'styled-components';
 
 const wave = keyframes`
@@ -31,9 +30,13 @@ const InnerWave = styled.div`
 		${waveAnimation('10s')};
 	}
 `;
-const ContactDivider = (props) => {
+export const WaveDivider = () => {
 	return (
-		<Divider {...props}>
+		<Divider
+			className={'wave'}
+			factor={1.5}
+			offset={5.5}
+			fill={'rgba(50, 50, 65, .9)'}>
 			<WaveWrapper>
 				<InnerWave>
 					<svg
@@ -57,19 +60,3 @@ const ContactDivider = (props) => {
 		</Divider>
 	);
 };
-
-ContactDivider.propTypes = {
-	className: PropTypes.string,
-	factor: PropTypes.number,
-	fill: PropTypes.string,
-	offset: PropTypes.number,
-};
-
-ContactDivider.defaultProps = {
-	className: 'wave',
-	factor: 1.5,
-	offset: 5.5,
-	fill: 'rgba(50, 50, 65, .9)',
-};
-
-export default ContactDivider;
