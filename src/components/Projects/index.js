@@ -1,3 +1,1 @@
-import { lazy } from 'react';
-
-export default lazy(() => import('./_Projects'));
+export { default as Projects } from './_Projects';
