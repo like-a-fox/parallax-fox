@@ -7,7 +7,7 @@
 		"build": "gatsby clean && gatsby build",
 		"deploy": "yarn build && vercel",
 		"develop": "gatsby develop",
-		"format": "prettier --ext .js --write .",
+		"format": "prettier \"**/*.js\" --write",
 		"serve": "yarn build && gatsby serve",
 		"lint": "eslint --ext .js --ignore-path .gitignore ./",
 		"lint:fix": "yarn format && eslint --fix --ext .js --ignore-path .gitignore ./",
