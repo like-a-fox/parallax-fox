@@ -1,13 +1,13 @@
 const config = {
 	pathPrefix: '/', // Prefix for all links. If you deploy your site to example.com/portfolio your pathPrefix should be "/portfolio
-	siteTitle: 'Like A Fox - Parallax effect', // Navigation and Site Title
+	siteTitle: 'Like A Fox - Portfolio', // Navigation and Site Title
 	siteTitleAlt: 'parallax-fox', // Alternative Site title for SEO
 	siteTitleShort: 'parallax-fox', // short_name for manifest
 	siteHeadline: 'DESIGN-AGA!N', // Headline for schema.org JSONLD
-	siteUrl: 'https://parallax-fox.now.sh', // Domain of your site. No trailing slash!
+	siteUrl: 'https://likeafox.dev', // Domain of your site. No trailing slash!
 	siteLanguage: 'en', // Language Tag on <html> element
 	siteLogo: '/logo.png', // Used for SEO and manifest
-	siteDescription: 'Like A Fox - Parallax effect',
+	siteDescription: 'Like A Fox - Portfolio',
 	author: '@like-a-fox<likeafox.dev@gmail.com>', // Author for schema.org JSONLD
 	browserConfig: '/browserconfig.xml',
 	favIcons: {
@@ -45,6 +45,7 @@ module.exports = {
 		mainEntityOfPage: homeURL,
 		description: config.siteDescription,
 		name: config.siteTitle,
+		tileColor: '#bc8999',
 		ogs: {
 			siteName: config.ogSiteName,
 			language: config.ogLanguage,

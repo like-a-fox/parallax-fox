@@ -1,8 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import React from 'react';
-import { default as ProjectsLink } from './_ProjectsLink';
-
-const ProjectTiles = () => {
+export const useProjectTiles = () => {
 	const data = useStaticQuery(graphql`
 		{
 			site {
@@ -31,14 +28,21 @@ const ProjectTiles = () => {
 			}
 		}
 	`);
-
-	return data.allImageSharp.edges.map(({ node }, index) => {
-		let tile = data.site.siteMetadata.tiles.find(
-			({ pathname }) =>
-				pathname && pathname === node.fluid.originalName.split('_')[0]
+	if (data) {
+		return data?.site?.siteMetadata?.tiles.map(
+			({ pathname, title, subtitle }) => {
+				const imageData = data?.allImageSharp?.edges.find(({ node }) =>
+					node?.fluid?.originalName.includes(pathname)
+				);
+				const { id, fluid } = imageData?.node;
+				return {
+					id,
+					title,
+					subtitle,
+					pathname,
+					...fluid,
+				};
+			}
 		);
-		return <ProjectsLink key={node.id} node={node} tile={tile} delay={index} />;
-	});
+	}
 };
-
-export default ProjectTiles;

@@ -1,17 +1,11 @@
 /* eslint-disable filenames/match-regex */
 import React from 'react';
-import { Layout } from '../components';
 
 const NotFoundPage = () => {
-	const isSSR = typeof window !== 'undefined';
 	return (
 		<>
-			{isSSR && (
-				<Layout>
-					<h1>NOT FOUND</h1>
-					<p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-				</Layout>
-			)}
+			<h1>NOT FOUND</h1>
+			<p>You just hit a route that doesn&#39;t exist... the sadness.</p>
 		</>
 	);
 };

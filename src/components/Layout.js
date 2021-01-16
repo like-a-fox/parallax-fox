@@ -1,71 +1,25 @@
 import PropTypes from 'prop-types';
-import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { colors } from '../../tailwind';
+import { useSEO } from '../graphql';
+import { GlobalStyle } from '../styles';
 import 'typeface-cantata-one';
 import 'typeface-open-sans';
 
 const Layout = (props) => {
 	const { children } = props;
 	const {
-		site: {
-			siteMetadata: { schemaOrgWebPage, breadcrumb },
-		},
-	} = useStaticQuery(
-		graphql`
-			query MetaDataQuery {
-				__typename
-				site {
-					siteMetadata {
-						breadcrumb {
-							description
-							name
-							_context
-							_type
-						}
-						schemaOrgWebPage {
-							author {
-								name
-								_type
-							}
-							copyrightHolder {
-								name
-								_type
-							}
-							copyrightYear(fromNow: true)
-							creator {
-								name
-								_type
-							}
-							description
-							headline
-							image {
-								url
-								_type
-							}
-							inLanguage
-							mainEntityOfPage
-							name
-							title
-							url
-							publisher {
-								name
-								_type
-							}
-							_context
-							_type
-							ogs {
-								language
-								siteName
-							}
-						}
-					}
-				}
-			}
-		`
-	);
-	const { inLanguage, title, description, image, url, ogs } = schemaOrgWebPage;
+		webPageSchema,
+		breadcrumbString,
+		imageUrl,
+		tileColor,
+		inLanguage,
+		url,
+		title,
+		description,
+		language,
+		siteName,
+	} = useSEO();
 	return (
 		<>
 			<Helmet>
@@ -87,22 +41,21 @@ const Layout = (props) => {
 				/>
 				<meta name='parallax-fox' content={description} />
 				<link rel='shortcut icon' href='/favicon.ico' />
-				<meta name='msapplication-TileColor' content={colors.burgDee} />
+				<meta name='msapplication-TileColor' content={tileColor} />
 				<meta name='msapplication-config' content='/browserconfig.xml' />
 				<meta name='description' content={description} />
-				<meta name='image' content={image} />
-				<meta property='og:locale' content={ogs.language} />
-				<meta property='og:site_name' content={ogs.siteName} />
+				<meta name='image' content={imageUrl} />
+				<meta property='og:locale' content={language} />
+				<meta property='og:site_name' content={siteName} />
 				<meta property='og:title' content={title} />
 				<meta property='og:type' content='website' />
 				<meta property='og:description' content={description} />
-				<meta property='og:image' content={image.url} />
+				<meta property='og:image' content={imageUrl} />
 				<meta property='og:image:alt' content={description} />
-				<script type='application/ld+json'>
-					{JSON.stringify(schemaOrgWebPage)}
-				</script>
-				<script type='application/ld+json'>{JSON.stringify(breadcrumb)}</script>
+				<script type='application/ld+json'>{webPageSchema}</script>
+				<script type='application/ld+json'>{breadcrumbString}</script>
 			</Helmet>
+			<GlobalStyle />
 			{children}
 		</>
 	);

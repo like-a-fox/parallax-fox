@@ -18,6 +18,24 @@ export {
 	FormButton,
 	ButtonWrapper,
 	Inner,
+	ProjectsWrapper,
+	TitleWrapper,
+	LinkWrapper,
 } from './_elements';
-export { Title, Text, Subtitle, ContactText, Footer } from './_typography';
-export { WaveDivider, Divider, Content } from './_dividers';
+export {
+	Title,
+	Text,
+	Subtitle,
+	ContactText,
+	Footer,
+	LinkText,
+} from './_typography';
+export {
+	WaveDivider,
+	LowerDivider,
+	UpperDivider,
+	Divider,
+	Content,
+	Loading,
+} from './_dividers';
+export { GlobalStyle } from './_global';

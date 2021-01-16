@@ -69,6 +69,10 @@ const fadeBackground = keyframes`
 	}
 `;
 
+export const loading = css`
+	animation: ${fadeBackground} 2s ease alternate 1 forwards;
+`;
+
 export const fade = css`
 	${fadeBackground} 2s ease-in;
 `;

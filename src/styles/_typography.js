@@ -48,3 +48,10 @@ export const ContactText = styled.p`
 export const Footer = styled.footer`
 	${tw`text-center text-grey absolute pin-b p-6 font-mono text-md lg:text-lg`};
 `;
+
+export const LinkText = styled.div`
+	${tw`opacity-85 font-mono text-tertiary text-sm md:text-base`};
+	text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+	font-weight: 200;
+	letter-spacing: -1px;
+`;

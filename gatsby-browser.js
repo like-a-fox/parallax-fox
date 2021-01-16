@@ -2,7 +2,5 @@
 import React from 'react';
 import 'firebase/auth';
 import 'firebase/database';
-import { default as Providers } from './src/components/Providers';
-export const wrapRootElement = ({ element }) => (
-	<Providers>{element}</Providers>
-);
+import { Layout } from './src/components';
+export const wrapRootElement = ({ element }) => <Layout>{element}</Layout>;

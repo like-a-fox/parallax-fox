@@ -74,7 +74,8 @@ export const useFireForm = () => {
 	const handleSubmitForm = (form) => () => {
 		const validForm = handleFormValidation(form);
 		if (validForm) {
-			handleFormSubmission(form).then(() => setSubmitted(true));
+			handleFormSubmission(form);
+			setSubmitted(true);
 		}
 	};
 	const handleResetForm = (handleClearForm) => () => {
