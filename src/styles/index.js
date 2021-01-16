@@ -8,8 +8,16 @@ export {
 	hidden,
 	rotateAnimation,
 	negativeRotateAnimation,
+	waveAnimation,
+	fade,
 } from './_animations';
-
+export {
+	Input,
+	TextArea,
+	StyledForm,
+	FormButton,
+	ButtonWrapper,
+	Inner,
+} from './_elements';
 export { Title, Text, Subtitle, ContactText, Footer } from './_typography';
-export { fade, slide, oddSlide, Content, Divider, Inner } from './_wrappers';
-export { WaveDivider } from './_dividers';
+export { WaveDivider, Divider, Content } from './_dividers';

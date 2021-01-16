@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { FormButton, ButtonWrapper } from './_FormStyles';
+import { FormButton, ButtonWrapper } from '../../styles';
 
 export const FormActions = (props) => {
-	const { submitted, setFormStatus, handleSubmit, handleReset } = props;
+	const { submitted, setSubmitted, handleSubmit, handleReset } = props;
 	const [clicks, setClicks] = useState(0);
 	const handleClick = () => {
 		if (submitted) {
@@ -12,7 +12,7 @@ export const FormActions = (props) => {
 			} else {
 				handleReset();
 				setClicks(0);
-				setFormStatus(false);
+				setSubmitted(false);
 			}
 		}
 	};
@@ -42,7 +42,7 @@ export const FormActions = (props) => {
 };
 
 FormActions.propTypes = {
-	setFormStatus: PropTypes.func,
+	setSubmitted: PropTypes.func,
 	submitted: PropTypes.bool,
 	handleSubmit: PropTypes.func,
 	handleReset: PropTypes.func,
@@ -50,7 +50,7 @@ FormActions.propTypes = {
 
 FormActions.defaultProps = {
 	submitted: false,
-	setFormStatus: () => null,
+	setSubmitted: () => null,
 };
 
 export default FormActions;

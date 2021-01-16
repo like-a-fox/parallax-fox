@@ -47,7 +47,7 @@ export const useFireForm = () => {
 	const { handleFormValidation } = useErrorHandling();
 	const db = firebase.database();
 
-	const handleSubmitForm = (form) => {
+	const handleSubmitForm = (form) => () => {
 		const validForm = handleFormValidation(form);
 		if (validForm) {
 			const { name, email, message } = form;
@@ -74,6 +74,7 @@ export const useFireForm = () => {
 	};
 	return {
 		submitted,
+		setSubmitted,
 		handleSubmitForm,
 		handleResetForm,
 	};
@@ -88,7 +89,12 @@ export const useForm = () => {
 		validateRequired,
 		createErrorMessage,
 	} = useErrorHandling();
-	const { submitted, handleSubmitForm, handleResetForm } = useFireForm();
+	const {
+		submitted,
+		setSubmitted,
+		handleSubmitForm,
+		handleResetForm,
+	} = useFireForm();
 
 	const handleInputChange = ({ target: { name, value } }) =>
 		name && value && setForm((form) => ({ ...form, [name]: value }));
@@ -102,12 +108,13 @@ export const useForm = () => {
 	return {
 		...form,
 		submitted,
+		setSubmitted,
 		errors,
 		createErrorMessage,
 		onBlur: handleBlur,
 		onChange: handleInputChange,
 		handleReset: handleResetForm(handleClearForm),
-		handleSubmit: handleSubmitForm,
+		handleSubmit: handleSubmitForm(form),
 		onFocus: hanldeFocusReset,
 	};
 };

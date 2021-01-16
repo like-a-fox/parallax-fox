@@ -1,21 +1,44 @@
 import React from 'react';
-import { Divider } from './_wrappers';
-import styled, { keyframes, css } from 'styled-components';
+import styled from 'styled-components';
+import { waveAnimation, fade } from './_animations';
+import { ParallaxLayer } from 'react-spring/renderprops-addons.cjs';
 
-const wave = keyframes`
-  0% {
-    d: path("M 0 100 Q 250 50 400 200 Q 550 350 800 300 L 800 0 L 0 0 L 0 100 Z");
-  }
-  50% {
-    d: path("M 0 100 Q 200 150 400 200 Q 600 250 800 300 L 800 0 L 0 0 L 0 100 Z");
-  }
-  100% {
-    d: path("M 0 100 Q 150 350 400 200 Q 650 50 800 300 L 800 0 L 0 0 L 0 100 Z");
-  }
+export const Content = styled(ParallaxLayer)`
+	${tw`px-4 md:px-12 xl:px-16 justify-center w-full items-center flex z-50`};
+	&.hero {
+		mix-blend-mode: ${(props) => props.mixBlend || 'exclusion'};
+		filter: ${(props) => props.filter};
+	}
+	&.footer {
+		z-index: 30;
+	}
+	&.contact-section {
+		${tw`flex-col justify-start items-start w-full xxl:items-center`}
+	}
 `;
-const waveAnimation = (length) => css`
-	animation: ${wave} ${length} linear infinite alternate;
+
+export const Divider = styled(ParallaxLayer)`
+	${tw`absolute w-full h-full min-h-screen`};
+	background: ${(props) => props.bg};
+	animation: ${fade};
+	animation-iteration-count: 1;
+	animation-fill-mode: none;
+	top: 0;
+	svg {
+		fill: ${(props) => props.fill};
+	}
+	clip-path: ${(props) => props.clipPath};
+	&.wave {
+		svg#wave {
+			mask-image: linear-gradient(
+				to right,
+				rgba(162, 181, 216, 0.9) 0%,
+				rgba(148, 130, 186, 0.3) 100%
+			);
+		}
+	}
 `;
+
 const WaveWrapper = styled.div`
 	${tw`absolute pin-b w-full`};
 	transform: matrix(1, 0, 0, -1, 0, 0);

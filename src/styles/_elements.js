@@ -1,15 +1,16 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { colors } from '../../../tailwind';
+import { colors } from '../../tailwind';
 
 //Input Styles
-
 const inputHoverShadow = `
 	box-shadow: inset 0 0 0 2px rgba(147,128,214,0.3);
 	border-radius: 4px;
 	transition: box-shadow 0.5s ease;
 `;
 
-export const InputWrapper = styled.div`
+const InputWrapper = styled.div`
 	${tw`relative no-underline rounded-lg text-white flex-col flex justify-end font-mono`};
 	transition: color 0.4s ease-in-out;
 	&:hover label {
@@ -20,7 +21,7 @@ export const InputWrapper = styled.div`
 	}
 `;
 
-export const InputLabel = styled.label`
+const InputLabel = styled.label`
 	${tw`text-base text-tertiary inline-flex uppercase font-mono z-1000 opacity-75`}
 	color: ${(props) => props.error && colors.pink};
 	font-weight: ${(props) => props.error && 600};
@@ -38,7 +39,7 @@ export const InputLabel = styled.label`
 			: ''}
 `;
 
-export const Input = styled.input`
+const InnerInput = styled.input`
 	${tw`opacity-75 w-full shadow-default hover:shadow-hover focus:shadow-focus bg-black-link uppercase mb-4 text-grey font-mono text-base h-16 border-none pl-3 outline-none font-thin`}
 	text-shadow: 0 2px 10px rgba(20, 20, 20, 0.3);
 	transition: box-shadow 0.1s ease-in-out;
@@ -53,9 +54,27 @@ export const Input = styled.input`
 	}
 `;
 
+export const Input = React.forwardRef(function Input(props, inputRef) {
+	const { label, required, error, ...inputProps } = props;
+	return (
+		<InputWrapper>
+			<InputLabel required={required} error={error}>
+				{label}
+			</InputLabel>
+			<InnerInput error={error} ref={inputRef} {...inputProps} />
+		</InputWrapper>
+	);
+});
+
+Input.propTypes = {
+	label: PropTypes.string,
+	required: PropTypes.bool,
+	error: PropTypes.bool,
+};
+
 //Text Area Alt
 
-export const TextArea = styled.textarea`
+const InnerTextArea = styled.textarea`
 	${tw`opacity-75 w-full shadow-default hover:shadow-hover focus:shadow-focus bg-black-link uppercase mb-4 p-3 text-grey font-mono h-48 border-none outline-none text-base font-thin`}
 	text-shadow: 0 2px 10px rgba(20, 20, 20, 0.3);
 	transition: box-shadow 0.4s ease-in-out;
@@ -70,6 +89,24 @@ export const TextArea = styled.textarea`
 		opacity: 0.5;
 	}
 `;
+
+export const TextArea = React.forwardRef(function TextArea(props, inputRef) {
+	const { label, required, error, ...textAreaProps } = props;
+	return (
+		<InputWrapper>
+			<InputLabel required={required} error={error}>
+				{label}
+			</InputLabel>
+			<InnerTextArea error={error} ref={inputRef} {...textAreaProps} />
+		</InputWrapper>
+	);
+});
+
+TextArea.propTypes = {
+	label: PropTypes.string,
+	required: PropTypes.bool,
+	error: PropTypes.bool,
+};
 
 //Form
 
@@ -95,4 +132,8 @@ export const FormButton = styled.a`
 export const ButtonWrapper = styled.div`
 	${tw`flex-col md:flex-row nowrap w-full h-auto justify-around items-center p-0 mt-4`}
 	margin-top: ${(props) => props.submitted && '0px'};
+`;
+
+export const Inner = styled.div`
+	${tw`w-full xxl:w-2/3 text-center flex flex-col items-start justify-around lg:text-left`};
 `;
