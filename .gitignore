@@ -49,8 +49,9 @@ jspm_packages
 .yarn-integrity
 
 # Build Files
-public/
+public
 .cache
+.github
 
 # Gatsby context
 .gatsby-context.js
