@@ -55,19 +55,26 @@ const InnerInput = styled.input`
 `;
 
 export const Input = React.forwardRef(function Input(props, inputRef) {
-	const { label, required, error, ...inputProps } = props;
+	const { label, name, required, error, ...inputProps } = props;
 	return (
 		<InputWrapper>
-			<InputLabel required={required} error={error}>
+			<InputLabel htmlFor={name} required={required} error={error}>
 				{label}
 			</InputLabel>
-			<InnerInput error={error} ref={inputRef} {...inputProps} />
+			<InnerInput
+				id={name}
+				name={name}
+				error={error}
+				ref={inputRef}
+				{...inputProps}
+			/>
 		</InputWrapper>
 	);
 });
 
 Input.propTypes = {
 	label: PropTypes.string,
+	name: PropTypes.string,
 	required: PropTypes.bool,
 	error: PropTypes.bool,
 };
@@ -91,13 +98,19 @@ const InnerTextArea = styled.textarea`
 `;
 
 export const TextArea = React.forwardRef(function TextArea(props, inputRef) {
-	const { label, required, error, ...textAreaProps } = props;
+	const { label, required, error, name, ...textAreaProps } = props;
 	return (
 		<InputWrapper>
-			<InputLabel required={required} error={error}>
+			<InputLabel htmlFor={name} required={required} error={error}>
 				{label}
 			</InputLabel>
-			<InnerTextArea error={error} ref={inputRef} {...textAreaProps} />
+			<InnerTextArea
+				id={name}
+				name={name}
+				error={error}
+				ref={inputRef}
+				{...textAreaProps}
+			/>
 		</InputWrapper>
 	);
 });
@@ -106,6 +119,7 @@ TextArea.propTypes = {
 	label: PropTypes.string,
 	required: PropTypes.bool,
 	error: PropTypes.bool,
+	name: PropTypes.string,
 };
 
 //Form
