@@ -7,7 +7,7 @@ const ProjectTiles = () => {
 		{
 			site {
 				siteMetadata {
-					tileData {
+					tiles {
 						pathname
 						subtitle
 						title
@@ -33,7 +33,7 @@ const ProjectTiles = () => {
 	`);
 
 	return data.allImageSharp.edges.map(({ node }, index) => {
-		let tile = data.site.siteMetadata.tileData.find(
+		let tile = data.site.siteMetadata.tiles.find(
 			({ pathname }) =>
 				pathname && pathname === node.fluid.originalName.split('_')[0]
 		);

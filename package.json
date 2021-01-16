@@ -2,10 +2,10 @@
 	"name": "parallax-fox",
 	"description": "Parallax Like A Fox Portfolio",
 	"version": "1.0.0",
-	"author": "Derek Sligh<@like-a-fox>",
+	"author": "Derek Musser<@like-a-fox>",
 	"scripts": {
 		"build": "gatsby clean && gatsby build",
-		"deploy": "yarn build && firebase deploy && vercel",
+		"deploy": "yarn build && firebase deploy",
 		"develop": "gatsby develop",
 		"format": "prettier --write \"**/*.{js,jsx,json,md}\"",
 		"serve": "gatsby serve",

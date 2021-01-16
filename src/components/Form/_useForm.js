@@ -42,30 +42,39 @@ export const useErrorHandling = () => {
 	};
 };
 
-export const useFireForm = () => {
-	const [submitted, setSubmitted] = React.useState(false);
-	const { handleFormValidation } = useErrorHandling();
+const handleFormSubmission = async ({ name, email, message }) => {
 	const db = firebase.database();
-
-	const handleSubmitForm = (form) => () => {
-		const validForm = handleFormValidation(form);
-		if (validForm) {
-			const { name, email, message } = form;
-			let formattedInputs = {
-				name,
-				email,
-				message,
-				date: Date.now(),
-				html: `
+	let data = {
+		name,
+		email,
+		message,
+		date: Date.now(),
+		html: `
 						  <div>From: ${name}</div>
 						  <div>Email: <a href="mailto:${email}">${email}</a></div>
 						  <div>Date: ${Date.now()}</div>
 						  <div>Message: ${message}</div>
 						  `,
-			};
+	};
 
-			db.ref('/messages').push(formattedInputs);
-			setSubmitted(true);
+	await db.ref('/messages').push(data);
+	await fetch('/api/mailer', {
+		method: 'POST', // or 'PUT'
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(data),
+	});
+};
+
+export const useFireForm = () => {
+	const [submitted, setSubmitted] = React.useState(false);
+	const { handleFormValidation } = useErrorHandling();
+
+	const handleSubmitForm = (form) => () => {
+		const validForm = handleFormValidation(form);
+		if (validForm) {
+			handleFormSubmission(form).then(() => setSubmitted(true));
 		}
 	};
 	const handleResetForm = (handleClearForm) => () => {

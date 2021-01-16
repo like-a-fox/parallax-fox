@@ -1,13 +1,17 @@
 /* eslint-disable filenames/match-regex */
 
-const { manifest, googleAnalyticsId, ...metaData } = require('./config');
+const {
+	manifest,
+	credentials,
+	googleAnalyticsId,
+	...siteMetadata
+} = require('./config');
+
 require('dotenv').config();
 
 module.exports = {
 	/* General Information */
-	siteMetadata: {
-		...metaData,
-	},
+	siteMetadata,
 	/* Plugins */
 	plugins: [
 		`gatsby-plugin-tailwindcss`,
@@ -53,7 +57,7 @@ module.exports = {
 		{
 			resolve: 'gatsby-plugin-firebase',
 			options: {
-				credentials: require('./config/env').FIREBASE_CONFIG,
+				credentials,
 			},
 		},
 		/* Must be placed at the end */
