@@ -70,7 +70,7 @@ const fadeBackground = keyframes`
 `;
 
 export const loading = css`
-	animation: ${fadeBackground} 2s ease alternate 1 forwards;
+	animation: ${fadeBackground} 1s ease alternate 1 forwards;
 `;
 
 export const fade = css`

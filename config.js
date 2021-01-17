@@ -32,7 +32,9 @@ module.exports = {
 		short_name: config.siteTitleShort,
 		description: config.siteDescription,
 		start_url: config.pathPrefix,
-		display: `standalone`,
+		background_color: `#161719`,
+		theme_color: `#bc8999`,
+		display: `minimal-ui`,
 		icon: `src/images/icon.png`,
 	},
 	schemaOrgWebPage: {

@@ -10,7 +10,7 @@ import {
 import { ParallaxLayer } from 'react-spring/renderprops-addons.cjs';
 
 export const Content = styled(ParallaxLayer)`
-	${tw`px-4 md:px-12 xl:px-16 justify-center w-full items-center flex z-50`};
+	${tw`relative px-4 md:px-12 xl:px-16 justify-center w-full items-center flex z-50`};
 	&.hero {
 		mix-blend-mode: ${(props) => props.mixBlend || 'exclusion'};
 		filter: ${(props) => props.filter};
@@ -135,8 +135,8 @@ export const LowerDivider = () => {
 
 const LoadingCircle = styled.div`
 	${tw`absolute shadow-lg rounded-full`}
-	height: ${(props) => props.diameter}vh;
-	width: ${(props) => props.diameter}vh;
+	height: ${(props) => props.diameter}rem;
+	width: ${(props) => props.diameter}rem;
 	background-color: rgba(${(props) => props.bg});
 	top: ${(props) => props.top};
 	left: ${(props) => props.left};
@@ -145,54 +145,56 @@ const LoadingCircle = styled.div`
 	z-index: ${(props) => props.zindex};
 	transform-origin: ${(props) => props.transform}px
 		${(props) => props.transform}px;
-	${rotateAnimation('5s')}
+	${rotateAnimation('1s')}
 `;
 
 const LoadingInner = styled.div`
 	${tw`absolute shadow-lg h-full w-full rounded-full`}
-	transform: translateZ(0) scale(1);
-	background-color: rgba(120, 140, 152, 0.5);
-	width: ${(props) => props.diameter}vh;
-	height: ${(props) => props.diameter}vh;
+	background-color: rgba(120, 140, 152, 0.8);
+	width: 18rem;
+	height: 18rem;
 	backface-visibility: hidden;
-	left: calc(100vw / 2);
 	transform-origin: 80px 100px;
-	${negativeRotateAnimation('8s')}
+	${negativeRotateAnimation('3s')}
 `;
 
 const LoadingSpinner = styled.div`
-	${tw`fixed inset-0 z-1000 flex justify-center items-center h-screen w-screen`}
+	${tw`absolute pin-0 z-1005 flex justify-center items-center`}
 	${loading}
-	top: 0;
 	overflow: visible;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
 	&:after {
-		content: ' ';
+		position: absolute;
+		top: 0;
+		left: 0;
 		height: -webkit-fill-available;
-		width: 100%;
-		background: linear-gradient(
-			to top,
-			rgba(50, 50, 65, 0.2) 0%,
-			rgba(50, 50, 65, 0.7) 100%
-		);
-		clip-path: polygon(0px 0%, 0% 100%, 100% 100%, 0px 15%);
+		width: -webkit-fill-available;
+		background-color: rgba(0, 0, 0, 0.6);
+		content: ' ';
+		z-index: -1;
 	}
 `;
 
 export const Loading = () => {
 	return (
-		<LoadingSpinner diameter={90}>
+		<LoadingSpinner>
 			<LoadingInner>
 				<LoadingCircle
 					zindex='inherit'
-					diameter={70}
-					bg='117, 93, 99, .7'
+					diameter={13}
+					bg='117, 93, 99, .9'
 					top={100}
 					left={100}
 					transform={10}
 				/>
 				<LoadingCircle
 					zindex='1001'
-					diameter={35}
+					diameter={8}
 					bg='86,79,114,0.9'
 					top={50}
 					left={50}
