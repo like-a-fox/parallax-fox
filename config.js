@@ -26,6 +26,7 @@ const homeURL = `${config.siteUrl}${realPrefix}`;
 const image = `${homeURL}${config.siteLogo}`;
 
 module.exports = {
+	...config,
 	googleAnalyticsId: config.googleAnalyticsId,
 	manifest: {
 		name: config.siteTitle,

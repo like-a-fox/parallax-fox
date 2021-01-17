@@ -17,6 +17,8 @@ module.exports = {
 		`gatsby-plugin-tailwindcss`,
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-styled-components`,
+		`gatsby-plugin-sitemap`,
+		`gatsby-plugin-robots-txt`,
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
