@@ -1,4 +1,4 @@
-import loadable from '../components/LoadableBase';
+import loadable from '@loadable/component';
 export {
 	upDown,
 	upDownWide,
