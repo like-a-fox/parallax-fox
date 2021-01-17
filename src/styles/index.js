@@ -39,5 +39,3 @@ export {
 	Loading,
 } from './_dividers';
 export { GlobalStyle } from './_global';
-
-export { default as backgrounds } from './_backgrounds';

@@ -1,32 +1,53 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import { backgrounds } from '../styles';
 export const useProjectTiles = () => {
-	const data = useStaticQuery(graphql`
-		{
+	const {
+		allImageSharp: { nodes },
+		site: {
+			siteMetadata: { tiles },
+		},
+	} = useStaticQuery(graphql`
+		query GetProjectBackgrounds {
+			allImageSharp(
+				filter: { fluid: { originalName: { glob: "*_background.png" } } }
+			) {
+				...ImageSharpConnectionFragment
+			}
 			site {
-				siteMetadata {
-					tiles {
-						pathname
-						subtitle
-						title
-					}
+				...SiteFragment
+			}
+		}
+		fragment SiteFragment on Site {
+			siteMetadata {
+				tiles {
+					pathname
+					subtitle
+					title
+				}
+			}
+		}
+		fragment ImageSharpConnectionFragment on ImageSharpConnection {
+			nodes {
+				id
+				fluid {
+					srcWebp
+					originalName
 				}
 			}
 		}
 	`);
-	if (data) {
-		return data?.site?.siteMetadata?.tiles.map(
-			({ pathname, title, subtitle }, index) => {
-				const { src } = backgrounds.find((image) => image.label === pathname);
 
-				return {
-					id: `${pathname}-${index}`,
-					title,
-					subtitle,
-					pathname,
-					src,
-				};
-			}
+	return tiles.map((tile) => {
+		const {
+			id,
+			fluid: { srcWebp },
+		} = nodes.find(
+			(background) =>
+				background?.fluid?.originalName.split('_')[0] === tile?.pathname
 		);
-	}
+		return {
+			...tile,
+			id,
+			src: srcWebp,
+		};
+	});
 };

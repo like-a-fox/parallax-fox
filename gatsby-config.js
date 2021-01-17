@@ -28,6 +28,13 @@ module.exports = {
 			},
 		},
 		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				path: `${__dirname}/src/images/backgrounds/`,
+				name: `tile_backgrounds`,
+			},
+		},
+		{
 			resolve: `gatsby-plugin-google-analytics`,
 			options: {
 				trackingId: googleAnalyticsId,
