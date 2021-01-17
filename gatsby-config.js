@@ -19,18 +19,12 @@ module.exports = {
 		`gatsby-plugin-styled-components`,
 		`gatsby-plugin-sitemap`,
 		`gatsby-plugin-robots-txt`,
+		`gatsby-plugin-preact`,
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
 				path: `${__dirname}/src/images/`,
 				name: `images`,
-			},
-		},
-		{
-			resolve: `gatsby-source-filesystem`,
-			options: {
-				path: `${__dirname}/src/images/backgrounds/`,
-				name: `tile_backgrounds`,
 			},
 		},
 		{

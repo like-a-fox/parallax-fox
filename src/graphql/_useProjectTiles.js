@@ -1,4 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby';
+import { backgrounds } from '../styles';
 export const useProjectTiles = () => {
 	const data = useStaticQuery(graphql`
 		{
@@ -11,36 +12,19 @@ export const useProjectTiles = () => {
 					}
 				}
 			}
-			allImageSharp(
-				filter: {
-					fluid: { originalName: { glob: "*_background.{png,jpg,jpeg}" } }
-				}
-			) {
-				edges {
-					node {
-						id
-						fluid {
-							src
-							originalName
-						}
-					}
-				}
-			}
 		}
 	`);
 	if (data) {
 		return data?.site?.siteMetadata?.tiles.map(
-			({ pathname, title, subtitle }) => {
-				const imageData = data?.allImageSharp?.edges.find(({ node }) =>
-					node?.fluid?.originalName.includes(pathname)
-				);
-				const { id, fluid } = imageData?.node;
+			({ pathname, title, subtitle }, index) => {
+				const { src } = backgrounds.find((image) => image.label === pathname);
+
 				return {
-					id,
+					id: `${pathname}-${index}`,
 					title,
 					subtitle,
 					pathname,
-					...fluid,
+					src,
 				};
 			}
 		);
