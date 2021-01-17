@@ -1,1 +1,3 @@
-export { default as Form } from './_Form';
+import loadable from '../LoadableBase';
+
+export const Form = loadable(() => import('./_Form'));

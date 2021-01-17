@@ -1,3 +1,4 @@
+import loadable from '../components/LoadableBase';
 export {
 	upDown,
 	upDownWide,
@@ -30,12 +31,21 @@ export {
 	Footer,
 	LinkText,
 } from './_typography';
-export {
-	WaveDivider,
-	LowerDivider,
-	UpperDivider,
-	Divider,
-	Content,
-	Loading,
-} from './_dividers';
+export { Loading } from './_dividers';
 export { GlobalStyle } from './_global';
+
+export const WaveDivider = loadable(() => import('./_dividers.js'), {
+	resolveComponent: (components) => components.WaveDivider,
+});
+export const LowerDivider = loadable(() => import('./_dividers.js'), {
+	resolveComponent: (components) => components.LowerDivider,
+});
+export const UpperDivider = loadable(() => import('./_dividers.js'), {
+	resolveComponent: (components) => components.UpperDivider,
+});
+export const Divider = loadable(() => import('./_dividers.js'), {
+	resolveComponent: (components) => components.Divider,
+});
+export const Content = loadable(() => import('./_dividers.js'), {
+	resolveComponent: (components) => components.Content,
+});
