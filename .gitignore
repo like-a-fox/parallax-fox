@@ -67,3 +67,5 @@ tailwind.custom.css
 .firebaserc
 
 .vercel
+
+.DS_Store

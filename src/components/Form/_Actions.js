@@ -27,7 +27,7 @@ export const FormActions = (props) => {
 		return (
 			<ButtonWrapper>
 				<FormButton onClick={handleSubmit} submit>
-					Send It Stupid
+					Send It
 				</FormButton>
 				<FormButton onClick={handleReset}>whoopsies!</FormButton>
 			</ButtonWrapper>

@@ -26,7 +26,7 @@ const Contact = () => {
 			<Content className={'footer'} offset={6}>
 				<Footer>
 					&copy; 2021 by Like A Fox Development.{' '}
-					<a href='https://github.com/like-a-fxx/parallax-fox'>
+					<a href='https://github.com/like-a-fox/parallax-fox'>
 						Github Repository
 					</a>
 					. Made by{' '}

@@ -26,9 +26,8 @@ const Hero = () => {
 					</BigTitle>
 					<Subtitle>
 						I&apos;m Derek, and if one more person asks me to make a wordpress
-						site, or use jquery, I&apos;m gonna stab someone. Seriously... The
-						90s called and they want their shitty CMS and JavaScript library
-						back.
+						site, or use jquery, I&apos;m gonna lose it. Seriously... The 90s
+						called and they want their shitty CMS and JavaScript library back.
 						<br /> <em>&copy; {'Like A Fox Development'} </em>
 					</Subtitle>
 				</WrapperDiv>
