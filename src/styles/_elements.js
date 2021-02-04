@@ -6,8 +6,7 @@ import { colors } from '../../tailwind';
 
 //Input Styles
 const inputHoverShadow = `
-	box-shadow: inset 0 0 0 2px rgba(147,128,214,0.3);
-	border-radius: 4px;
+	box-shadow: inset 0 0 0 2px rgba(233, 228, 255, .5);
 	transition: box-shadow 0.5s ease;
 `;
 
@@ -15,7 +14,7 @@ const InputWrapper = styled.div`
 	${tw`relative no-underline rounded-lg text-white flex-col flex justify-end font-mono`};
 	transition: color 0.4s ease-in-out;
 	&:hover label {
-		color: ${colors.white};
+		color: ${colors.secondary};
 	}
 	&:focus-within label {
 		color: ${colors.secondary};
@@ -133,13 +132,14 @@ export const StyledForm = styled.form`
 
 //Button For Form
 export const FormButton = styled.a`
-	${tw`rounded-none shadow-sm font-mono no-underline text-base opacity-75 font-light text-main bg-black-soft h-16 flex-grow uppercase flex justify-center items-center sm:rounded-l-sm`}
+	${tw`rounded-none shadow-sm font-mono no-underline text-base text-tertiary opacity-90 font-semibold bg-black-soft h-16 flex-grow uppercase flex justify-center items-center sm:rounded-l-sm`}
 	transition: background-color 0.2s ease-in-out;
+	letter-spacing: 0.1rem;
 	&:first-child {
 		${tw`sm:rounded-r-sm bg-black-link text-tertiary hover:text-black-soft hover:bg-tertiary`}
 	}
 	&:hover {
-		${tw`cursor-pointer font-normal text-black-soft bg-main opacity-50`}
+		${tw`cursor-pointer text-black-soft bg-tertiary opacity-50`}
 	}
 `;
 

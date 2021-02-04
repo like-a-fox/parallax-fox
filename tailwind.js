@@ -5,7 +5,7 @@ const colors = {
 	'blue-black': '#161719',
 	'blue-grey': '#23262b',
 	primary: 'rgba(217, 193, 199, .9)',
-	secondary: 'rgb(223, 218, 245)',
+	secondary: 'rgb(233, 228, 255)',
 	tertiary: 'rgb(220, 240, 252)',
 	main: '#d1dbf9',
 	black: '#222b2f',
