@@ -13,8 +13,6 @@ export {
 	fade,
 } from './_animations';
 export {
-	Input,
-	TextArea,
 	StyledForm,
 	FormButton,
 	ButtonWrapper,

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Form } from './Form';
+import { default as Form } from './Form';
 
 import {
 	Content,
