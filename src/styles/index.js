@@ -10,9 +10,9 @@ export {
 	rotateAnimation,
 	negativeRotateAnimation,
 	waveAnimation,
+	loading,
 	fade,
 } from './Animations';
-export { Inner, ProjectsWrapper, TitleWrapper, LinkWrapper } from './Elements';
 export {
 	Title,
 	Text,
@@ -21,8 +21,7 @@ export {
 	Footer,
 	LinkText,
 } from './Typography';
-export { Loading } from './Dividers';
-export { GlobalStyle } from './Global';
+export { GlobalStyle, Inner } from './Global';
 
 export const WaveDivider = loadable(() => import('./Dividers'), {
 	resolveComponent: (components) => components.WaveDivider,

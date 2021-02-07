@@ -1,6 +1,6 @@
 import React from 'react';
 import loadableBase from '@loadable/component';
-import { Loading } from '../styles';
+import { Loading } from '../components';
 
 const loadable = (func) => loadableBase(func, { fallback: <Loading /> });
 

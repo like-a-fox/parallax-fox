@@ -1,5 +1,9 @@
-import { createGlobalStyle } from 'styled-components';
+import { default as styled, createGlobalStyle } from 'styled-components';
 import { fade } from './Animations';
+
+export const Inner = styled.div`
+	${tw`w-full xxl:w-2/3 text-center flex flex-col items-start justify-around lg:text-left`};
+`;
 
 export const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
