@@ -1,31 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
-export const StyledForm = styled.form`
-	${tw`shadow-lg mb-8 md:m-auto p-2 md:p-4 xl:p-12 2xl:p-24 relative w-full opacity-75 bg-black-soft flex-grow rounded-lg text-white flex-col items-stretch font-mono`}
-	transition: background 20ms ease-in-out;
-	padding-bottom: ${(props) => props.submitted && '3rem'};
-	padding-top: ${(props) => props.submitted && '3rem'};
-`;
-
-//Button For Form
-export const FormButton = styled.a`
-	${tw`rounded-none shadow-sm font-mono no-underline text-base text-tertiary opacity-90 font-semibold bg-black-soft h-16 flex-grow uppercase flex justify-center items-center sm:rounded-l-sm`}
-	transition: background-color 0.2s ease-in-out;
-	letter-spacing: 0.1rem;
-	&:first-child {
-		${tw`sm:rounded-r-sm bg-black-link text-tertiary hover:text-black-soft hover:bg-tertiary`}
-	}
-	&:hover {
-		${tw`cursor-pointer text-black-soft bg-tertiary opacity-50`}
-	}
-`;
-
-export const ButtonWrapper = styled.div`
-	${tw`flex-col md:flex-row nowrap w-full h-auto justify-around items-center p-0 mt-4`}
-	margin-top: ${(props) => props.submitted && '0px'};
-`;
-
 export const Inner = styled.div`
 	${tw`w-full xxl:w-2/3 text-center flex flex-col items-start justify-around lg:text-left`};
 `;

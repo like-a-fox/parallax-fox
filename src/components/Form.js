@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { default as Textarea } from './Textarea';
-import { default as Input } from './Input';
-import { StyledForm, ButtonWrapper, FormButton } from '../styles';
-import { useForm } from '../graphql/_useForm';
+import styled from 'styled-components';
+import { default as Button, ButtonWrapper } from './Button';
 
 const FormActions = (props) => {
 	const { submitted, setSubmitted, handleSubmit, handleReset } = props;
@@ -29,17 +27,15 @@ const FormActions = (props) => {
 	if (!submitted) {
 		return (
 			<ButtonWrapper>
-				<FormButton onClick={handleSubmit} submit>
-					Send It
-				</FormButton>
-				<FormButton onClick={handleReset}>whoopsies!</FormButton>
+				<Button onClick={handleSubmit} label={'Send It'} secondary />
+				<Button onClick={handleReset} label={'whoopsies!'} />
 			</ButtonWrapper>
 		);
 	}
 
 	return (
 		<ButtonWrapper submitted>
-			<FormButton onClick={handleClick}> {buttonText} </FormButton>
+			<Button onClick={handleClick} label={buttonText} />
 		</ButtonWrapper>
 	);
 };
@@ -56,42 +52,26 @@ FormActions.defaultProps = {
 	setSubmitted: () => null,
 };
 
+export const StyledForm = styled.form`
+	${tw`shadow-lg mb-8 md:m-auto p-2 md:p-4 xl:p-12 2xl:p-24 relative w-full opacity-75 bg-black-soft flex-grow rounded-lg text-white flex-col items-stretch font-mono`}
+	transition: background 20ms ease-in-out;
+	padding-bottom: ${(props) => props.submitted && '3rem'};
+	padding-top: ${(props) => props.submitted && '3rem'};
+`;
+
 const Form = (props) => {
 	const {
-		name,
-		email,
-		message,
+		children,
 		submitted,
-		setSubmitted,
-		errors,
 		handleReset,
 		handleSubmit,
+		setSubmitted,
 		...formProps
-	} = useForm();
+	} = props;
 
 	return (
 		<StyledForm {...formProps}>
-			{!submitted ? (
-				<>
-					<Input
-						error={errors.indexOf('name') !== -1}
-						name={'name'}
-						defaultValue={name}
-						label={'Name'}
-						required
-					/>
-					<Input
-						name={'email'}
-						defaultValue={email}
-						label={'Email'}
-						type={'email'}
-						error={errors.indexOf('email') !== -1}
-						required
-						email
-					/>
-					<Textarea name={'message'} defaultValue={message} label={'Message'} />
-				</>
-			) : null}
+			{children}
 			<FormActions
 				handleReset={handleReset}
 				handleSubmit={handleSubmit}
@@ -100,6 +80,14 @@ const Form = (props) => {
 			/>
 		</StyledForm>
 	);
+};
+
+Form.propTypes = {
+	children: PropTypes.any,
+	handleReset: PropTypes.func.isRequired,
+	handleSubmit: PropTypes.func.isRequired,
+	setSubmitted: PropTypes.func.isRequired,
+	submitted: PropTypes.bool,
 };
 
 export default Form;

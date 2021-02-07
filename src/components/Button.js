@@ -20,6 +20,11 @@ const StyledButton = styled.a`
 	}
 `;
 
+export const ButtonWrapper = styled.div`
+	${tw`flex-col md:flex-row nowrap w-full h-auto justify-around items-center p-0 mt-4`}
+	margin-top: ${(props) => props.submitted && '0px'};
+`;
+
 const Button = (props) => {
 	const { label, ...extraProps } = props;
 	return <StyledButton {...extraProps}>{label}</StyledButton>;

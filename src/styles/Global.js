@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { fade } from './_animations';
+import { fade } from './Animations';
 
 export const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {

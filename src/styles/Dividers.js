@@ -6,7 +6,7 @@ import {
 	loading,
 	negativeRotateAnimation,
 	rotateAnimation,
-} from './_animations';
+} from './Animations';
 import { ParallaxLayer } from 'react-spring/renderprops-addons.cjs';
 
 export const Content = styled(ParallaxLayer)`

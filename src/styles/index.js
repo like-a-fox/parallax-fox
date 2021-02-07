@@ -11,16 +11,8 @@ export {
 	negativeRotateAnimation,
 	waveAnimation,
 	fade,
-} from './_animations';
-export {
-	StyledForm,
-	FormButton,
-	ButtonWrapper,
-	Inner,
-	ProjectsWrapper,
-	TitleWrapper,
-	LinkWrapper,
-} from './_elements';
+} from './Animations';
+export { Inner, ProjectsWrapper, TitleWrapper, LinkWrapper } from './Elements';
 export {
 	Title,
 	Text,
@@ -28,22 +20,22 @@ export {
 	ContactText,
 	Footer,
 	LinkText,
-} from './_typography';
-export { Loading } from './_dividers';
-export { GlobalStyle } from './_global';
+} from './Typography';
+export { Loading } from './Dividers';
+export { GlobalStyle } from './Global';
 
-export const WaveDivider = loadable(() => import('./_dividers.js'), {
+export const WaveDivider = loadable(() => import('./Dividers'), {
 	resolveComponent: (components) => components.WaveDivider,
 });
-export const LowerDivider = loadable(() => import('./_dividers.js'), {
+export const LowerDivider = loadable(() => import('./Dividers'), {
 	resolveComponent: (components) => components.LowerDivider,
 });
-export const UpperDivider = loadable(() => import('./_dividers.js'), {
+export const UpperDivider = loadable(() => import('./Dividers'), {
 	resolveComponent: (components) => components.UpperDivider,
 });
-export const Divider = loadable(() => import('./_dividers.js'), {
+export const Divider = loadable(() => import('./Dividers'), {
 	resolveComponent: (components) => components.Divider,
 });
-export const Content = loadable(() => import('./_dividers.js'), {
+export const Content = loadable(() => import('./Dividers'), {
 	resolveComponent: (components) => components.Content,
 });

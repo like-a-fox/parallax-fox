@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { colors } from '../../tailwind';
-import { rotateAnimation } from './_animations';
+import { rotateAnimation } from './Animations';
 import triangle from '../images/triangle.svg';
 
 export const Title = styled.h1`
