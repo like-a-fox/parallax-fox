@@ -35,14 +35,14 @@ const Contact = () => {
 								<Input
 									error={errors.indexOf('name') !== -1}
 									name={'name'}
-									defaultValue={name}
+									value={name}
 									label={'Name'}
 									required
 									{...handleFields}
 								/>
 								<Input
 									name={'email'}
-									defaultValue={email}
+									value={email}
 									label={'Email'}
 									type={'email'}
 									error={errors.indexOf('email') !== -1}
@@ -52,7 +52,7 @@ const Contact = () => {
 								/>
 								<Textarea
 									name={'message'}
-									defaultValue={message}
+									value={message}
 									label={'Message'}
 									{...handleFields}
 								/>

@@ -14,15 +14,18 @@ export const handleFormSubmission = async ({ name, email, message }) => {
 						  <div>Message: ${message}</div>
 						  `,
 	};
-
-	await db.ref('/messages').push(data);
-	await fetch('/api/mailer', {
-		method: 'POST', // or 'PUT'
-		headers: {
-			'Content-Type': 'application/json',
-		},
-		body: JSON.stringify(data),
-	});
+	try {
+		await db.ref('/messages').push(data);
+		await fetch('/api/mailer', {
+			method: 'POST', // or 'PUT'
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(data),
+		});
+	} catch (error) {
+		console.error(error);
+	}
 };
 
 export const formValidators = {

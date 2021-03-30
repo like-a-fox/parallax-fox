@@ -14,13 +14,16 @@ const useAtomForm = () => {
 	const [submitted, handleSubmit] = useAtom(submitFormAtom);
 	const [clicks, handleClick] = useAtom(updateClicksAtom);
 	const [form, updateForm] = useAtom(updateFormAtom);
-	const [errors, updateErrors] = useAtom(updateErrorsAtom);
+	const [errorsObject, updateErrors] = useAtom(updateErrorsAtom);
 	const [touched, updateTouched] = useAtom(updateTouchedAtom);
 	const handleReset = useResetAtom(formAtom);
 
 	return {
 		...form,
-		errors,
+		errors: Object.keys(errorsObject).reduce(
+			(prev, next) => (errorsObject[next] ? [...prev, next] : prev),
+			[]
+		),
 		clicks,
 		submitted,
 		createErrorMessage,
@@ -28,18 +31,18 @@ const useAtomForm = () => {
 			onChange: updateForm,
 			onFocus: (event) => {
 				const { name } = event.target;
-				if (touched.indexOf(name) !== -1) {
+				if (touched[name]) {
 					updateTouched(name);
+					updateErrors(name);
 				}
-				updateErrors(name);
 			},
 			onBlur: (event) => {
 				updateForm(event);
 				const { name } = event.target;
-				if (touched.indexOf(name) === -1) {
+				if (!touched[name]) {
 					updateTouched(name);
+					updateErrors(name);
 				}
-				updateErrors(name);
 			},
 		},
 		handleReset,
