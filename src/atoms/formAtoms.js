@@ -34,10 +34,10 @@ export const updateErrorsAtom = atom(
 		return set(
 			errorsAtom,
 			errors.indexOf(name) === -1
-				? !fieldError
-					? errors.splice(errors.indexOf(name), 1)
-					: [...errors, name]
-				: errors
+				? fieldError
+					? [...errors, name]
+					: errors
+				: errors.splice(errors.indexOf(name), 1)
 		);
 	}
 );
