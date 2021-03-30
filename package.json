@@ -36,6 +36,7 @@
 		"gatsby-plugin-tailwindcss": "^1.0.3",
 		"gatsby-source-filesystem": "^2.9.1",
 		"gatsby-transformer-sharp": "^2.10.1",
+		"jotai": "^0.15.3",
 		"nodemailer": "^6.4.17",
 		"preact": "^10.5.10",
 		"preact-render-to-string": "^5.1.12",

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Form, Input, Textarea } from '../components';
-import { useForm } from '../graphql';
+import { useAtomForm } from '../atoms';
 import {
 	Content,
 	Inner,
@@ -12,7 +12,15 @@ import {
 } from '../styles';
 
 const Contact = () => {
-	const { name, email, message, errors, submitted, ...formProps } = useForm();
+	const {
+		name,
+		email,
+		message,
+		errors,
+		submitted,
+		handleFields,
+		...formProps
+	} = useAtomForm();
 	return (
 		<>
 			<Content className={'contact'} factor={1} offset={5.7}>
@@ -30,6 +38,7 @@ const Contact = () => {
 									defaultValue={name}
 									label={'Name'}
 									required
+									{...handleFields}
 								/>
 								<Input
 									name={'email'}
@@ -39,11 +48,13 @@ const Contact = () => {
 									error={errors.indexOf('email') !== -1}
 									required
 									email
+									{...handleFields}
 								/>
 								<Textarea
 									name={'message'}
 									defaultValue={message}
 									label={'Message'}
+									{...handleFields}
 								/>
 							</>
 						) : null}

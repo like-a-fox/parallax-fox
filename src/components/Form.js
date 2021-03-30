@@ -4,19 +4,7 @@ import styled from 'styled-components';
 import { default as Button, ButtonWrapper } from './Button';
 
 const FormActions = (props) => {
-	const { submitted, setSubmitted, handleSubmit, handleReset } = props;
-	const [clicks, setClicks] = React.useState(0);
-	const handleClick = () => {
-		if (submitted) {
-			if (clicks < 2) {
-				setClicks(clicks + 1);
-			} else {
-				handleReset();
-				setClicks(0);
-				setSubmitted(false);
-			}
-		}
-	};
+	const { submitted, clicks, handleClick, handleSubmit, handleReset } = props;
 	const buttonText =
 		submitted &&
 		(clicks === 0
@@ -41,15 +29,16 @@ const FormActions = (props) => {
 };
 
 FormActions.propTypes = {
-	setSubmitted: PropTypes.func,
+	clicks: PropTypes.number,
 	submitted: PropTypes.bool,
 	handleSubmit: PropTypes.func,
 	handleReset: PropTypes.func,
+	handleClick: PropTypes.func,
 };
 
 FormActions.defaultProps = {
 	submitted: false,
-	setSubmitted: () => null,
+	clicks: 0,
 };
 
 export const StyledForm = styled.form`
@@ -63,9 +52,10 @@ const Form = (props) => {
 	const {
 		children,
 		submitted,
+		clicks,
 		handleReset,
 		handleSubmit,
-		setSubmitted,
+		handleClick,
 		...formProps
 	} = props;
 
@@ -73,10 +63,11 @@ const Form = (props) => {
 		<StyledForm {...formProps}>
 			{children}
 			<FormActions
+				submitted={submitted}
+				clicks={clicks}
 				handleReset={handleReset}
 				handleSubmit={handleSubmit}
-				submitted={submitted}
-				setSubmitted={setSubmitted}
+				handleClick={handleClick}
 			/>
 		</StyledForm>
 	);
@@ -84,10 +75,11 @@ const Form = (props) => {
 
 Form.propTypes = {
 	children: PropTypes.any,
+	clicks: PropTypes.number,
+	submitted: PropTypes.bool,
 	handleReset: PropTypes.func.isRequired,
 	handleSubmit: PropTypes.func.isRequired,
-	setSubmitted: PropTypes.func.isRequired,
-	submitted: PropTypes.bool,
+	handleClick: PropTypes.func.isRequired,
 };
 
 export default Form;
